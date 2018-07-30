@@ -6,15 +6,40 @@
 
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
-            <h3 class="mb-4">Votaciones Habiles</h3>
+            <h3 class="mb-4">Opciones Habiles</h3>
             
             @foreach ($options as $opt)
-                <h2>Hey listen!</h2>
+                <div class="media mt-3">
+                    <img class="mr-3" src="http://placehold.jp/64x64.png" alt="option image">
+                    <div class="media-body pb-3 border-bottom pr-2">
+                    <h5 class="mt-0">Media heading</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    </div>
+                    
+                    <div class="dropdown align-self-center">
+                        <button class="btn btn-secondary dropdown-toggle rounded-0" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Modificar
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            <button class="dropdown-item" type="button">Datos</button>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('del-option').submit();">
+                                Eliminar</button>
+                            
+                            {{-- Dropmenu Form Request --}}
+                            <form action="{{ route('delete-option', ['pollid' => $pollid]) }}" id="del-option" method="POST" class="hidden">
+                                {{ csrf_field() }}
+                                {{ method_field('delete') }}
+                                <input type="hidden" name="opt-id" value="{{ $opt->id }}">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             @endforeach
         </div>
     </div>
 
-    <div class="row justify-content-center mt-4">
+    <div class="row justify-content-center mt-5">
         <div class="col-md-8">
             <h3 class="mb-4">Nueva Opcion</h3>
 
@@ -46,7 +71,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row mt-4">
                         <div class="col-md-10">
                             <button type="submit" class="btn btn-primary rounded-0">Crear Opcion</button>
                         </div>

@@ -34,6 +34,7 @@ Route::group(['domain' => 'laravel.test'], function () {
         
         Route::get('/votation/{pollid}/options', 'OptionController@create')->name('create-option');
         Route::post('/votation/{pollid}/options/store', 'OptionController@store')->name('store-option');
+        Route::delete('/votation/{pollid}/options/remove', 'OptionController@destroy')->name('delete-option');
 
         Route::post('/votation/store', 'VotationController@store')->name('new-votation');
         Route::delete('/votation/remove', 'VotationController@destroy')->name('del-votation');
