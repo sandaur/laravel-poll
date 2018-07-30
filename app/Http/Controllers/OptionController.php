@@ -6,6 +6,7 @@ use Auth;
 use Storage;
 use App\Option;
 use App\Votation;
+use App\Http\Requests\StoreOptionRequest;
 use Illuminate\Http\Request;
 
 class OptionController extends Controller
@@ -17,7 +18,7 @@ class OptionController extends Controller
         $this->middleware("owns.poll", ["only" => ["store", "create", "destroy"]]);
     }
 
-    public function store(Request $request, $pollid)
+    public function store(StoreOptionRequest $request, $pollid)
     {
         $data = $request->all();
 
@@ -47,7 +48,7 @@ class OptionController extends Controller
         return view('candidates', ['options' => $votation->options, 'pollid' => $pollid]);
     }
 
-    public function destroy(Request $request, $pollid)
+    public function destroy(Request $request, $pollid)  // TODO: Delete images related to options
     {
         $votation = Auth::user()->votations->find($pollid);
         $option = $votation->options->find($request->get('opt-id'));

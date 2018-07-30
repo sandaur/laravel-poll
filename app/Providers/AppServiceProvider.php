@@ -2,17 +2,10 @@
 
 namespace App\Providers;
 
-use App\Votation;
-use App\Policies\VotationPolicy;
-
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    protected $policies = [
-        Votation::class => VotationPolicy::class,
-    ];
-
     /**
      * Bootstrap any application services.
      *
@@ -20,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
+        //
     }
 
     /**

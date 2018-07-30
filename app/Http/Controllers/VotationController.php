@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use App\Votation;
+use App\Http\Requests\StorePollRequest;
 use Illuminate\Http\Request;
 
 /**TODO:
@@ -15,7 +16,23 @@ class VotationController extends Controller
 {
     protected $dbPrefix = "poll_";
 
-    public function store(Request $request)
+    public function index()
+    {   
+        $votations = Auth::user()->votations;
+
+        // Give votation status to display
+        foreach ($votations as $poll) {
+            if ($poll->start_time === null && $poll->end_time === null){
+                $poll->status = "open";
+            } else{
+                $poll->status = "close";
+            }
+        }
+
+        return view('home', ['votations' => $votations]);
+    }
+
+    public function store(StorePollRequest $request)
     {
         $data = $request->only(['vote-subdom','vote-title','vote-desc','vote-from','vote-to']);
 
@@ -46,7 +63,7 @@ class VotationController extends Controller
 
         if ($votation === null){
             return redirect()->route('home');
-        } else if ($votation->user->id != Auth::user()->id){
+        } else if (!Auth::user()->can('remove', $votation)){
             return redirect()->route('home');
         }
 

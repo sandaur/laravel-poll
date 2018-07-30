@@ -23,11 +23,11 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu">
                             <button class="dropdown-item" type="button">Datos</button>
                             <div class="dropdown-divider"></div>
-                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('del-option').submit();">
+                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('del-option{{ $opt->id }}').submit();">
                                 Eliminar</button>
                             
                             {{-- Dropmenu Form Request --}}
-                            <form action="{{ route('delete-option', ['pollid' => $pollid]) }}" id="del-option" method="POST" class="hidden">
+                            <form action="{{ route('delete-option', ['pollid' => $pollid]) }}" id="del-option{{ $opt->id }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                                 {{ method_field('delete') }}
                                 <input type="hidden" name="opt-id" value="{{ $opt->id }}">
@@ -43,6 +43,16 @@
         <div class="col-md-8">
             <h3 class="mb-4">Nueva Opcion</h3>
 
+            {{-- Create valid or invalid class for every input --}}
+            @php
+                $inputNames = ['opt-name','opt-desc'];
+                $isValid = array();
+                foreach ($inputNames as $name) {
+                    $isValid[$name] = old($name)? ($errors->has($name)? ' is-invalid':' is-valid'):'';
+                }
+                $isValid['opt-img'] = ($errors->has('opt-img')? ' is-invalid':'')
+            @endphp
+
             <form action="{{ route('store-option', ['pollid' => $pollid]) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
@@ -50,7 +60,9 @@
                 <div class="form-group row">
                     <label for="opt-name" class="col-md-3 col-form-label">Titulo</label>
                     <div class="col-md-9">
-                        <input name="opt-name" type="text" class="form-control rounded-0" placeholder="Titulo" required>
+                        <input name="opt-name" value="{{ old('opt-name') }}" type="text" class="form-control rounded-0{{ $isValid['opt-name'] }}" placeholder="Titulo" required>
+                        <div class="valid-feedback" >Looks good!</div>
+                        <div class="invalid-feedback">{{ $errors->first('opt-name') }}</div>
                     </div>
                 </div>
 
@@ -58,7 +70,9 @@
                 <div class="form-group row">
                     <label for="opt-desc" class="col-md-3 col-form-label">Descripcion</label>
                     <div class="col-md-9">
-                        <textarea name="opt-desc" class="form-control rounded-0" rows="4" placeholder="Descripcion de la opcion" required></textarea>
+                        <textarea name="opt-desc" class="form-control rounded-0{{ $isValid['opt-desc'] }}" rows="4" placeholder="Descripcion de la opcion" required>{{ old('opt-desc') }}</textarea>
+                        <div class="valid-feedback" >Looks good!</div>
+                        <div class="invalid-feedback">{{ $errors->first('opt-desc') }}</div>
                     </div>
                 </div>
 
@@ -66,8 +80,10 @@
                 <div class="form-group row">
                     <label for="opt-img" class="col-md-3 col-form-label">Imagen</label>
                     <div class="col-md-9 custom-file">
-                        <input name="opt-img" type="file" accept="image/*" class="custom-file-input" id="customFile" required>
+                        <input name="opt-img" type="file" accept="image/*" class="custom-file-input{{ $isValid['opt-img'] }}" id="customFile" required>
                         <label class="custom-file-label rounded-0 mx-3" for="customFile">Imagen</label>
+                        <div class="valid-feedback" >Looks good!</div>
+                        <div class="invalid-feedback">{{ $errors->first('opt-img') }}</div>
                     </div>
                 </div>
 

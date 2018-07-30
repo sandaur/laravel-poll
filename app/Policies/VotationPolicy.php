@@ -24,4 +24,9 @@ class VotationPolicy
     {
         return $user->id === $poll->user_id;
     }
+
+    public function remove(User $user, Votation $poll)
+    {
+        return $user->id === $poll->user_id;
+    }
 }

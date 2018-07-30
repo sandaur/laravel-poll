@@ -17,7 +17,7 @@ class OwnsPoll
      */
     public function handle($request, Closure $next)
     {
-        $pollid = $request->pollid;
+        $pollid = $request->route('pollid');
         $poll = Votation::find($pollid);
 
         if (!Auth::user()->can('manipulate', $poll)) {

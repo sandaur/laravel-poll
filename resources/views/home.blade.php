@@ -12,7 +12,7 @@
 
             <div class="media text-muted pt-3">
                 {{-- Votation Instance Status --}}
-                <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164e224652c%20text%20%7B%20fill%3A%23e83e8c%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164e224652c%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23e83e8c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.546875%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
+                <img src="https://dummyimage.com/32x32/e74d3c/e74d3c.jpg" alt="status" class="mr-2 rounded" style="width: 32px; height: 32px;">
 
                 {{-- Votation Instance Info --}}
                 <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
@@ -37,7 +37,17 @@
             @foreach ($votations as $poll)
                 <div class="media text-muted pt-3">
                     {{-- Votation Status --}}
-                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164e224652c%20text%20%7B%20fill%3A%23e83e8c%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164e224652c%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23e83e8c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.546875%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
+                    @php
+                        $statusColor = "https://dummyimage.com/32x32/34495e/34495e.jpg";
+                        if ($poll->status == "close"){
+                            $statusColor = "https://dummyimage.com/32x32/e74d3c/e74d3c.jpg";
+                        } else if ($poll->status == "open"){
+                            $statusColor = "https://dummyimage.com/32x32/2ecc71/2ecc71.jpg";
+                        } else if ($poll->status == "waiting"){
+                            $statusColor = "https://dummyimage.com/32x32/e67e22/e67e22.jpg";
+                        }
+                    @endphp
+                    <img src="{{ $statusColor }}" alt="status" class="mr-2 rounded" data-toggle="tooltip" tittle="{{ $poll->status }}" style="width: 32px; height: 32px;">
     
                     {{-- Votation Info --}}
                     <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray pr-2">
@@ -51,20 +61,20 @@
                             Modificar
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('opt-form').submit();">
+                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('opt-form-{{ $poll->id }}').submit();">
                                 Opciones</button>
                             <button class="dropdown-item" type="button">Datos</button>
                             <div class="dropdown-divider"></div>
-                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('del-poll-form').submit();">
+                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('del-poll-{{ $poll->id }}').submit();">
                                 Eliminar</button>
 
                             {{-- Dropmenu Form Request --}}
-                            <form action="{{ route('del-votation') }}" id="del-poll-form" method="POST" class="hidden">
+                            <form action="{{ route('del-votation') }}" id="del-poll-{{ $poll->id }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                                 {{ method_field('delete') }}
                                 <input type="hidden" name="poll-id" value="{{ $poll->id }}">
                             </form>
-                            <form action="{{ route('create-option', ['pollid' => $poll->id]) }}" id="opt-form" method="get"></form>
+                            <form action="{{ route('create-option', ['pollid' => $poll->id]) }}" id="opt-form-{{ $poll->id }}" method="get"></form>
                         </div>
                     </div>
                 </div>
@@ -76,9 +86,26 @@
     {{-- New Votation Form --}}
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
+
+            <div class="alert alert-primary" role="alert">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                <hr>
+                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+            </div>
+
             <h3 class="mb-4">Crear Nueva Votacion</h3>
             <form method="POST" action="{{ route('new-votation') }}">
                 {{ csrf_field() }}
+
+                {{-- Create valid or invalid class for every input --}}
+                @php
+                $inputNames = ['vote-subdom','vote-title','vote-desc','vote-from','vote-to'];
+                $isValid = array();
+                foreach ($inputNames as $name) {
+                    $isValid[$name] = old($name)? ($errors->has($name)? ' is-invalid':' is-valid'):'';
+                }
+                @endphp
 
                 {{-- Subdomain for the Votation --}}
                 <div class="form-group row">
@@ -86,10 +113,12 @@
                     <div class="col-md-9">
                         
                         <div class="input-group">
-                            <input type="text" name="vote-subdom" class="form-control rounded-0" placeholder="Subdominio" aria-label="Subdominio" aria-describedby="basic-addon2">
+                            <input type="text" name="vote-subdom" value="{{ old('vote-subdom') }}" class="form-control rounded-0{{ $isValid['vote-subdom'] }}" placeholder="Subdominio" aria-label="Subdominio" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text rounded-0 font-weight-bold" id="basic-addon2">.laravel.test/votacion</span>
                             </div>
+                            <div class="valid-feedback" >Looks good!</div>
+                            <div class="invalid-feedback">{{ $errors->first('vote-subdom') }}</div>
                         </div>
 
                     </div>
@@ -99,7 +128,9 @@
                 <div class="form-group row">
                     <label for="vote-title" class="col-md-3 col-form-label">Titulo</label>
                     <div class="col-md-9">
-                        <input name="vote-title" type="text" class="form-control rounded-0" placeholder="Titulo" required>
+                        <input type="text" name="vote-title" value="{{ old('vote-title') }}" class="form-control rounded-0{{ $isValid['vote-title'] }}" placeholder="Titulo" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">{{ $errors->first('vote-title') }}</div>
                     </div>
                 </div>
                 
@@ -107,22 +138,28 @@
                 <div class="form-group row">
                     <label for="vote-desc" class="col-md-3 col-form-label">Descripcion</label>
                     <div class="col-md-9">
-                        <textarea name="vote-desc" class="form-control rounded-0" rows="4" placeholder="Descripcion de la votacion"></textarea>
+                        <textarea name="vote-desc" class="form-control rounded-0{{ $isValid['vote-desc'] }}" rows="4" placeholder="Descripcion de la votacion">{{ old('vote-desc') }}</textarea>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">{{ $errors->first('vote-desc') }}</div>
                     </div>
                 </div>
 
                 {{-- Votation Valid Dates --}}
                 <div class="form-group row">
-                    <label for="" class="col-md-3 col-form-label">Duracion<span class="text-muted"><small> Opcional</small></span></label>
+                    <label for="vote-from" class="col-md-3 col-form-label">Duracion<span class="text-muted"><small> Opcional</small></span></label>
                     <div class="col-md-4">
-                        <input name="vote-from" type="text" class="form-control rounded-0" placeholder="Desde">
+                        <input type="text" name="vote-from" value="{{ old('vote-from') }}" class="form-control rounded-0{{ $isValid['vote-from'] }}" placeholder="Desde">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">{{ $errors->first('vote-from') }}</div>
                     </div>
                     <div class="col-md-4 offset-md-1">
-                            <input name="vote-to" type="text" class="form-control rounded-0" placeholder="Hasta">
-                        </div>
+                        <input type="text" name="vote-to" value="{{ old('vote-to') }}" class="form-control rounded-0{{ $isValid['vote-to'] }}" placeholder="Hasta">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">{{ $errors->first('vote-to') }}</div>
+                    </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row mt-4">
                     <div class="col-md-10">
                         <button type="submit" class="btn btn-primary rounded-0">Crear Votacion</button>
                     </div>
@@ -132,4 +169,9 @@
         </div>
     </div>
 </main>
+@endsection
+
+@section('end-script')
+    <script>
+    </script>
 @endsection

@@ -30,7 +30,7 @@ Route::group(['domain' => 'laravel.test'], function () {
 
     /*Logged users Only */
     Route::group(['middleware' => 'auth'], function () {
-        Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/home', 'VotationController@index')->name('home');
         
         Route::get('/votation/{pollid}/options', 'OptionController@create')->name('create-option');
         Route::post('/votation/{pollid}/options/store', 'OptionController@store')->name('store-option');
