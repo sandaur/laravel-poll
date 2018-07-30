@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Storage;
 use App\Option;
 use App\Votation;
 use Illuminate\Http\Request;
 
 class OptionController extends Controller
 {
+    protected $imageDirName = 'opt_img';
+
     public function __construct(Request $request)
     {
         $this->middleware("owns.poll", ["only" => ["store", "create", "destroy"]]);
@@ -18,12 +21,21 @@ class OptionController extends Controller
     {
         $data = $request->all();
 
+        $hash = md5($data['opt-name'].microtime());
+        $extension = $request->file('opt-img')->getClientOriginalExtension();
+        $fileName = "img_{$hash}.{$extension}";
+
+        $request->file('opt-img')->storeAs($this->imageDirName, $fileName, 'public');
+
         Option::create([
             'name'    => $data['opt-name'],
             'description' => $data['opt-desc'],
-            'image' => $data['opt-img'],
+            'image' => $fileName,
             'votation_id'   => $pollid,
         ]);
+
+        $request->session()->flash('message', 'La opcion ha sido creada satisfactoriamente');
+        $request->session()->flash('msg-type', 'success');
 
         return redirect()->route('create-option', ['pollid' => $pollid]);
     }

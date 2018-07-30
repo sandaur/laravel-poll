@@ -10,7 +10,7 @@
             
             @foreach ($options as $opt)
                 <div class="media mt-3">
-                    <img class="mr-3" src="http://placehold.jp/64x64.png" alt="option image">
+                    <img class="mr-3 bg-secondary rounded" src="{{ asset('storage/opt_img/'.$opt->image) }}" alt="option image" width="64px" height="64px">
                     <div class="media-body pb-3 border-bottom pr-2">
                     <h5 class="mt-0">Media heading</h5>
                     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -43,7 +43,7 @@
         <div class="col-md-8">
             <h3 class="mb-4">Nueva Opcion</h3>
 
-            <form action="{{ route('store-option', ['pollid' => $pollid]) }}" method="POST">
+            <form action="{{ route('store-option', ['pollid' => $pollid]) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 {{-- Name for the Option --}}
@@ -66,8 +66,8 @@
                 <div class="form-group row">
                     <label for="opt-img" class="col-md-3 col-form-label">Imagen</label>
                     <div class="col-md-9 custom-file">
-                        <input name="opt-img" type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label rounded-0" for="customFile">Imagen</label>
+                        <input name="opt-img" type="file" accept="image/*" class="custom-file-input" id="customFile" required>
+                        <label class="custom-file-label rounded-0 mx-3" for="customFile">Imagen</label>
                     </div>
                 </div>
 
