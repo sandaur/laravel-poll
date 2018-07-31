@@ -10,36 +10,12 @@
         <div class="col-md-8">
             <h3 class="mb-4">Votaciones Habiles</h3>
 
-            <div class="media text-muted pt-3">
-                {{-- Votation Instance Status --}}
-                <img src="https://dummyimage.com/32x32/e74d3c/e74d3c.jpg" alt="status" class="mr-2 rounded" style="width: 32px; height: 32px;">
-
-                {{-- Votation Instance Info --}}
-                <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
-                    <strong class="d-block text-gray-dark">Nombre Votacion</strong>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                </p>
-
-                {{-- Votation Instance Controls --}}
-                <div class="dropdown align-self-center">
-                    <button class="btn rounded-0 btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Modificar
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                        <button class="dropdown-item" type="button">Opciones</button>
-                        <button class="dropdown-item" type="button">Datos</button>
-                        <div class="dropdown-divider"></div>
-                        <button class="dropdown-item" type="button">Eliminar</button>
-                    </div>
-                </div>
-            </div>
-
             @foreach ($votations as $poll)
                 <div class="media text-muted pt-3">
                     {{-- Votation Status --}}
                     @php
                         $statusColor = "https://dummyimage.com/32x32/34495e/34495e.jpg";
-                        if ($poll->status == "close"){
+                        if ($poll->status == "closed"){
                             $statusColor = "https://dummyimage.com/32x32/e74d3c/e74d3c.jpg";
                         } else if ($poll->status == "open"){
                             $statusColor = "https://dummyimage.com/32x32/2ecc71/2ecc71.jpg";
@@ -47,11 +23,15 @@
                             $statusColor = "https://dummyimage.com/32x32/e67e22/e67e22.jpg";
                         }
                     @endphp
-                    <img src="{{ $statusColor }}" alt="status" class="mr-2 rounded" data-toggle="tooltip" tittle="{{ $poll->status }}" style="width: 32px; height: 32px;">
+                    <img src="{{ $statusColor }}" alt="status" class="mr-2 rounded" data-trigger="hover" data-toggle="tooltip" data-placement="left" title="{{ ucfirst($poll->status) }}" style="width: 32px; height: 32px;">
     
                     {{-- Votation Info --}}
                     <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray pr-2">
-                        <strong class="d-block text-gray-dark">{{ $poll->title }}</strong>
+                        <strong class="d-block text-gray-dark">
+                            {{ $poll->title }}
+                            <small>({{ $poll->start_time }} - {{ $poll->end_time }})</small>
+                            <a href="http://{{ $poll->subdom }}.laravel.test/urna"><i>{{ $poll->subdom }}<small>.laravel.test/urna</small></i></a>
+                        </strong>
                         {{ $poll->description }}
                     </p>
     
@@ -173,5 +153,8 @@
 
 @section('end-script')
     <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
 @endsection

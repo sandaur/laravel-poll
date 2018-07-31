@@ -21,11 +21,24 @@ class VotationController extends Controller
         $votations = Auth::user()->votations;
 
         // Give votation status to display
+        $f = 2;
         foreach ($votations as $poll) {
-            if ($poll->start_time === null && $poll->end_time === null){
-                $poll->status = "open";
+            $stamp = strtotime($poll->start_time);;
+            if($f > 0){
+                $f-=1;
+                //continue;
+            }
+            $start = $poll->start_time?(strtotime($poll->start_time)>time()?true:false):false;
+            $end = $poll->end_time?(strtotime($poll->end_time)<time()?true:false):false;
+
+            if ($start || $end){
+                if ($start){
+                    $poll->status = "waiting";
+                } else{
+                    $poll->status = "closed";
+                }
             } else{
-                $poll->status = "close";
+                $poll->status = "open";
             }
         }
 

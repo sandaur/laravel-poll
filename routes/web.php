@@ -14,8 +14,10 @@
 /*Votation subdomains handdler */
 Route::group(['domain' => '{subdom}.laravel.test'], function () {
     Route::get('/', function ($subdom) {
-        return "This is {$subdom} subdomain.";
+        return redirect()->route('urna', [$subdom]);
     });
+
+    Route::get('/urna', 'UrnaController@index')->name('urna');
 });
 
 /*Administrative site */
