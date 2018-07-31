@@ -11,7 +11,7 @@
             <h3 class="mb-4">Votaciones Habiles</h3>
 
             @foreach ($votations as $poll)
-                <div class="media text-muted pt-3">
+                <div class="media pt-3">
                     {{-- Votation Status --}}
                     @php
                         $statusColor = "https://dummyimage.com/32x32/34495e/34495e.jpg";

@@ -20,14 +20,9 @@ class VotationController extends Controller
     {   
         $votations = Auth::user()->votations;
 
-        // Give votation status to display
-        $f = 2;
+        // Give votation status to display based on time restrictions (if present)
         foreach ($votations as $poll) {
-            $stamp = strtotime($poll->start_time);;
-            if($f > 0){
-                $f-=1;
-                //continue;
-            }
+            $stamp = strtotime($poll->start_time);
             $start = $poll->start_time?(strtotime($poll->start_time)>time()?true:false):false;
             $end = $poll->end_time?(strtotime($poll->end_time)<time()?true:false):false;
 
@@ -74,9 +69,8 @@ class VotationController extends Controller
     {
         $votation = Votation::find($request->get('poll-id'));
 
-        if ($votation === null){
-            return redirect()->route('home');
-        } else if (!Auth::user()->can('remove', $votation)){
+        //Check if user has right to delete votation
+        if (!Auth::user()->can('remove', $votation)){
             return redirect()->route('home');
         }
 

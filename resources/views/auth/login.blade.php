@@ -40,7 +40,7 @@
             {{-- Email form input --}}
             <div class="form-group">
                 <label for="inputEmail">Correo Electronico</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electronico" name="email" required autofocus>
+                <input type="email" id="inputEmail" value="{{ old('email') }}" class="form-control" placeholder="Correo Electronico" name="email" required autofocus>
                 @if ($errors->has('email'))
                     <span class="help-block">
                         <strong>{{ $errors->first('email') }}</strong>

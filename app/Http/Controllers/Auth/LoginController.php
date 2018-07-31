@@ -16,23 +16,23 @@ class LoginController extends Controller
     {
         $validator = $this->validateCredentials($request);
         if ($validator->fails()) {
-            return redirect('/login')->withErrors($validator)->withInput($request->except('password'));
+            return redirect()->route('login-form')->withErrors($validator)->withInput($request->except('password'));
         }
 
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect('/home');
+            return redirect()->route('home');
         } else {
             $request->session()->flash('message', 'La contraseña o el nombre de usuario son invalidos.');
-            return redirect('/login')->withInput($request->except('password'));
+            return redirect()->route('login-form')->withInput($request->except('password'));
         }
     }
 
     private function validateCredentials(Request $request)
     {
         $rules = [
-            'email' => 'required|string',
+            'email' => 'required|string|email',
             'password' => 'required|string',
         ];
 

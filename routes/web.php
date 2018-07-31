@@ -26,32 +26,35 @@ Route::group(['domain' => 'laravel.test'], function () {
         return Redirect::to('/home');
     });
 
-    Route::get('/newlogin', function () {
-        return View::make('auth.newlogin');
-    });
-
     /*Logged users Only */
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/home', 'VotationController@index')->name('home');
         
-        Route::get('/votation/{pollid}/options', 'OptionController@create')->name('create-option');
-        Route::post('/votation/{pollid}/options/store', 'OptionController@store')->name('store-option');
-        Route::delete('/votation/{pollid}/options/remove', 'OptionController@destroy')->name('delete-option');
-
+        /*Votations */
         Route::post('/votation/store', 'VotationController@store')->name('new-votation');
         Route::delete('/votation/remove', 'VotationController@destroy')->name('del-votation');
-
+        
+        /*Votation Options
+        *   Votation Security Policy Applied at OptionController construct
+        */
+        Route::group(['prefix' => '/votation/{pollid}/options'], function (){
+            Route::get('/', 'OptionController@create')->name('create-option');
+            Route::post('/store', 'OptionController@store')->name('store-option');
+            Route::delete('/remove', 'OptionController@destroy')->name('delete-option');
+        });
+        
         Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
     });
 
     /*Non logged users Only */
     Route::group(['middleware' => 'guest'], function () {
-        Route::get('/login', 'Auth\LoginController@authForm');
-
-        Route::post('/login', 'Auth\LoginController@authenticate')->name('login');
+        Route::get('/login', 'Auth\LoginController@authForm')->name('login-form');
+        Route::post('/login/attempt', 'Auth\LoginController@authenticate')->name('login');
     });
 });
 
 /**
- * TODO: Añadir middleware para comprobar permisos sobre los recursos de la web.
+ * TODO:
+ *  Bread Crumb
+ *  Search for a template
  */
