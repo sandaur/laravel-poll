@@ -11,21 +11,14 @@
 |
 */
 
-/*Votation subdomains handdler */
-Route::group(['domain' => '{subdom}.laravel.test'], function () {
-    Route::get('/', function ($subdom) {
-        return redirect()->route('urna', [$subdom]);
-    });
-
-    Route::get('/urna', 'UrnaController@index')->name('urna');
-});
+$site = 'uctvotation.xyz';
 
 /*Administrative site */
-Route::group(['domain' => 'laravel.test'], function () {
+$appRouting = function () {
     Route::get('/', function () {
         return Redirect::to('/home');
     });
-
+    
     /*Logged users Only */
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/home', 'VotationController@index')->name('home');
@@ -45,16 +38,28 @@ Route::group(['domain' => 'laravel.test'], function () {
         
         Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
     });
-
+    
     /*Non logged users Only */
     Route::group(['middleware' => 'guest'], function () {
         Route::get('/login', 'Auth\LoginController@authForm')->name('login-form');
         Route::post('/login/attempt', 'Auth\LoginController@authenticate')->name('login');
     });
-});
+};
 
-/**
- * TODO:
- *  Bread Crumb
- *  Search for a template
- */
+/*Votation subdomains handdler */
+$appSubdomRouting = function () {
+    Route::get('/', function ($subdom) {
+        return redirect()->route('urna', [$subdom]);
+    });
+
+    Route::get('/urna', 'UrnaController@index')->name('urna');
+};
+
+
+/*Domain redirection */
+Route::group(['domain' => 'www.'.$site], $appRouting);
+Route::group(['domain' => $site], $appRouting);
+
+Route::group(['domain' => 'www.{subdom}.'.$site], $appSubdomRouting);
+Route::group(['domain' => '{subdom}.'.$site], $appSubdomRouting);
+

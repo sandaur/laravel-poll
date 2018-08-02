@@ -2,11 +2,24 @@
 
 @section('content')
 <main class="container">
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Votaciones</a></li>
+                    <li class="breadcrumb-item"><a href="#notImplemented">{{ $pollName }}</a></li>
+                    <li class="breadcrumb-item" aria-current="page">Candidatos</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
     @include('includes.status')
 
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
-            <h3 class="mb-4">Opciones Habiles</h3>
+            <h3 class="mb-4">Candidatos Habiles</h3>
             
             @foreach ($options as $opt)
                 <div class="media mt-3">
@@ -21,10 +34,10 @@
                             Modificar
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                            <button class="dropdown-item" type="button">Datos</button>
+                            <a href="#" class="dropdown-item">Datos</a>
                             <div class="dropdown-divider"></div>
-                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('del-option{{ $opt->id }}').submit();">
-                                Eliminar</button>
+                            <a href="#" class="dropdown-item" onclick="event.preventDefault();document.getElementById('del-option{{ $opt->id }}').submit();">
+                                Eliminar</a>
                             
                             {{-- Dropmenu Form Request --}}
                             <form action="{{ route('delete-option', ['pollid' => $pollid]) }}" id="del-option{{ $opt->id }}" method="POST" class="hidden">
@@ -36,12 +49,22 @@
                     </div>
                 </div>
             @endforeach
+
+            @if ($options->count() < 2)
+                <div class="alert alert-warning" role="alert">
+                    <h4 class="alert-heading">Importante!</h4>
+                    <p>Para activar esta votacion y abrir el subdominio de la urna al publico es necesario tener dos o mas <strong>candidatos</strong> definidos en esta seccion.</p>
+                    <hr>
+                    <p class="mb-0">Para crear un nuevo candidato dirigete al formulario de mas abajo.</p>
+                </div>
+            @endif
+
         </div>
     </div>
 
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <h3 class="mb-4">Nueva Opcion</h3>
+            <h3 class="mb-4">Nuevo Cadidato</h3>
 
             {{-- Create valid or invalid class for every input --}}
             @php
@@ -70,7 +93,7 @@
                 <div class="form-group row">
                     <label for="opt-desc" class="col-md-3 col-form-label">Descripcion</label>
                     <div class="col-md-9">
-                        <textarea name="opt-desc" class="form-control rounded-0{{ $isValid['opt-desc'] }}" rows="4" placeholder="Descripcion de la opcion" required>{{ old('opt-desc') }}</textarea>
+                        <textarea name="opt-desc" class="form-control rounded-0{{ $isValid['opt-desc'] }}" rows="4" placeholder="Descripcion del candidato" required>{{ old('opt-desc') }}</textarea>
                         <div class="valid-feedback" >Looks good!</div>
                         <div class="invalid-feedback">{{ $errors->first('opt-desc') }}</div>
                     </div>
@@ -89,7 +112,7 @@
 
                 <div class="form-group row mt-4">
                         <div class="col-md-10">
-                            <button type="submit" class="btn btn-primary rounded-0">Crear Opcion</button>
+                            <button type="submit" class="btn btn-primary rounded-0">Crear Candidato</button>
                         </div>
                     </div>
             </form>

@@ -3,34 +3,45 @@
 @section('content')
 <main role="main" class="container">
 
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item" aria-current="page">Votaciones</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
     @include('includes.status')
 
     {{-- Votations Dashboard --}}
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
-            <h3 class="mb-4">Votaciones Habiles</h3>
+            <h3 class="mb-4">Tus Votaciones</h3>
 
             @foreach ($votations as $poll)
                 <div class="media pt-3">
                     {{-- Votation Status --}}
                     @php
-                        $statusColor = "https://dummyimage.com/32x32/34495e/34495e.jpg";
+                        $dim = 18;
+                        $statusColor = "https://dummyimage.com/{{ $dim }}x{{ $dim }}/34495e/34495e.jpg";
                         if ($poll->status == "closed"){
-                            $statusColor = "https://dummyimage.com/32x32/e74d3c/e74d3c.jpg";
+                            $statusColor = "https://dummyimage.com/{{ $dim }}x{{ $dim }}/e74d3c/e74d3c.jpg";
                         } else if ($poll->status == "open"){
-                            $statusColor = "https://dummyimage.com/32x32/2ecc71/2ecc71.jpg";
+                            $statusColor = "https://dummyimage.com/{{ $dim }}x{{ $dim }}/2ecc71/2ecc71.jpg";
                         } else if ($poll->status == "waiting"){
-                            $statusColor = "https://dummyimage.com/32x32/e67e22/e67e22.jpg";
+                            $statusColor = "https://dummyimage.com/{{ $dim }}x{{ $dim }}/e67e22/e67e22.jpg";
                         }
                     @endphp
-                    <img src="{{ $statusColor }}" alt="status" class="mr-2 rounded" data-trigger="hover" data-toggle="tooltip" data-placement="left" title="{{ ucfirst($poll->status) }}" style="width: 32px; height: 32px;">
+                    <img src="{{ $statusColor }}" alt="status" class="mr-2 rounded-circle" data-trigger="hover" data-toggle="tooltip" data-placement="left" title="{{ ucfirst($poll->status) }}" style="width: {{ $dim }}px; height: {{ $dim }}px;">
     
                     {{-- Votation Info --}}
                     <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray pr-2">
                         <strong class="d-block text-gray-dark">
                             {{ $poll->title }}
                             <small>({{ $poll->start_time }} - {{ $poll->end_time }})</small>
-                            <a href="http://{{ $poll->subdom }}.laravel.test/urna"><i>{{ $poll->subdom }}<small>.laravel.test/urna</small></i></a>
+                            <a href="http://{{ $poll->subdom }}.uctvotation.xyz/urna"><i>{{ $poll->subdom }}<small>.uctvotation.xyz/urna</small></i></a>
                         </strong>
                         {{ $poll->description }}
                     </p>
@@ -41,12 +52,11 @@
                             Modificar
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('opt-form-{{ $poll->id }}').submit();">
-                                Opciones</button>
-                            <button class="dropdown-item" type="button">Datos</button>
+                            <a href="{{ route('create-option', ['pollid' => $poll->id]) }}" class="dropdown-item">Candidatos</a>
+                            <a href="#" class="dropdown-item">Datos</a>
                             <div class="dropdown-divider"></div>
-                            <button class="dropdown-item" type="button" onclick="event.preventDefault();document.getElementById('del-poll-{{ $poll->id }}').submit();">
-                                Eliminar</button>
+                            <a href="#" class="dropdown-item" onclick="event.preventDefault();document.getElementById('del-poll-{{ $poll->id }}').submit();">
+                                Eliminar</a>
 
                             {{-- Dropmenu Form Request --}}
                             <form action="{{ route('del-votation') }}" id="del-poll-{{ $poll->id }}" method="POST" class="hidden">
@@ -54,7 +64,6 @@
                                 {{ method_field('delete') }}
                                 <input type="hidden" name="poll-id" value="{{ $poll->id }}">
                             </form>
-                            <form action="{{ route('create-option', ['pollid' => $poll->id]) }}" id="opt-form-{{ $poll->id }}" method="get"></form>
                         </div>
                     </div>
                 </div>
@@ -68,10 +77,14 @@
         <div class="col-md-8">
 
             <div class="alert alert-primary" role="alert">
-                <h4 class="alert-heading">Well done!</h4>
-                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                <h4 class="alert-heading">Nueva Votacion!</h4>
+                <p>Cada votacion que quieras abrir necesitara tener un <strong>subdominio</strong> a traves del cual tu publico ingresara a la urna.
+                 Adicionalmente tendras que proveer un <strong>titulo</strong> y una <strong>descripcion</strong> para tu votacion. Finalmente puedes
+                 establecer las <strong>fechas</strong> entre las cuales se llevara a cabo la votacion.</p>
                 <hr>
-                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                <p class="mb-0">Si omites la fecha de inicio la votacion comenzara en cuanto se proporciones al menos dos candidatos.
+                    Si omites la fecha de termino la votacion estara abierta de forma indefinida o hasta que sea cerrada de forma manual.
+                </p>
             </div>
 
             <h3 class="mb-4">Crear Nueva Votacion</h3>
@@ -95,7 +108,7 @@
                         <div class="input-group">
                             <input type="text" name="vote-subdom" value="{{ old('vote-subdom') }}" class="form-control rounded-0{{ $isValid['vote-subdom'] }}" placeholder="Subdominio" aria-label="Subdominio" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <span class="input-group-text rounded-0 font-weight-bold" id="basic-addon2">.laravel.test/votacion</span>
+                                <span class="input-group-text rounded-0 font-weight-bold" id="basic-addon2">.uctvotation.xyz/urna</span>
                             </div>
                             <div class="valid-feedback" >Looks good!</div>
                             <div class="invalid-feedback">{{ $errors->first('vote-subdom') }}</div>

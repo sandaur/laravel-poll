@@ -12,12 +12,23 @@ use Illuminate\Http\Request;
 class OptionController extends Controller
 {
     protected $imageDirName = 'opt_img';
-
+    
     public function __construct(Request $request)
     {
         $this->middleware("owns.poll", ["only" => ["store", "create", "destroy"]]);
     }
+    
+    public function create($pollid)
+    {
+        $votation = Auth::user()->votations->find($pollid);
 
+        return view('candidates', [
+            'options' => $votation->options,
+            'pollName' => $votation->title,
+            'pollid' => $pollid
+        ]);
+    }
+    
     public function store(StoreOptionRequest $request, $pollid)
     {
         $data = $request->all();
@@ -39,13 +50,6 @@ class OptionController extends Controller
         $request->session()->flash('msg-type', 'success');
 
         return redirect()->route('create-option', ['pollid' => $pollid]);
-    }
-
-    public function create($pollid)
-    {
-        $votation = Auth::user()->votations->find($pollid);
-
-        return view('candidates', ['options' => $votation->options, 'pollid' => $pollid]);
     }
 
     public function destroy(Request $request, $pollid)  // TODO: Delete images related to options
