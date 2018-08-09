@@ -1,4 +1,10 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/votationsVue.js": "/js/votationsVue.js",
+    "/css/master.css": "/css/master.css",
+    "/js/master.js": "/js/master.js",
+    "/js/custom.min.js": "/js/custom.min.js",
+    "/css/green.png": "/css/green.png",
+    "/css/green@2x.png": "/css/green@2x.png",
+    "/css/votations.css": "/css/votations.css",
+    "/js/votations.js": "/js/votations.js"
 }

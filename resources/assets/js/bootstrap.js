@@ -1,7 +1,7 @@
 
-window._ = require('lodash');
+//window._ = require('lodash');
 
-window.Popper = require('popper.js/dist/umd/popper');
+//window.Popper = require('popper.js/dist/umd/popper');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -9,11 +9,11 @@ window.Popper = require('popper.js/dist/umd/popper');
  * code may be modified to fit the specific needs of your application.
  */
 
-try {
+/* try {
     window.$ = window.jQuery = require('jquery/dist/jquery.slim');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) {} */
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

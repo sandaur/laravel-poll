@@ -21,6 +21,9 @@ $appRouting = function () {
     
     /*Logged users Only */
     Route::group(['middleware' => 'auth'], function () {
+        Route::get('/test/{page}', function ($page){
+            return view("test.{$page}");
+        });
         Route::get('/home', 'VotationController@index')->name('home');
         
         /*Votations */
@@ -37,6 +40,12 @@ $appRouting = function () {
         });
         
         Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+        /*API Calls */
+        Route::get('/api/subdomav/{subdom}', function($subdom) {
+            $available = (\App\Votation::where('subdom', $subdom)->first() == null);
+            return response()->json(compact("available"), 200);
+        });
     });
     
     /*Non logged users Only */
@@ -62,4 +71,3 @@ Route::group(['domain' => $site], $appRouting);
 
 Route::group(['domain' => 'www.{subdom}.'.$site], $appSubdomRouting);
 Route::group(['domain' => '{subdom}.'.$site], $appSubdomRouting);
-
