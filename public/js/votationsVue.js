@@ -13475,7 +13475,7 @@ exports = module.exports = __webpack_require__(41)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*SmartWizard FIX*/\n.stepContainer{overflow: hidden; height: auto !important;\n}\n.actionBar a.btn{float: right;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*SmartWizard FIX*/\n.stepContainer{overflow: visible !important; height: auto !important;\n}\n.actionBar a.btn{float: right;\n}\n#subdom-check{\n    height: 14px;\n    width: 14px;\n    position: absolute;\n    border-radius: 7px;\n    right: -2rem;\n    top: .8rem;\n    display: none;\n}\n#subdom-check.ok{background-color: #2ecc71; display: inherit;\n}\n#subdom-check.notok{background-color: #c0392b;  display: inherit;\n}\n\n/*Loader*/\n.subdom-load {\n        position: absolute !important;\n        top: -12px;\n        right: -25px;\n}\n.sk-folding-cube {\nmargin: 20px auto;\nwidth: 14px;\nheight: 14px;\nposition: relative;\n-webkit-transform: rotateZ(45deg);\n        transform: rotateZ(45deg);\n}\n.sk-folding-cube .sk-cube {\nfloat: left;\nwidth: 50%;\nheight: 50%;\nposition: relative;\n-webkit-transform: scale(1.1);\n    -ms-transform: scale(1.1);\n        transform: scale(1.1);\n}\n.sk-folding-cube .sk-cube:before {\ncontent: '';\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\nheight: 100%;\nbackground-color: #333;\n-webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;\n        animation: sk-foldCubeAngle 2.4s infinite linear both;\n-webkit-transform-origin: 100% 100%;\n    -ms-transform-origin: 100% 100%;\n        transform-origin: 100% 100%;\n}\n.sk-folding-cube .sk-cube2 {\n-webkit-transform: scale(1.1) rotateZ(90deg);\n        transform: scale(1.1) rotateZ(90deg);\n}\n.sk-folding-cube .sk-cube3 {\n-webkit-transform: scale(1.1) rotateZ(180deg);\n        transform: scale(1.1) rotateZ(180deg);\n}\n.sk-folding-cube .sk-cube4 {\n-webkit-transform: scale(1.1) rotateZ(270deg);\n        transform: scale(1.1) rotateZ(270deg);\n}\n.sk-folding-cube .sk-cube2:before {\n-webkit-animation-delay: 0.3s;\n        animation-delay: 0.3s;\n}\n.sk-folding-cube .sk-cube3:before {\n-webkit-animation-delay: 0.6s;\n        animation-delay: 0.6s;\n}\n.sk-folding-cube .sk-cube4:before {\n-webkit-animation-delay: 0.9s;\n        animation-delay: 0.9s;\n}\n@-webkit-keyframes sk-foldCubeAngle {\n0%, 10% {\n    -webkit-transform: perspective(140px) rotateX(-180deg);\n            transform: perspective(140px) rotateX(-180deg);\n    opacity: 0;\n}\n25%, 75% {\n    -webkit-transform: perspective(140px) rotateX(0deg);\n            transform: perspective(140px) rotateX(0deg);\n    opacity: 1;\n}\n90%, 100% {\n    -webkit-transform: perspective(140px) rotateY(180deg);\n            transform: perspective(140px) rotateY(180deg);\n    opacity: 0;\n}\n}\n@keyframes sk-foldCubeAngle {\n0%, 10% {\n    -webkit-transform: perspective(140px) rotateX(-180deg);\n            transform: perspective(140px) rotateX(-180deg);\n    opacity: 0;\n}\n25%, 75% {\n    -webkit-transform: perspective(140px) rotateX(0deg);\n            transform: perspective(140px) rotateX(0deg);\n    opacity: 1;\n}\n90%, 100% {\n    -webkit-transform: perspective(140px) rotateY(180deg);\n            transform: perspective(140px) rotateY(180deg);\n    opacity: 0;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -14104,6 +14104,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -14119,35 +14125,116 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 auto_end: false,
                 start_date: '',
                 end_date: ''
-            }
+            },
+            subdomLoading: false,
+            subdomAvail: false,
+            lastCheckedSubdom: '',
+
+            autoCheckTimeout: null,
+            subdomChecked: true
         };
     },
 
     methods: {
         isSubdomAvailable: function isSubdomAvailable(subdom) {
+            var _this = this;
+
             // Comprueba si subdominio esta disponible
-            if (!subdom.trim()) {
+            var trimedSubdom = subdom.trim();
+            var lenNotAllowed = trimedSubdom.length < 4 || trimedSubdom.length > 18;
+            if (lenNotAllowed) {
+                this.subdomAvail = false;
+            }
+            if (!trimedSubdom || this.lastCheckedSubdom == trimedSubdom || lenNotAllowed) {
+                this.subdomChecked = true;
                 return false;
             }
-            axios.get('/api/subdomav/' + subdom).then(function (response) {
+            this.subdomLoading = true;
+            this.lastCheckedSubdom = trimedSubdom;
+
+            axios.get('/api/subdomav/' + trimedSubdom).then(function (response) {
+                _this.subdomAvail = response.data.available;
                 console.log(response);
             }).catch(function (_ref) {
                 var response = _ref.response;
 
+                _this.subdomAvail = false;
                 console.log(response);
+            }).finally(function () {
+                _this.subdomLoading = false;
+                _this.subdomChecked = true;
             });
+        },
+        checkSubdom: function checkSubdom() {
+            var _this2 = this;
+
+            this.subdomChecked = false;
+            if (this.autoCheckTimeout != null) {
+                clearTimeout(this.autoCheckTimeout);
+            }
+            this.autoCheckTimeout = setTimeout(function () {
+                _this2.isSubdomAvailable(_this2.formData.subdomain);
+            }, 500);
+        },
+        initializeTimePickControl: function initializeTimePickControl() {
+            var initEnabStart = $('input#auto_start').prop('checked');
+            var initEnabEnd = $('input#auto_end').prop('checked');
+
+            $('#fw-dtpk-start input').prop('disabled', !initEnabStart);
+            $('#fw-dtpk-end input').prop('disabled', !initEnabEnd);
+            this.formData.start_date = !initEnabStart ? 'Inicio Manual' : '';
+            this.formData.end_date = !initEnabEnd ? 'Termino Manual' : '';
+
+            var vueRef = this;
+            $('input#auto_start').on('ifToggled', function (event) {
+                var enableAutoStart = $(this).prop('checked');
+                $('#fw-dtpk-start input').prop('disabled', !enableAutoStart);
+                //vueRef.formData.start_date = (!enableAutoStart)?'Inicio Manual':'';
+                $('#fw-dtpk-start input').val(!enableAutoStart ? 'Inicio Manual' : '');
+                if (!enableAutoStart) {
+                    $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
+                    $('#fw-dtpk-start').data("DateTimePicker").clear();
+                }
+                console.log('hey you changed auto_start');
+            });
+            $('input#auto_end').on('ifToggled', function (event) {
+                var enableAutoEnd = $(this).prop('checked');
+                $('#fw-dtpk-end input').prop('disabled', !enableAutoEnd);
+                //vueRef.formData.end_date = (!enableAutoEnd)?'Termino Manual':'';
+                $('#fw-dtpk-end input').val(!enableAutoEnd ? 'Inicio Manual' : '');
+                if (!enableAutoEnd) {
+                    $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
+                    $('#fw-dtpk-end').data("DateTimePicker").clear();
+                }
+                console.log('hey you changed auto_end');
+            });
+        },
+        getCheckBoxValue: function getCheckBoxValue(id) {
+            return $('#' + id).prop('checked');
         }
     },
     mounted: function mounted() {
+        var vueRef = this; // referencia al contexto del componente Vue
         $(document).ready(function () {
-            var datePickerConf = {
+
+            /*Date Time Pickers */
+            $('#fw-dtpk-start').datetimepicker({
                 format: 'DD/MM/YYYY hh:mm A',
                 ignoreReadonly: true,
                 allowInputToggle: true
-            };
-
-            $('#fw-dtpk-start').datetimepicker(datePickerConf);
-            $('#fw-dtpk-end').datetimepicker(datePickerConf);
+            });
+            $('#fw-dtpk-end').datetimepicker({
+                format: 'DD/MM/YYYY hh:mm A',
+                ignoreReadonly: true,
+                allowInputToggle: true,
+                useCurrent: false
+            });
+            $("#fw-dtpk-start").on("dp.change dp.hide", function (e) {
+                $('#fw-dtpk-end').data("DateTimePicker").minDate(e.date);
+            });
+            $("#fw-dtpk-end").on("dp.change dp.hide", function (e) {
+                $('#fw-dtpk-start').data("DateTimePicker").maxDate(e.date);
+            });
 
             /*Validacion de Input con Parsley*/
             var formBasic = $('#form-basic').parsley();
@@ -14157,9 +14244,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var from = direction.fromStep;
                 if (from >= direction.toStep) {
                     return true;
-                }
+                } // No validar si retrocede
                 if (from == 1) {
-                    return formBasic.validate();
+                    var formValid = formBasic.validate();
+                    return formValid && vueRef.subdomAvail && vueRef.subdomChecked;
                 } else if (from == 2) {
                     // Nada que validar
                     return true;
@@ -14182,6 +14270,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 onLeaveStep: validateNewPoll,
                 onFinish: finishNewPoll
             });
+
+            vueRef.initializeTimePickControl();
         });
     }
 });
@@ -14254,19 +14344,22 @@ var render = function() {
                               },
                               domProps: { value: _vm.formData.subdomain },
                               on: {
-                                click: function($event) {
+                                blur: function($event) {
                                   _vm.isSubdomAvailable(_vm.formData.subdomain)
                                 },
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.formData,
-                                    "subdomain",
-                                    $event.target.value
-                                  )
-                                }
+                                input: [
+                                  function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.formData,
+                                      "subdomain",
+                                      $event.target.value
+                                    )
+                                  },
+                                  _vm.checkSubdom
+                                ]
                               }
                             }),
                             _vm._v(" "),
@@ -14277,7 +14370,43 @@ var render = function() {
                                 attrs: { id: "newpoll-subdomain" }
                               },
                               [_vm._v(".larapoll.test/urna")]
-                            )
+                            ),
+                            _vm._v(" "),
+                            !_vm.subdomLoading
+                              ? _c("span", {
+                                  class: {
+                                    ok: _vm.subdomAvail,
+                                    notok: !_vm.subdomAvail
+                                  },
+                                  attrs: { id: "subdom-check" }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.subdomLoading
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "sk-folding-cube subdom-load"
+                                  },
+                                  [
+                                    _c("div", {
+                                      staticClass: "sk-cube1 sk-cube"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("div", {
+                                      staticClass: "sk-cube2 sk-cube"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("div", {
+                                      staticClass: "sk-cube4 sk-cube"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("div", {
+                                      staticClass: "sk-cube3 sk-cube"
+                                    })
+                                  ]
+                                )
+                              : _vm._e()
                           ])
                         ]
                       )
@@ -14292,7 +14421,115 @@ var render = function() {
               _vm._v(" "),
               _vm._m(7),
               _vm._v(" "),
-              _vm._m(8)
+              _c("div", { attrs: { id: "step-4" } }, [
+                _c(
+                  "form",
+                  {
+                    staticClass: "form-horizontal form-label-left",
+                    staticStyle: { padding: ".5rem 0" }
+                  },
+                  [
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _vm._m(9),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "control-label col-md-3 col-sm-3 col-xs-12"
+                        },
+                        [_vm._v("Inicio /Termino ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-md-6 col-sm-6 col-xs-12 form-inline"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "input-group date col-md-12 col-lg-5",
+                              attrs: { id: "fw-dtpk-start" }
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.formData.start_date,
+                                    expression: "formData.start_date"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "text", readonly: "readonly" },
+                                domProps: { value: _vm.formData.start_date },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.formData,
+                                      "start_date",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm._m(10)
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "input-group date col-md-12 col-lg-5 pull-right",
+                              attrs: { id: "fw-dtpk-end" }
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.formData.end_date,
+                                    expression: "formData.end_date"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "text", readonly: "readonly" },
+                                domProps: { value: _vm.formData.end_date },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.formData,
+                                      "end_date",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm._m(11)
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ])
             ]
           )
         ])
@@ -14490,8 +14727,6 @@ var staticRenderFns = [
             placeholder: "Descripcion breve de la Votacion",
             rows: "5",
             required: "",
-            "data-parsley-trigger": "keyup",
-            "data-parsley-validation-threshold": "10",
             "data-parsley-length": "[40, 450]"
           }
         })
@@ -14618,7 +14853,7 @@ var staticRenderFns = [
                 attrs: { id: "auth-err" }
               },
               [
-                _c("div", { staticClass: "checkbox" }, [
+                _c("div", { staticClass: "icheckbox" }, [
                   _c("label", [
                     _c("input", {
                       staticClass: "flat",
@@ -14635,7 +14870,7 @@ var staticRenderFns = [
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "checkbox" }, [
+                _c("div", { staticClass: "icheckbox" }, [
                   _c("label", [
                     _c("input", {
                       staticClass: "flat",
@@ -14647,7 +14882,7 @@ var staticRenderFns = [
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "checkbox" }, [
+                _c("div", { staticClass: "icheckbox" }, [
                   _c("label", [
                     _c("input", {
                       staticClass: "flat",
@@ -14668,133 +14903,85 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "step-4" } }, [
+    return _c("div", { staticClass: "form-group" }, [
+      _c("div", { staticClass: "control-label col-md-3 col-sm-3 col-xs-12" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
+        _c("h2", [_vm._v("Opciones Adicionales")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-justify" }, [
+          _vm._v(
+            "\n                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam ullam corrupti\n                                molestias amet consectetur fuga debitis sed, accusantium et mollitia perspiciatis\n                                repudiandae natus nostrum cum eos maiores at temporibus quidem minus quis quasi? \n                                Libero eveniet numquam dolorum exercitationem nemo dignissimos.\n                            "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
       _c(
-        "form",
-        {
-          staticClass: "form-horizontal form-label-left",
-          staticStyle: { padding: ".5rem 0" }
-        },
+        "label",
+        { staticClass: "col-md-3 col-sm-3 col-xs-12 control-label" },
         [
-          _c("div", { staticClass: "form-group" }, [
-            _c("div", {
-              staticClass: "control-label col-md-3 col-sm-3 col-xs-12"
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
-              _c("h2", [_vm._v("Opciones Adicionales")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-justify" }, [
-                _vm._v(
-                  "\n                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam ullam corrupti\n                                molestias amet consectetur fuga debitis sed, accusantium et mollitia perspiciatis\n                                repudiandae natus nostrum cum eos maiores at temporibus quidem minus quis quasi? \n                                Libero eveniet numquam dolorum exercitationem nemo dignissimos.\n                            "
-                )
-              ])
-            ])
-          ]),
+          _vm._v("Opciones de Votacion\n                            "),
+          _c("br"),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "label",
-              { staticClass: "col-md-3 col-sm-3 col-xs-12 control-label" },
-              [
-                _vm._v("Opciones de Votacion\n                            "),
-                _c("br"),
-                _vm._v(" "),
-                _c("small", { staticClass: "text-navy" }, [
-                  _vm._v("Se recomiendo encriptar.")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
-              _c("div", { staticClass: "checkbox" }, [
-                _c("label", [
-                  _c("input", {
-                    staticClass: "flat",
-                    attrs: { type: "checkbox", checked: "checked" }
-                  }),
-                  _vm._v(" Encriptar Votantes\n                            ")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "checkbox" }, [
-                _c("label", [
-                  _c("input", {
-                    staticClass: "flat",
-                    attrs: { type: "checkbox" }
-                  }),
-                  _vm._v(" Inicio Automatico\n                            ")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "checkbox" }, [
-                _c("label", [
-                  _c("input", {
-                    staticClass: "flat",
-                    attrs: { type: "checkbox" }
-                  }),
-                  _vm._v(" Cierre Automatico\n                            ")
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "label",
-              { staticClass: "control-label col-md-3 col-sm-3 col-xs-12" },
-              [_vm._v("Inicio /Termino ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-md-6 col-sm-6 col-xs-12 form-inline" },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "input-group date col-md-12 col-lg-5",
-                    attrs: { id: "fw-dtpk-start" }
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: { type: "text", readonly: "readonly" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "input-group-addon" }, [
-                      _c("span", {
-                        staticClass: "glyphicon glyphicon-calendar"
-                      })
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "input-group date col-md-12 col-lg-5 pull-right",
-                    attrs: { id: "fw-dtpk-end" }
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: { type: "text", readonly: "readonly" }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "input-group-addon" }, [
-                      _c("span", {
-                        staticClass: "glyphicon glyphicon-calendar"
-                      })
-                    ])
-                  ]
-                )
-              ]
-            )
+          _c("small", { staticClass: "text-navy" }, [
+            _vm._v("Se recomiendo encriptar.")
           ])
         ]
-      )
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
+        _c("div", { staticClass: "icheckbox" }, [
+          _c("label", [
+            _c("input", {
+              staticClass: "flat",
+              attrs: { type: "checkbox", id: "user_enc", checked: "checked" }
+            }),
+            _vm._v(" Encriptar Votantes\n                            ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "icheckbox" }, [
+          _c("label", [
+            _c("input", {
+              staticClass: "flat",
+              attrs: { type: "checkbox", id: "auto_start" }
+            }),
+            _vm._v(" Inicio Automatico\n                            ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "icheckbox" }, [
+          _c("label", [
+            _c("input", {
+              staticClass: "flat",
+              attrs: { type: "checkbox", id: "auto_end" }
+            }),
+            _vm._v(" Termino Automatico\n                            ")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("span", { staticClass: "glyphicon glyphicon-calendar" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-addon" }, [
+      _c("span", { staticClass: "glyphicon glyphicon-calendar" })
     ])
   }
 ]

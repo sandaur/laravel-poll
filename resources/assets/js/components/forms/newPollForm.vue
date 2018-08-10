@@ -99,8 +99,16 @@
                                         data-parsley-type="alphanum"
                                         data-parsley-length="[4, 18]"
                                         v-model="formData.subdomain"
-                                        v-on:click="isSubdomAvailable(formData.subdomain)">
+                                        v-on:blur="isSubdomAvailable(formData.subdomain)"
+                                        v-on:input="checkSubdom">
                                     <span class="input-group-addon" id="newpoll-subdomain">.larapoll.test/urna</span>
+                                    <!--  --> <span v-if="!subdomLoading" id="subdom-check" :class="{ 'ok':subdomAvail, 'notok':!subdomAvail }"></span>
+                                    <div  v-if="subdomLoading" class="sk-folding-cube subdom-load">
+                                        <div class="sk-cube1 sk-cube"></div>
+                                        <div class="sk-cube2 sk-cube"></div>
+                                        <div class="sk-cube4 sk-cube"></div>
+                                        <div class="sk-cube3 sk-cube"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -109,8 +117,6 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion <span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <textarea class="form-control" placeholder="Descripcion breve de la Votacion" rows="5" required
-                                    data-parsley-trigger="keyup"
-                                    data-parsley-validation-threshold="10"
                                     data-parsley-length="[40, 450]"></textarea>
                             </div>
                         </div>
@@ -181,19 +187,19 @@
                             </label>
         
                             <div id="auth-err" class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="checkbox">
+                                <div class="icheckbox">
                                 <label>
                                     <input type="checkbox" class="flat" name="phold2" checked="checked" required
                                         data-parsley-mincheck="1"
                                         data-parsley-errors-container="#auth-err"> Clave Unica
                                 </label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="icheckbox">
                                 <label>
                                     <input type="checkbox" class="flat" name="phold2"> Invitacion Por Email
                                 </label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="icheckbox">
                                 <label>
                                     <input type="checkbox" class="flat" name="phold2"> Usando RUT <small>(Muy inseguro)</small>
                                 </label>
@@ -226,19 +232,19 @@
                             </label>
 
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="checkbox">
+                                <div class="icheckbox">
                                 <label>
-                                    <input type="checkbox" class="flat" checked="checked"> Encriptar Votantes
+                                    <input type="checkbox" class="flat" id="user_enc" checked="checked"> Encriptar Votantes
                                 </label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="icheckbox">
                                 <label>
-                                    <input type="checkbox" class="flat"> Inicio Automatico
+                                    <input type="checkbox" class="flat" id="auto_start"> Inicio Automatico
                                 </label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="icheckbox">
                                 <label>
-                                    <input type="checkbox" class="flat"> Cierre Automatico
+                                    <input type="checkbox" class="flat" id="auto_end"> Termino Automatico
                                 </label>
                                 </div>
                             </div>
@@ -248,13 +254,13 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Inicio /Termino </label>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-inline">
                                 <div class="input-group date col-md-12 col-lg-5" id="fw-dtpk-start">
-                                    <input type="text" class="form-control" readonly="readonly"/>
+                                    <input type="text" class="form-control" v-model="formData.start_date" readonly="readonly"/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
                                 <div class="input-group date col-md-12 col-lg-5 pull-right" id="fw-dtpk-end">
-                                    <input type="text" class="form-control" readonly="readonly"/>
+                                    <input type="text" class="form-control" v-model="formData.end_date" readonly="readonly"/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -289,28 +295,108 @@
                     start_date: '',
                     end_date: ''
                 },
+                subdomLoading: false,
+                subdomAvail: false,
+                lastCheckedSubdom: '',
+
+                autoCheckTimeout: null,
+                subdomChecked: true,
             }
         },
         methods: {
             isSubdomAvailable(subdom){ // Comprueba si subdominio esta disponible
-                if (!subdom.trim()) {return false;}
-                axios.get('/api/subdomav/'+subdom).then(response => {
+                let trimedSubdom = subdom.trim();
+                let lenNotAllowed = (trimedSubdom.length < 4 || trimedSubdom.length > 18);
+                if (lenNotAllowed){
+                    this.subdomAvail = false;
+                }
+                if (!trimedSubdom || this.lastCheckedSubdom == trimedSubdom || lenNotAllowed) {
+                    this.subdomChecked = true;
+                    return false;
+                }
+                this.subdomLoading = true;
+                this.lastCheckedSubdom = trimedSubdom
+                
+                axios.get('/api/subdomav/'+trimedSubdom)
+                .then(response => {
+                    this.subdomAvail = response.data.available;
                     console.log(response);
                 }).catch(({response}) => {
+                    this.subdomAvail = false;
                     console.log(response);
+                }).finally(() => {
+                    this.subdomLoading = false;
+                    this.subdomChecked = true;
                 });
+            },
+            checkSubdom(){
+                this.subdomChecked = false;
+                if (this.autoCheckTimeout != null){
+                    clearTimeout(this.autoCheckTimeout);
+                }
+                this.autoCheckTimeout = setTimeout(() => {
+                    this.isSubdomAvailable(this.formData.subdomain);
+                }, 500);
+            },
+            initializeTimePickControl(){
+                let initEnabStart = $('input#auto_start').prop('checked');
+                let initEnabEnd = $('input#auto_end').prop('checked');
+
+                $('#fw-dtpk-start input').prop( 'disabled', !initEnabStart );
+                $('#fw-dtpk-end input').prop( 'disabled', !initEnabEnd );
+                this.formData.start_date = (!initEnabStart)?'Inicio Manual':'';
+                this.formData.end_date = (!initEnabEnd)?'Termino Manual':'';
+
+                let vueRef = this;
+                $('input#auto_start').on('ifToggled', function (event) {
+                    let enableAutoStart = $(this).prop('checked');
+                    $('#fw-dtpk-start input').prop( 'disabled', !enableAutoStart );
+                    //vueRef.formData.start_date = (!enableAutoStart)?'Inicio Manual':'';
+                    $('#fw-dtpk-start input').val((!enableAutoStart)?'Inicio Manual':'');
+                    if (!enableAutoStart){
+                        $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
+                        $('#fw-dtpk-start').data("DateTimePicker").clear();
+                    }
+                    console.log('hey you changed auto_start');
+                });
+                $('input#auto_end').on('ifToggled', function (event) {
+                    let enableAutoEnd = $(this).prop('checked');
+                    $('#fw-dtpk-end input').prop( 'disabled', !enableAutoEnd );
+                    //vueRef.formData.end_date = (!enableAutoEnd)?'Termino Manual':'';
+                    $('#fw-dtpk-end input').val((!enableAutoEnd)?'Inicio Manual':'');
+                    if (!enableAutoEnd){
+                        $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
+                        $('#fw-dtpk-end').data("DateTimePicker").clear();
+                    }
+                    console.log('hey you changed auto_end');
+                });
+            },
+            getCheckBoxValue(id){
+                return $('#'+id).prop('checked');
             }
         },
         mounted(){
+            var vueRef = this; // referencia al contexto del componente Vue
             $(document).ready(function(){
-                let datePickerConf = {
+
+                /*Date Time Pickers */
+                $('#fw-dtpk-start').datetimepicker({
                     format: 'DD/MM/YYYY hh:mm A',
                     ignoreReadonly: true,
-                    allowInputToggle: true
-                };
-                
-                $('#fw-dtpk-start').datetimepicker(datePickerConf);
-                $('#fw-dtpk-end').datetimepicker(datePickerConf);
+                    allowInputToggle: true,
+                });
+                $('#fw-dtpk-end').datetimepicker({
+                    format: 'DD/MM/YYYY hh:mm A',
+                    ignoreReadonly: true,
+                    allowInputToggle: true,
+                    useCurrent: false,
+                });
+                $("#fw-dtpk-start").on("dp.change dp.hide", function (e) {
+                    $('#fw-dtpk-end').data("DateTimePicker").minDate(e.date);
+                });
+                $("#fw-dtpk-end").on("dp.change dp.hide", function (e) {
+                    $('#fw-dtpk-start').data("DateTimePicker").maxDate(e.date);
+                });
 
                 /*Validacion de Input con Parsley*/
                 let formBasic = $('#form-basic').parsley();
@@ -318,9 +404,12 @@
 
                 let validateNewPoll = function(event, direction) {
                     let from = direction.fromStep;
-                    if (from >= direction.toStep){return true;}
+                    if (from >= direction.toStep){return true;} // No validar si retrocede
                     if (from == 1){
-                        return formBasic.validate();
+                        let formValid = formBasic.validate();
+                        return (formValid 
+                            && vueRef.subdomAvail 
+                            && vueRef.subdomChecked);
                     } else if (from == 2){ // Nada que validar
                         return true;
                     } else if (from == 3){
@@ -342,6 +431,8 @@
                     onLeaveStep: validateNewPoll,
                     onFinish: finishNewPoll
                 });
+
+                vueRef.initializeTimePickControl();
             });
         }
     }
@@ -349,6 +440,114 @@
 
 <style lang="css">
     /*SmartWizard FIX*/
-    .stepContainer{overflow: hidden; height: auto !important;}
+    .stepContainer{overflow: visible !important; height: auto !important;}
     .actionBar a.btn{float: right;}
+
+    #subdom-check{
+        height: 14px;
+        width: 14px;
+        position: absolute;
+        border-radius: 7px;
+        right: -2rem;
+        top: .8rem;
+        display: none;
+    }
+    #subdom-check.ok{background-color: #2ecc71; display: inherit;}
+    #subdom-check.notok{background-color: #c0392b;  display: inherit;}
+
+    /*Loader*/
+    .subdom-load {
+            position: absolute !important;
+            top: -12px;
+            right: -25px;
+    }
+
+    .sk-folding-cube {
+    margin: 20px auto;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    -webkit-transform: rotateZ(45deg);
+            transform: rotateZ(45deg);
+    }
+
+    .sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1); 
+    }
+    .sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+            animation: sk-foldCubeAngle 2.4s infinite linear both;
+    -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+    }
+    .sk-folding-cube .sk-cube2 {
+    -webkit-transform: scale(1.1) rotateZ(90deg);
+            transform: scale(1.1) rotateZ(90deg);
+    }
+    .sk-folding-cube .sk-cube3 {
+    -webkit-transform: scale(1.1) rotateZ(180deg);
+            transform: scale(1.1) rotateZ(180deg);
+    }
+    .sk-folding-cube .sk-cube4 {
+    -webkit-transform: scale(1.1) rotateZ(270deg);
+            transform: scale(1.1) rotateZ(270deg);
+    }
+    .sk-folding-cube .sk-cube2:before {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+    }
+    .sk-folding-cube .sk-cube3:before {
+    -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s; 
+    }
+    .sk-folding-cube .sk-cube4:before {
+    -webkit-animation-delay: 0.9s;
+            animation-delay: 0.9s;
+    }
+    @-webkit-keyframes sk-foldCubeAngle {
+    0%, 10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+                transform: perspective(140px) rotateX(-180deg);
+        opacity: 0; 
+    } 25%, 75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+                transform: perspective(140px) rotateX(0deg);
+        opacity: 1; 
+    } 90%, 100% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+                transform: perspective(140px) rotateY(180deg);
+        opacity: 0; 
+    } 
+    }
+
+    @keyframes sk-foldCubeAngle {
+    0%, 10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+                transform: perspective(140px) rotateX(-180deg);
+        opacity: 0; 
+    } 25%, 75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+                transform: perspective(140px) rotateX(0deg);
+        opacity: 1; 
+    } 90%, 100% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+                transform: perspective(140px) rotateY(180deg);
+        opacity: 0; 
+    }
+    }
+
 </style>
