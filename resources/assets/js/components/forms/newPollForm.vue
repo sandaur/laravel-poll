@@ -24,7 +24,7 @@
             </div>
 
 
-            <div class="x_content">
+            <div id="wizardContainer" class="x_content">
 
             <!-- Smart Wizard -->
             <div id="smartwizard" class="form_wizard wizard_horizontal">
@@ -85,8 +85,8 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Titulo <span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="pley-name" type="text" class="form-control" placeholder="Titulo de Votacion" required
-                                    data-parsley-type="alphanum"
-                                    data-parsley-length="[5, 40]">
+                                    data-parsley-length="[5, 40]"
+                                    v-model="formData.title">
                             </div>
                         </div>
 
@@ -94,10 +94,11 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Direccion <span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12" id="subdom-err">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Subdominio" aria-describedby="newpoll-subdomain" required
+                                    <input type="text" id="subdom" class="form-control" placeholder="Subdominio" aria-describedby="newpoll-subdomain" required
                                         data-parsley-errors-container="#subdom-err"
                                         data-parsley-type="alphanum"
                                         data-parsley-length="[4, 18]"
+                                        data-parsley-subdom-avail
                                         v-model="formData.subdomain"
                                         v-on:blur="isSubdomAvailable(formData.subdomain)"
                                         v-on:input="checkSubdom">
@@ -117,7 +118,8 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Descripcion <span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <textarea class="form-control" placeholder="Descripcion breve de la Votacion" rows="5" required
-                                    data-parsley-length="[40, 450]"></textarea>
+                                    data-parsley-length="[40, 450]"
+                                    v-model="formData.description"></textarea>
                             </div>
                         </div>
 
@@ -150,12 +152,12 @@
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" class="flat" checked name="pholder"> Lista Blanca
+                                        <input type="radio" class="flat" value="whitelist" name="admition"> Lista Blanca
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" class="flat" name="pholder"> Todo el Mundo
+                                        <input type="radio" class="flat" value="all" name="admition" checked> Todo el Mundo
                                     </label>
                                 </div>
                             </div>
@@ -189,19 +191,19 @@
                             <div id="auth-err" class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="icheckbox">
                                 <label>
-                                    <input type="checkbox" class="flat" name="phold2" checked="checked" required
+                                    <input type="checkbox" class="flat" id="auth_cu" name="auth_type" checked="checked" required
                                         data-parsley-mincheck="1"
                                         data-parsley-errors-container="#auth-err"> Clave Unica
                                 </label>
                                 </div>
                                 <div class="icheckbox">
                                 <label>
-                                    <input type="checkbox" class="flat" name="phold2"> Invitacion Por Email
+                                    <input type="checkbox" class="flat" id="auth_email" name="auth_type"> Invitacion Por Email
                                 </label>
                                 </div>
                                 <div class="icheckbox">
                                 <label>
-                                    <input type="checkbox" class="flat" name="phold2"> Usando RUT <small>(Muy inseguro)</small>
+                                    <input type="checkbox" class="flat" id="auth_rut" name="auth_type"> Usando RUT <small>(Muy inseguro)</small>
                                 </label>
                                 </div>
                             </div>
@@ -211,7 +213,7 @@
                 </div>
 
                 <div id="step-4">
-                    <form class="form-horizontal form-label-left" style="padding: .5rem 0">
+                    <form id="form-opt" class="form-horizontal form-label-left" style="padding: .5rem 0">
                         <div class="form-group">
                             <div class="control-label col-md-3 col-sm-3 col-xs-12"></div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -253,18 +255,33 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Inicio /Termino </label>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-inline">
-                                <div class="input-group date col-md-12 col-lg-5" id="fw-dtpk-start">
-                                    <input type="text" class="form-control" v-model="formData.start_date" readonly="readonly"/>
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
+
+                                <div id="tp1-err" class="col-md-12 col-lg-5" style="padding: 0;">
+                                    <div class="input-group date" style="width: 100%;" id="fw-dtpk-start">
+                                        <input type="text" id="dtp-start" class="form-control" readonly="readonly" 
+                                            v-model="formData.start_date" 
+                                            data-parsley-errors-container="#tp1-err"
+                                            data-parsley-validate-if-empty
+                                            data-parsley-valid-date="auto_start"/>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="input-group date col-md-12 col-lg-5 pull-right" id="fw-dtpk-end">
-                                    <input type="text" class="form-control" v-model="formData.end_date" readonly="readonly"/>
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
+
+                                <div id="tp2-err" class="col-md-12 col-lg-5 pull-right" style="padding: 0;">
+                                    <div class="input-group date" style="width: 100%;" id="fw-dtpk-end">
+                                        <input type="text" id="dtp-end" class="form-control" readonly="readonly"
+                                            v-model="formData.end_date" 
+                                            data-parsley-errors-container="#tp2-err"
+                                            data-parsley-validate-if-empty
+                                            data-parsley-valid-date="auto_end"/>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
         
@@ -276,10 +293,29 @@
             </div>
         </div>
         </div>
+
+        <!-- Request Loader -->
+        <div id="requestLoader" class="sk-cube-grid" style="display: none;">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+        </div>
     </div>
 </template>
 
 <script>
+/*
+ *  BUGS:
+ *      - DateTimePickers: Estando activados, los valores son eliminados al retroceder de etapa en el form wizard y cambiar un valor de una etapa aterior.
+ * 
+ */
+
     export default{
         data(){
             return{
@@ -287,20 +323,17 @@
                     title: '',
                     subdomain: '',
                     description: '',
-                    admition: '',
-                    auth_type: '',
-                    user_enc: true,
-                    auto_start: false,
-                    auto_end: false,
                     start_date: '',
                     end_date: ''
                 },
-                subdomLoading: false,
+                subdomLoading: false, // muestra icono de carga, detiene el avance durante axios call
                 subdomAvail: false,
                 lastCheckedSubdom: '',
 
                 autoCheckTimeout: null,
                 subdomChecked: true,
+
+                submitingRequest: false,
             }
         },
         methods: {
@@ -327,6 +360,55 @@
                 }).finally(() => {
                     this.subdomLoading = false;
                     this.subdomChecked = true;
+                    $('#form-basic #subdom').parsley().validate();
+                });
+            },
+            submitPollRequest(){
+                if (this.submitingRequest){console.log('** Waiting for other request response **'); return false;}
+                let requestData = {
+                    title: this.formData.title,
+                    subdomain: this.formData.subdomain,
+                    description: this.formData.description,
+                    admition: $('input[name=admition]:checked').val(),
+                    auth_cu: this.getCheckBoxValue('auth_cu'),
+                    auth_email: this.getCheckBoxValue('auth_email'),
+                    auth_rut: this.getCheckBoxValue('auth_rut'),
+                    user_enc: this.getCheckBoxValue('user_enc'),
+                    auto_start: {
+                        active: this.getCheckBoxValue('auto_start'),
+                        datetime: moment($('#dtp-start').val().trim(),'DD/MM/YYYY hh:mm A').unix()
+                    },
+                    auto_end: {
+                        active: this.getCheckBoxValue('auto_end'),
+                        datetime: moment($('#dtp-end').val().trim(),'DD/MM/YYYY hh:mm A').unix()
+                    }
+                };
+                console.log(requestData);
+
+                this.submitingRequest = true;
+                $('#wizardContainer').block({
+                    message: $('#requestLoader'),
+                    css: { 
+                        border: 'none', 
+                        padding: '15px', 
+                        backgroundColor: 'rgba(0, 0, 0, 0.0)', 
+                        '-webkit-border-radius': '10px', 
+                        '-moz-border-radius': '10px', 
+                        opacity: .5
+                    },overlayCSS:  { 
+                        backgroundColor: '#fff', 
+                        opacity:         1, 
+                        cursor:          'wait' 
+                    },
+                });
+                axios.post('/api/storepoll', requestData)
+                .then(response => {
+                    console.log(response);
+                }).catch(({response}) => {
+                    console.log(response);
+                }).finally(() => {
+                    this.submitingRequest = false;
+                    $('#wizardContainer').unblock();
                 });
             },
             checkSubdom(){
@@ -351,24 +433,33 @@
                 $('input#auto_start').on('ifToggled', function (event) {
                     let enableAutoStart = $(this).prop('checked');
                     $('#fw-dtpk-start input').prop( 'disabled', !enableAutoStart );
-                    //vueRef.formData.start_date = (!enableAutoStart)?'Inicio Manual':'';
-                    $('#fw-dtpk-start input').val((!enableAutoStart)?'Inicio Manual':'');
                     if (!enableAutoStart){
+                        $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
                         $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
                         $('#fw-dtpk-start').data("DateTimePicker").clear();
                     }
-                    console.log('hey you changed auto_start');
+                    $('#fw-dtpk-start input').val((!enableAutoStart)?'Inicio Manual':'');
                 });
                 $('input#auto_end').on('ifToggled', function (event) {
                     let enableAutoEnd = $(this).prop('checked');
                     $('#fw-dtpk-end input').prop( 'disabled', !enableAutoEnd );
-                    //vueRef.formData.end_date = (!enableAutoEnd)?'Termino Manual':'';
-                    $('#fw-dtpk-end input').val((!enableAutoEnd)?'Inicio Manual':'');
                     if (!enableAutoEnd){
+                        $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
                         $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
                         $('#fw-dtpk-end').data("DateTimePicker").clear();
                     }
-                    console.log('hey you changed auto_end');
+                    $('#fw-dtpk-end input').val((!enableAutoEnd)?'Termino Manual':'');
+                });
+
+                $("#fw-dtpk-start").on("dp.change", function (e) {
+                    $('#fw-dtpk-end').data("DateTimePicker").minDate(e.date);
+                    if(vueRef.getCheckBoxValue('auto_end')){
+                    }
+                });
+                $("#fw-dtpk-end").on("dp.change", function (e) {
+                    $('#fw-dtpk-start').data("DateTimePicker").maxDate(e.date);
+                    if (vueRef.getCheckBoxValue('auto_start')){
+                    }
                 });
             },
             getCheckBoxValue(id){
@@ -379,60 +470,98 @@
             var vueRef = this; // referencia al contexto del componente Vue
             $(document).ready(function(){
 
-                /*Date Time Pickers */
+                /*Date Time Pickers SetUp*/
+                let dateTimeFormat = 'DD/MM/YYYY hh:mm A';
                 $('#fw-dtpk-start').datetimepicker({
-                    format: 'DD/MM/YYYY hh:mm A',
+                    format: dateTimeFormat,
                     ignoreReadonly: true,
                     allowInputToggle: true,
-                });
-                $('#fw-dtpk-end').datetimepicker({
-                    format: 'DD/MM/YYYY hh:mm A',
-                    ignoreReadonly: true,
-                    allowInputToggle: true,
+                    locale: 'es',
                     useCurrent: false,
                 });
-                $("#fw-dtpk-start").on("dp.change dp.hide", function (e) {
-                    $('#fw-dtpk-end').data("DateTimePicker").minDate(e.date);
-                });
-                $("#fw-dtpk-end").on("dp.change dp.hide", function (e) {
-                    $('#fw-dtpk-start').data("DateTimePicker").maxDate(e.date);
+                $('#fw-dtpk-end').datetimepicker({
+                    format: dateTimeFormat,
+                    ignoreReadonly: true,
+                    allowInputToggle: true,
+                    locale: 'es',
+                    useCurrent: false,
                 });
 
-                /*Validacion de Input con Parsley*/
+                vueRef.initializeTimePickControl();
+
+                /*Parsley SetUp*/
+                window.Parsley
+                .addValidator('subdomAvail', {
+                    validateString: function(value, requirement) {
+                        return vueRef.subdomAvail;
+                    },
+                    messages: {
+                        es: 'La dirección no esta disponible.',
+                    }
+                });
+
+                window.Parsley
+                .addValidator('validDate', {
+                    requirementType: 'string',
+                    validateString: function(value, requirement) {
+                        if (!$('#'+requirement).prop('checked')){return true;}
+                        return moment(value.trim(), dateTimeFormat, true).isValid();
+                    },
+                    messages: {
+                        es: 'Necesita espesificar una fecha valida.',
+                    }
+                });
+
                 let formBasic = $('#form-basic').parsley();
                 let formAuth = $('#form-auth').parsley();
+                let formOptions = $('#form-opt').parsley();
 
-                let validateNewPoll = function(event, direction) {
-                    let from = direction.fromStep;
-                    if (from >= direction.toStep){return true;} // No validar si retrocede
-                    if (from == 1){
+                /*Smart Wizard SetUp */
+                let validateStep = function(step) {
+                    if (step == 1){
                         let formValid = formBasic.validate();
                         return (formValid 
                             && vueRef.subdomAvail 
                             && vueRef.subdomChecked);
-                    } else if (from == 2){ // Nada que validar
+                    } else if (step == 2){ // Nada que validar
                         return true;
-                    } else if (from == 3){
+                    } else if (step == 3){
                         return formAuth.validate();
+                    } else if(step == 4) {
+                        return formOptions.validate(); // hacer validacion con parsley
                     } else{
                         return false;
                     }
                 };
 
+                let newPollWizard = $('#smartwizard');
+
+                let validateNextStep = function(event, direction) {
+                    let from = direction.fromStep;
+                    if (from >= direction.toStep){return true;} // No validar si retrocede
+                    return validateStep(from);
+                };
+
                 let finishNewPoll = function(event, direction) {
-                    console.log('It finished');
+                    for (let stepNum = 1; stepNum <= 4; stepNum++) {
+                        if (!validateStep(stepNum)){
+                            if (stepNum != newPollWizard.smartWizard('currentStep')){
+                                newPollWizard.smartWizard('goToStep', stepNum);
+                            }
+                            return false; // terminar funcion en primer error encontrado
+                        }
+                    }
+                    vueRef.submitPollRequest();
                     return false;
                 }
 
-                $('#smartwizard').smartWizard({
+                newPollWizard.smartWizard({
                     labelNext: 'Siguiente',
                     labelPrevious: 'Anterior',
                     labelFinish: 'Terminar',
-                    onLeaveStep: validateNewPoll,
+                    onLeaveStep: validateNextStep,
                     onFinish: finishNewPoll
                 });
-
-                vueRef.initializeTimePickControl();
             });
         }
     }
@@ -455,7 +584,7 @@
     #subdom-check.ok{background-color: #2ecc71; display: inherit;}
     #subdom-check.notok{background-color: #c0392b;  display: inherit;}
 
-    /*Loader*/
+    /*Loader 1 para verificar subdominio*/
     .subdom-load {
             position: absolute !important;
             top: -12px;
@@ -549,5 +678,69 @@
         opacity: 0; 
     }
     }
+
+    /* Loader 2 para Request */
+
+    .sk-cube-grid {
+  width: 80px;
+  height: 80px;
+  margin: 100px auto;
+}
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #27ae60;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1); 
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  } 
+}
 
 </style>

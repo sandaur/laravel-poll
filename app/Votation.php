@@ -19,4 +19,12 @@ class Votation extends Model
     {
         return $this->hasMany(Option::class);
     }
+
+    public static function isNameAvailable($subdomainName)
+    {
+        if (! preg_match('/^[\d\w]{4,18}$/', $subdomainName)){
+            return false;
+        }
+        return ((new static)::where('subdom', $subdomainName)->first() == null);
+    }
 }

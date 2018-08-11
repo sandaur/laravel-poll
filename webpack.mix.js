@@ -57,10 +57,13 @@ mix.scripts([
     'node_modules/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js',
     'node_modules/gentelella/vendors/iCheck/icheck.min.js',
     'node_modules/gentelella/vendors/moment/min/moment.min.js',
+    'resources/assets/js/lang/moment-es.js', // moment locale es
     'node_modules/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js',
     'node_modules/gentelella/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
     'node_modules/gentelella/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js',
     'node_modules/gentelella/vendors/parsleyjs/dist/parsley.min.js',
+    'resources/assets/js/lang/parsley-es.js', // parsley locale es
+    'resources/assets/js/util/blockui.js',
 ], 'public/js/votations.js');
 
 mix.js('resources/assets/js/votationsVue.js', 'public/js') // Controlador Vue para pagina de votaciones

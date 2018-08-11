@@ -43,8 +43,12 @@ $appRouting = function () {
 
         /*API Calls */
         Route::get('/api/subdomav/{subdom}', function($subdom) {
-            $available = (\App\Votation::where('subdom', $subdom)->first() == null);
+            $available = \App\Votation::isNameAvailable($subdom);
             return response()->json(compact("available"), 200);
+        });
+
+        Route::post('/api/storepoll', function() {
+            return response()->json(request()->all(), 200);
         });
     });
     

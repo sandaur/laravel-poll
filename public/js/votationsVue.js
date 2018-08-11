@@ -13475,7 +13475,7 @@ exports = module.exports = __webpack_require__(41)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*SmartWizard FIX*/\n.stepContainer{overflow: visible !important; height: auto !important;\n}\n.actionBar a.btn{float: right;\n}\n#subdom-check{\n    height: 14px;\n    width: 14px;\n    position: absolute;\n    border-radius: 7px;\n    right: -2rem;\n    top: .8rem;\n    display: none;\n}\n#subdom-check.ok{background-color: #2ecc71; display: inherit;\n}\n#subdom-check.notok{background-color: #c0392b;  display: inherit;\n}\n\n/*Loader*/\n.subdom-load {\n        position: absolute !important;\n        top: -12px;\n        right: -25px;\n}\n.sk-folding-cube {\nmargin: 20px auto;\nwidth: 14px;\nheight: 14px;\nposition: relative;\n-webkit-transform: rotateZ(45deg);\n        transform: rotateZ(45deg);\n}\n.sk-folding-cube .sk-cube {\nfloat: left;\nwidth: 50%;\nheight: 50%;\nposition: relative;\n-webkit-transform: scale(1.1);\n    -ms-transform: scale(1.1);\n        transform: scale(1.1);\n}\n.sk-folding-cube .sk-cube:before {\ncontent: '';\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\nheight: 100%;\nbackground-color: #333;\n-webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;\n        animation: sk-foldCubeAngle 2.4s infinite linear both;\n-webkit-transform-origin: 100% 100%;\n    -ms-transform-origin: 100% 100%;\n        transform-origin: 100% 100%;\n}\n.sk-folding-cube .sk-cube2 {\n-webkit-transform: scale(1.1) rotateZ(90deg);\n        transform: scale(1.1) rotateZ(90deg);\n}\n.sk-folding-cube .sk-cube3 {\n-webkit-transform: scale(1.1) rotateZ(180deg);\n        transform: scale(1.1) rotateZ(180deg);\n}\n.sk-folding-cube .sk-cube4 {\n-webkit-transform: scale(1.1) rotateZ(270deg);\n        transform: scale(1.1) rotateZ(270deg);\n}\n.sk-folding-cube .sk-cube2:before {\n-webkit-animation-delay: 0.3s;\n        animation-delay: 0.3s;\n}\n.sk-folding-cube .sk-cube3:before {\n-webkit-animation-delay: 0.6s;\n        animation-delay: 0.6s;\n}\n.sk-folding-cube .sk-cube4:before {\n-webkit-animation-delay: 0.9s;\n        animation-delay: 0.9s;\n}\n@-webkit-keyframes sk-foldCubeAngle {\n0%, 10% {\n    -webkit-transform: perspective(140px) rotateX(-180deg);\n            transform: perspective(140px) rotateX(-180deg);\n    opacity: 0;\n}\n25%, 75% {\n    -webkit-transform: perspective(140px) rotateX(0deg);\n            transform: perspective(140px) rotateX(0deg);\n    opacity: 1;\n}\n90%, 100% {\n    -webkit-transform: perspective(140px) rotateY(180deg);\n            transform: perspective(140px) rotateY(180deg);\n    opacity: 0;\n}\n}\n@keyframes sk-foldCubeAngle {\n0%, 10% {\n    -webkit-transform: perspective(140px) rotateX(-180deg);\n            transform: perspective(140px) rotateX(-180deg);\n    opacity: 0;\n}\n25%, 75% {\n    -webkit-transform: perspective(140px) rotateX(0deg);\n            transform: perspective(140px) rotateX(0deg);\n    opacity: 1;\n}\n90%, 100% {\n    -webkit-transform: perspective(140px) rotateY(180deg);\n            transform: perspective(140px) rotateY(180deg);\n    opacity: 0;\n}\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /*SmartWizard FIX*/\n.stepContainer{overflow: visible !important; height: auto !important;\n}\n.actionBar a.btn{float: right;\n}\n#subdom-check{\n        height: 14px;\n        width: 14px;\n        position: absolute;\n        border-radius: 7px;\n        right: -2rem;\n        top: .8rem;\n        display: none;\n}\n#subdom-check.ok{background-color: #2ecc71; display: inherit;\n}\n#subdom-check.notok{background-color: #c0392b;  display: inherit;\n}\n\n    /*Loader 1 para verificar subdominio*/\n.subdom-load {\n            position: absolute !important;\n            top: -12px;\n            right: -25px;\n}\n.sk-folding-cube {\n    margin: 20px auto;\n    width: 14px;\n    height: 14px;\n    position: relative;\n    -webkit-transform: rotateZ(45deg);\n            transform: rotateZ(45deg);\n}\n.sk-folding-cube .sk-cube {\n    float: left;\n    width: 50%;\n    height: 50%;\n    position: relative;\n    -webkit-transform: scale(1.1);\n        -ms-transform: scale(1.1);\n            transform: scale(1.1);\n}\n.sk-folding-cube .sk-cube:before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: #333;\n    -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;\n            animation: sk-foldCubeAngle 2.4s infinite linear both;\n    -webkit-transform-origin: 100% 100%;\n        -ms-transform-origin: 100% 100%;\n            transform-origin: 100% 100%;\n}\n.sk-folding-cube .sk-cube2 {\n    -webkit-transform: scale(1.1) rotateZ(90deg);\n            transform: scale(1.1) rotateZ(90deg);\n}\n.sk-folding-cube .sk-cube3 {\n    -webkit-transform: scale(1.1) rotateZ(180deg);\n            transform: scale(1.1) rotateZ(180deg);\n}\n.sk-folding-cube .sk-cube4 {\n    -webkit-transform: scale(1.1) rotateZ(270deg);\n            transform: scale(1.1) rotateZ(270deg);\n}\n.sk-folding-cube .sk-cube2:before {\n    -webkit-animation-delay: 0.3s;\n            animation-delay: 0.3s;\n}\n.sk-folding-cube .sk-cube3:before {\n    -webkit-animation-delay: 0.6s;\n            animation-delay: 0.6s;\n}\n.sk-folding-cube .sk-cube4:before {\n    -webkit-animation-delay: 0.9s;\n            animation-delay: 0.9s;\n}\n@-webkit-keyframes sk-foldCubeAngle {\n0%, 10% {\n        -webkit-transform: perspective(140px) rotateX(-180deg);\n                transform: perspective(140px) rotateX(-180deg);\n        opacity: 0;\n}\n25%, 75% {\n        -webkit-transform: perspective(140px) rotateX(0deg);\n                transform: perspective(140px) rotateX(0deg);\n        opacity: 1;\n}\n90%, 100% {\n        -webkit-transform: perspective(140px) rotateY(180deg);\n                transform: perspective(140px) rotateY(180deg);\n        opacity: 0;\n}\n}\n@keyframes sk-foldCubeAngle {\n0%, 10% {\n        -webkit-transform: perspective(140px) rotateX(-180deg);\n                transform: perspective(140px) rotateX(-180deg);\n        opacity: 0;\n}\n25%, 75% {\n        -webkit-transform: perspective(140px) rotateX(0deg);\n                transform: perspective(140px) rotateX(0deg);\n        opacity: 1;\n}\n90%, 100% {\n        -webkit-transform: perspective(140px) rotateY(180deg);\n                transform: perspective(140px) rotateY(180deg);\n        opacity: 0;\n}\n}\n\n    /* Loader 2 para Request */\n.sk-cube-grid {\n  width: 80px;\n  height: 80px;\n  margin: 100px auto;\n}\n.sk-cube-grid .sk-cube {\n  width: 33%;\n  height: 33%;\n  background-color: #27ae60;\n  float: left;\n  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n}\n.sk-cube-grid .sk-cube1 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube2 {\n  -webkit-animation-delay: 0.3s;\n          animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube3 {\n  -webkit-animation-delay: 0.4s;\n          animation-delay: 0.4s;\n}\n.sk-cube-grid .sk-cube4 {\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube5 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube6 {\n  -webkit-animation-delay: 0.3s;\n          animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube7 {\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n}\n.sk-cube-grid .sk-cube8 {\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube9 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n@-webkit-keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n@keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n\n", ""]);
 
 // exports
 
@@ -14110,6 +14110,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/*
+ *  BUGS:
+ *      - DateTimePickers: Estando activados, los valores son eliminados al retroceder de etapa en el form wizard y cambiar un valor de una etapa aterior.
+ * 
+ */
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -14118,20 +14154,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 title: '',
                 subdomain: '',
                 description: '',
-                admition: '',
-                auth_type: '',
-                user_enc: true,
-                auto_start: false,
-                auto_end: false,
                 start_date: '',
                 end_date: ''
             },
-            subdomLoading: false,
+            subdomLoading: false, // muestra icono de carga, detiene el avance durante axios call
             subdomAvail: false,
             lastCheckedSubdom: '',
 
             autoCheckTimeout: null,
-            subdomChecked: true
+            subdomChecked: true,
+
+            submitingRequest: false
         };
     },
 
@@ -14163,17 +14196,71 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).finally(function () {
                 _this.subdomLoading = false;
                 _this.subdomChecked = true;
+                $('#form-basic #subdom').parsley().validate();
+            });
+        },
+        submitPollRequest: function submitPollRequest() {
+            var _this2 = this;
+
+            if (this.submitingRequest) {
+                console.log('** Waiting for other request response **');return false;
+            }
+            var requestData = {
+                title: this.formData.title,
+                subdomain: this.formData.subdomain,
+                description: this.formData.description,
+                admition: $('input[name=admition]:checked').val(),
+                auth_cu: this.getCheckBoxValue('auth_cu'),
+                auth_email: this.getCheckBoxValue('auth_email'),
+                auth_rut: this.getCheckBoxValue('auth_rut'),
+                user_enc: this.getCheckBoxValue('user_enc'),
+                auto_start: {
+                    active: this.getCheckBoxValue('auto_start'),
+                    datetime: moment($('#dtp-start').val().trim(), 'DD/MM/YYYY hh:mm A').unix()
+                },
+                auto_end: {
+                    active: this.getCheckBoxValue('auto_end'),
+                    datetime: moment($('#dtp-end').val().trim(), 'DD/MM/YYYY hh:mm A').unix()
+                }
+            };
+            console.log(requestData);
+
+            this.submitingRequest = true;
+            $('#wizardContainer').block({
+                message: $('#requestLoader'),
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.0)',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .5
+                }, overlayCSS: {
+                    backgroundColor: '#fff',
+                    opacity: 1,
+                    cursor: 'wait'
+                }
+            });
+            axios.post('/api/storepoll', requestData).then(function (response) {
+                console.log(response);
+            }).catch(function (_ref2) {
+                var response = _ref2.response;
+
+                console.log(response);
+            }).finally(function () {
+                _this2.submitingRequest = false;
+                $('#wizardContainer').unblock();
             });
         },
         checkSubdom: function checkSubdom() {
-            var _this2 = this;
+            var _this3 = this;
 
             this.subdomChecked = false;
             if (this.autoCheckTimeout != null) {
                 clearTimeout(this.autoCheckTimeout);
             }
             this.autoCheckTimeout = setTimeout(function () {
-                _this2.isSubdomAvailable(_this2.formData.subdomain);
+                _this3.isSubdomAvailable(_this3.formData.subdomain);
             }, 500);
         },
         initializeTimePickControl: function initializeTimePickControl() {
@@ -14189,24 +14276,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             $('input#auto_start').on('ifToggled', function (event) {
                 var enableAutoStart = $(this).prop('checked');
                 $('#fw-dtpk-start input').prop('disabled', !enableAutoStart);
-                //vueRef.formData.start_date = (!enableAutoStart)?'Inicio Manual':'';
-                $('#fw-dtpk-start input').val(!enableAutoStart ? 'Inicio Manual' : '');
                 if (!enableAutoStart) {
+                    $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
                     $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
                     $('#fw-dtpk-start').data("DateTimePicker").clear();
                 }
-                console.log('hey you changed auto_start');
+                $('#fw-dtpk-start input').val(!enableAutoStart ? 'Inicio Manual' : '');
             });
             $('input#auto_end').on('ifToggled', function (event) {
                 var enableAutoEnd = $(this).prop('checked');
                 $('#fw-dtpk-end input').prop('disabled', !enableAutoEnd);
-                //vueRef.formData.end_date = (!enableAutoEnd)?'Termino Manual':'';
-                $('#fw-dtpk-end input').val(!enableAutoEnd ? 'Inicio Manual' : '');
                 if (!enableAutoEnd) {
+                    $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
                     $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
                     $('#fw-dtpk-end').data("DateTimePicker").clear();
                 }
-                console.log('hey you changed auto_end');
+                $('#fw-dtpk-end input').val(!enableAutoEnd ? 'Termino Manual' : '');
+            });
+
+            $("#fw-dtpk-start").on("dp.change", function (e) {
+                $('#fw-dtpk-end').data("DateTimePicker").minDate(e.date);
+                if (vueRef.getCheckBoxValue('auto_end')) {}
+            });
+            $("#fw-dtpk-end").on("dp.change", function (e) {
+                $('#fw-dtpk-start').data("DateTimePicker").maxDate(e.date);
+                if (vueRef.getCheckBoxValue('auto_start')) {}
             });
         },
         getCheckBoxValue: function getCheckBoxValue(id) {
@@ -14217,61 +14311,99 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var vueRef = this; // referencia al contexto del componente Vue
         $(document).ready(function () {
 
-            /*Date Time Pickers */
+            /*Date Time Pickers SetUp*/
+            var dateTimeFormat = 'DD/MM/YYYY hh:mm A';
             $('#fw-dtpk-start').datetimepicker({
-                format: 'DD/MM/YYYY hh:mm A',
-                ignoreReadonly: true,
-                allowInputToggle: true
-            });
-            $('#fw-dtpk-end').datetimepicker({
-                format: 'DD/MM/YYYY hh:mm A',
+                format: dateTimeFormat,
                 ignoreReadonly: true,
                 allowInputToggle: true,
+                locale: 'es',
                 useCurrent: false
             });
-            $("#fw-dtpk-start").on("dp.change dp.hide", function (e) {
-                $('#fw-dtpk-end').data("DateTimePicker").minDate(e.date);
-            });
-            $("#fw-dtpk-end").on("dp.change dp.hide", function (e) {
-                $('#fw-dtpk-start').data("DateTimePicker").maxDate(e.date);
+            $('#fw-dtpk-end').datetimepicker({
+                format: dateTimeFormat,
+                ignoreReadonly: true,
+                allowInputToggle: true,
+                locale: 'es',
+                useCurrent: false
             });
 
-            /*Validacion de Input con Parsley*/
+            vueRef.initializeTimePickControl();
+
+            /*Parsley SetUp*/
+            window.Parsley.addValidator('subdomAvail', {
+                validateString: function validateString(value, requirement) {
+                    return vueRef.subdomAvail;
+                },
+                messages: {
+                    es: 'La dirección no esta disponible.'
+                }
+            });
+
+            window.Parsley.addValidator('validDate', {
+                requirementType: 'string',
+                validateString: function validateString(value, requirement) {
+                    if (!$('#' + requirement).prop('checked')) {
+                        return true;
+                    }
+                    return moment(value.trim(), dateTimeFormat, true).isValid();
+                },
+                messages: {
+                    es: 'Necesita espesificar una fecha valida.'
+                }
+            });
+
             var formBasic = $('#form-basic').parsley();
             var formAuth = $('#form-auth').parsley();
+            var formOptions = $('#form-opt').parsley();
 
-            var validateNewPoll = function validateNewPoll(event, direction) {
-                var from = direction.fromStep;
-                if (from >= direction.toStep) {
-                    return true;
-                } // No validar si retrocede
-                if (from == 1) {
+            /*Smart Wizard SetUp */
+            var validateStep = function validateStep(step) {
+                if (step == 1) {
                     var formValid = formBasic.validate();
                     return formValid && vueRef.subdomAvail && vueRef.subdomChecked;
-                } else if (from == 2) {
+                } else if (step == 2) {
                     // Nada que validar
                     return true;
-                } else if (from == 3) {
+                } else if (step == 3) {
                     return formAuth.validate();
+                } else if (step == 4) {
+                    return formOptions.validate(); // hacer validacion con parsley
                 } else {
                     return false;
                 }
             };
 
+            var newPollWizard = $('#smartwizard');
+
+            var validateNextStep = function validateNextStep(event, direction) {
+                var from = direction.fromStep;
+                if (from >= direction.toStep) {
+                    return true;
+                } // No validar si retrocede
+                return validateStep(from);
+            };
+
             var finishNewPoll = function finishNewPoll(event, direction) {
-                console.log('It finished');
+                for (var stepNum = 1; stepNum <= 4; stepNum++) {
+                    if (!validateStep(stepNum)) {
+                        if (stepNum != newPollWizard.smartWizard('currentStep')) {
+                            newPollWizard.smartWizard('goToStep', stepNum);
+                        }
+                        return false; // terminar funcion en primer error encontrado
+                    }
+                }
+                vueRef.submitPollRequest();
                 return false;
             };
 
-            $('#smartwizard').smartWizard({
+            newPollWizard.smartWizard({
                 labelNext: 'Siguiente',
                 labelPrevious: 'Anterior',
                 labelFinish: 'Terminar',
-                onLeaveStep: validateNewPoll,
+                onLeaveStep: validateNextStep,
                 onFinish: finishNewPoll
             });
-
-            vueRef.initializeTimePickControl();
         });
     }
 });
@@ -14289,252 +14421,384 @@ var render = function() {
       _c("div", { staticClass: "x_panel" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "x_content" }, [
-          _c(
-            "div",
-            {
-              staticClass: "form_wizard wizard_horizontal",
-              attrs: { id: "smartwizard" }
-            },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { attrs: { id: "step-1" } }, [
-                _c(
-                  "form",
-                  {
-                    staticClass: "form-horizontal form-label-left",
-                    staticStyle: { padding: ".5rem 0" },
-                    attrs: { id: "form-basic" }
-                  },
-                  [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm._m(4),
+        _c(
+          "div",
+          { staticClass: "x_content", attrs: { id: "wizardContainer" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "form_wizard wizard_horizontal",
+                attrs: { id: "smartwizard" }
+              },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { attrs: { id: "step-1" } }, [
+                  _c(
+                    "form",
+                    {
+                      staticClass: "form-horizontal form-label-left",
+                      staticStyle: { padding: ".5rem 0" },
+                      attrs: { id: "form-basic" }
+                    },
+                    [
+                      _vm._m(2),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col-md-6 col-sm-6 col-xs-12",
-                          attrs: { id: "subdom-err" }
-                        },
-                        [
-                          _c("div", { staticClass: "input-group" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-md-6 col-sm-6 col-xs-12" },
+                          [
                             _c("input", {
                               directives: [
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.formData.subdomain,
-                                  expression: "formData.subdomain"
+                                  value: _vm.formData.title,
+                                  expression: "formData.title"
                                 }
                               ],
                               staticClass: "form-control",
                               attrs: {
+                                id: "pley-name",
                                 type: "text",
-                                placeholder: "Subdominio",
-                                "aria-describedby": "newpoll-subdomain",
+                                placeholder: "Titulo de Votacion",
                                 required: "",
-                                "data-parsley-errors-container": "#subdom-err",
-                                "data-parsley-type": "alphanum",
-                                "data-parsley-length": "[4, 18]"
+                                "data-parsley-length": "[5, 40]"
                               },
-                              domProps: { value: _vm.formData.subdomain },
+                              domProps: { value: _vm.formData.title },
                               on: {
-                                blur: function($event) {
-                                  _vm.isSubdomAvailable(_vm.formData.subdomain)
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.formData,
+                                    "title",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _vm._m(4),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "col-md-6 col-sm-6 col-xs-12",
+                            attrs: { id: "subdom-err" }
+                          },
+                          [
+                            _c("div", { staticClass: "input-group" }, [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.formData.subdomain,
+                                    expression: "formData.subdomain"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "subdom",
+                                  placeholder: "Subdominio",
+                                  "aria-describedby": "newpoll-subdomain",
+                                  required: "",
+                                  "data-parsley-errors-container":
+                                    "#subdom-err",
+                                  "data-parsley-type": "alphanum",
+                                  "data-parsley-length": "[4, 18]",
+                                  "data-parsley-subdom-avail": ""
                                 },
-                                input: [
-                                  function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.formData,
-                                      "subdomain",
-                                      $event.target.value
+                                domProps: { value: _vm.formData.subdomain },
+                                on: {
+                                  blur: function($event) {
+                                    _vm.isSubdomAvailable(
+                                      _vm.formData.subdomain
                                     )
                                   },
-                                  _vm.checkSubdom
-                                ]
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              {
-                                staticClass: "input-group-addon",
-                                attrs: { id: "newpoll-subdomain" }
+                                  input: [
+                                    function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.formData,
+                                        "subdomain",
+                                        $event.target.value
+                                      )
+                                    },
+                                    _vm.checkSubdom
+                                  ]
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "input-group-addon",
+                                  attrs: { id: "newpoll-subdomain" }
+                                },
+                                [_vm._v(".larapoll.test/urna")]
+                              ),
+                              _vm._v(" "),
+                              !_vm.subdomLoading
+                                ? _c("span", {
+                                    class: {
+                                      ok: _vm.subdomAvail,
+                                      notok: !_vm.subdomAvail
+                                    },
+                                    attrs: { id: "subdom-check" }
+                                  })
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.subdomLoading
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass: "sk-folding-cube subdom-load"
+                                    },
+                                    [
+                                      _c("div", {
+                                        staticClass: "sk-cube1 sk-cube"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "sk-cube2 sk-cube"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "sk-cube4 sk-cube"
+                                      }),
+                                      _vm._v(" "),
+                                      _c("div", {
+                                        staticClass: "sk-cube3 sk-cube"
+                                      })
+                                    ]
+                                  )
+                                : _vm._e()
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _vm._m(5),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-md-6 col-sm-6 col-xs-12" },
+                          [
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.formData.description,
+                                  expression: "formData.description"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                placeholder: "Descripcion breve de la Votacion",
+                                rows: "5",
+                                required: "",
+                                "data-parsley-length": "[40, 450]"
                               },
-                              [_vm._v(".larapoll.test/urna")]
-                            ),
-                            _vm._v(" "),
-                            !_vm.subdomLoading
-                              ? _c("span", {
-                                  class: {
-                                    ok: _vm.subdomAvail,
-                                    notok: !_vm.subdomAvail
-                                  },
-                                  attrs: { id: "subdom-check" }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.subdomLoading
-                              ? _c(
+                              domProps: { value: _vm.formData.description },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.formData,
+                                    "description",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(6),
+                _vm._v(" "),
+                _vm._m(7),
+                _vm._v(" "),
+                _c("div", { attrs: { id: "step-4" } }, [
+                  _c(
+                    "form",
+                    {
+                      staticClass: "form-horizontal form-label-left",
+                      staticStyle: { padding: ".5rem 0" },
+                      attrs: { id: "form-opt" }
+                    },
+                    [
+                      _vm._m(8),
+                      _vm._v(" "),
+                      _vm._m(9),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "control-label col-md-3 col-sm-3 col-xs-12"
+                          },
+                          [_vm._v("Inicio /Termino ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "col-md-6 col-sm-6 col-xs-12 form-inline"
+                          },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "col-md-12 col-lg-5",
+                                staticStyle: { padding: "0" },
+                                attrs: { id: "tp1-err" }
+                              },
+                              [
+                                _c(
                                   "div",
                                   {
-                                    staticClass: "sk-folding-cube subdom-load"
+                                    staticClass: "input-group date",
+                                    staticStyle: { width: "100%" },
+                                    attrs: { id: "fw-dtpk-start" }
                                   },
                                   [
-                                    _c("div", {
-                                      staticClass: "sk-cube1 sk-cube"
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.formData.start_date,
+                                          expression: "formData.start_date"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "text",
+                                        id: "dtp-start",
+                                        readonly: "readonly",
+                                        "data-parsley-errors-container":
+                                          "#tp1-err",
+                                        "data-parsley-validate-if-empty": "",
+                                        "data-parsley-valid-date": "auto_start"
+                                      },
+                                      domProps: {
+                                        value: _vm.formData.start_date
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.formData,
+                                            "start_date",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
                                     }),
                                     _vm._v(" "),
-                                    _c("div", {
-                                      staticClass: "sk-cube2 sk-cube"
-                                    }),
-                                    _vm._v(" "),
-                                    _c("div", {
-                                      staticClass: "sk-cube4 sk-cube"
-                                    }),
-                                    _vm._v(" "),
-                                    _c("div", {
-                                      staticClass: "sk-cube3 sk-cube"
-                                    })
+                                    _vm._m(10)
                                   ]
                                 )
-                              : _vm._e()
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(5)
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _vm._m(6),
-              _vm._v(" "),
-              _vm._m(7),
-              _vm._v(" "),
-              _c("div", { attrs: { id: "step-4" } }, [
-                _c(
-                  "form",
-                  {
-                    staticClass: "form-horizontal form-label-left",
-                    staticStyle: { padding: ".5rem 0" }
-                  },
-                  [
-                    _vm._m(8),
-                    _vm._v(" "),
-                    _vm._m(9),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass:
-                            "control-label col-md-3 col-sm-3 col-xs-12"
-                        },
-                        [_vm._v("Inicio /Termino ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col-md-6 col-sm-6 col-xs-12 form-inline"
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "input-group date col-md-12 col-lg-5",
-                              attrs: { id: "fw-dtpk-start" }
-                            },
-                            [
-                              _c("input", {
-                                directives: [
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "col-md-12 col-lg-5 pull-right",
+                                staticStyle: { padding: "0" },
+                                attrs: { id: "tp2-err" }
+                              },
+                              [
+                                _c(
+                                  "div",
                                   {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.formData.start_date,
-                                    expression: "formData.start_date"
-                                  }
-                                ],
-                                staticClass: "form-control",
-                                attrs: { type: "text", readonly: "readonly" },
-                                domProps: { value: _vm.formData.start_date },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.formData,
-                                      "start_date",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _vm._m(10)
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "input-group date col-md-12 col-lg-5 pull-right",
-                              attrs: { id: "fw-dtpk-end" }
-                            },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.formData.end_date,
-                                    expression: "formData.end_date"
-                                  }
-                                ],
-                                staticClass: "form-control",
-                                attrs: { type: "text", readonly: "readonly" },
-                                domProps: { value: _vm.formData.end_date },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.formData,
-                                      "end_date",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _vm._m(11)
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ]
-                )
-              ])
-            ]
-          )
-        ])
+                                    staticClass: "input-group date",
+                                    staticStyle: { width: "100%" },
+                                    attrs: { id: "fw-dtpk-end" }
+                                  },
+                                  [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.formData.end_date,
+                                          expression: "formData.end_date"
+                                        }
+                                      ],
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        type: "text",
+                                        id: "dtp-end",
+                                        readonly: "readonly",
+                                        "data-parsley-errors-container":
+                                          "#tp2-err",
+                                        "data-parsley-validate-if-empty": "",
+                                        "data-parsley-valid-date": "auto_end"
+                                      },
+                                      domProps: {
+                                        value: _vm.formData.end_date
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.formData,
+                                            "end_date",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(11)
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]
+        )
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(12)
   ])
 }
 var staticRenderFns = [
@@ -14668,30 +14932,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "label",
-        { staticClass: "control-label col-md-3 col-sm-3 col-xs-12" },
-        [
-          _vm._v("Titulo "),
-          _c("span", { staticClass: "required" }, [_vm._v("*")])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            id: "pley-name",
-            type: "text",
-            placeholder: "Titulo de Votacion",
-            required: "",
-            "data-parsley-type": "alphanum",
-            "data-parsley-length": "[5, 40]"
-          }
-        })
-      ])
-    ])
+    return _c(
+      "label",
+      { staticClass: "control-label col-md-3 col-sm-3 col-xs-12" },
+      [
+        _vm._v("Titulo "),
+        _c("span", { staticClass: "required" }, [_vm._v("*")])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -14710,28 +14958,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "label",
-        { staticClass: "control-label col-md-3 col-sm-3 col-xs-12" },
-        [
-          _vm._v("Descripcion "),
-          _c("span", { staticClass: "required" }, [_vm._v("*")])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: {
-            placeholder: "Descripcion breve de la Votacion",
-            rows: "5",
-            required: "",
-            "data-parsley-length": "[40, 450]"
-          }
-        })
-      ])
-    ])
+    return _c(
+      "label",
+      { staticClass: "control-label col-md-3 col-sm-3 col-xs-12" },
+      [
+        _vm._v("Descripcion "),
+        _c("span", { staticClass: "required" }, [_vm._v("*")])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -14780,7 +15014,11 @@ var staticRenderFns = [
                 _c("label", [
                   _c("input", {
                     staticClass: "flat",
-                    attrs: { type: "radio", checked: "", name: "pholder" }
+                    attrs: {
+                      type: "radio",
+                      value: "whitelist",
+                      name: "admition"
+                    }
                   }),
                   _vm._v(" Lista Blanca\n                                ")
                 ])
@@ -14790,7 +15028,12 @@ var staticRenderFns = [
                 _c("label", [
                   _c("input", {
                     staticClass: "flat",
-                    attrs: { type: "radio", name: "pholder" }
+                    attrs: {
+                      type: "radio",
+                      value: "all",
+                      name: "admition",
+                      checked: ""
+                    }
                   }),
                   _vm._v(" Todo el Mundo\n                                ")
                 ])
@@ -14859,7 +15102,8 @@ var staticRenderFns = [
                       staticClass: "flat",
                       attrs: {
                         type: "checkbox",
-                        name: "phold2",
+                        id: "auth_cu",
+                        name: "auth_type",
                         checked: "checked",
                         required: "",
                         "data-parsley-mincheck": "1",
@@ -14874,7 +15118,11 @@ var staticRenderFns = [
                   _c("label", [
                     _c("input", {
                       staticClass: "flat",
-                      attrs: { type: "checkbox", name: "phold2" }
+                      attrs: {
+                        type: "checkbox",
+                        id: "auth_email",
+                        name: "auth_type"
+                      }
                     }),
                     _vm._v(
                       " Invitacion Por Email\n                            "
@@ -14886,7 +15134,11 @@ var staticRenderFns = [
                   _c("label", [
                     _c("input", {
                       staticClass: "flat",
-                      attrs: { type: "checkbox", name: "phold2" }
+                      attrs: {
+                        type: "checkbox",
+                        id: "auth_rut",
+                        name: "auth_type"
+                      }
                     }),
                     _vm._v(" Usando RUT "),
                     _c("small", [_vm._v("(Muy inseguro)")])
@@ -14983,6 +15235,38 @@ var staticRenderFns = [
     return _c("span", { staticClass: "input-group-addon" }, [
       _c("span", { staticClass: "glyphicon glyphicon-calendar" })
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "sk-cube-grid",
+        staticStyle: { display: "none" },
+        attrs: { id: "requestLoader" }
+      },
+      [
+        _c("div", { staticClass: "sk-cube sk-cube1" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sk-cube sk-cube2" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sk-cube sk-cube3" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sk-cube sk-cube4" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sk-cube sk-cube5" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sk-cube sk-cube6" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sk-cube sk-cube7" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sk-cube sk-cube8" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sk-cube sk-cube9" })
+      ]
+    )
   }
 ]
 render._withStripped = true
