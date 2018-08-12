@@ -42,27 +42,35 @@ class VotationController extends Controller
 
     public function store(StorePollRequest $request)
     {
-        $data = $request->only(['vote-subdom','vote-title','vote-desc','vote-from','vote-to']);
-
-        if (!$this->createDatabase($data['vote-subdom'])){
+        //$data = $request->only(['vote-subdom','vote-title','vote-desc','vote-from','vote-to']);
+        
+        /* if (!$this->createDatabase($data['vote-subdom'])){
             $request->session()->flash('message', 'Ha ocurrido un error inesperado, por favor vuelva a intentar mas tarde.');
             $request->session()->flash('msg-head', 'Opps! ');
             $request->session()->flash('msg-type', 'danger');
             return redirect()->route('home');
-        }
-
+        } */
+        
+        $data = $request->all();
         Votation::create([
-            'subdom'    => $data['vote-subdom'],
-            'title'     => $data['vote-title'],
-            'description' => $data['vote-desc'],
-            'start_time' => $data['vote-from'],
-            'end_time'  => $data['vote-to'],
+            'subdom'    => $data['subdomain'],
+            'title'     => $data['title'],
+            'description' => $data['description'],
+            'admition_type' => $data['admition'],
+            'user_enc'  => $data['user_enc'],
+            'auth_cu'   => $data['auth_cu'],
+            'auth_email'=> $data['auth_email'],
+            'auth_rut'  => $data['auth_rut'],
+            'start_time'=> $data['start_datetime'],
+            'end_time'  => $data['end_datetime'],
             'user_id'   => Auth::user()->id,
         ]);
+            
+        return response()->json(['message' => 'Votation Created'], 200);
 
-        $request->session()->flash('message', 'Se ha creado una nueva votacion de forma satisfactoria.');
+        /* $request->session()->flash('message', 'Se ha creado una nueva votacion de forma satisfactoria.');
         $request->session()->flash('msg-type', 'success');
-        return redirect('/home');
+        return redirect('/home'); */
     }
 
     public function destroy(Request $request)

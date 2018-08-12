@@ -47,9 +47,7 @@ $appRouting = function () {
             return response()->json(compact("available"), 200);
         });
 
-        Route::post('/api/storepoll', function() {
-            return response()->json(request()->all(), 200);
-        });
+        Route::post('/api/storepoll', 'VotationController@store');
     });
     
     /*Non logged users Only */

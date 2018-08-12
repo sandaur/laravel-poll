@@ -103,13 +103,12 @@
                                         v-on:blur="isSubdomAvailable(formData.subdomain)"
                                         v-on:input="checkSubdom">
                                     <span class="input-group-addon" id="newpoll-subdomain">.larapoll.test/urna</span>
-                                    <!--  --> <span v-if="!subdomLoading" id="subdom-check" :class="{ 'ok':subdomAvail, 'notok':!subdomAvail }"></span>
-                                    <div  v-if="subdomLoading" class="sk-folding-cube subdom-load">
-                                        <div class="sk-cube1 sk-cube"></div>
-                                        <div class="sk-cube2 sk-cube"></div>
-                                        <div class="sk-cube4 sk-cube"></div>
-                                        <div class="sk-cube3 sk-cube"></div>
+                                    
+                                    <span v-if="!subdomLoading" id="subdom-check" :class="{ 'ok':subdomAvail, 'notok':!subdomAvail }"></span>
+                                    <div v-if="subdomLoading" style="position: absolute; top: -85px; right: -16px;">
+                                        <div class="spin-loader"></div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -306,6 +305,10 @@
         <div class="sk-cube sk-cube8"></div>
         <div class="sk-cube sk-cube9"></div>
         </div>
+
+        <div>
+        <div class="loader"></div>
+        </div>
     </div>
 </template>
 
@@ -330,10 +333,11 @@
                 subdomAvail: false,
                 lastCheckedSubdom: '',
 
-                autoCheckTimeout: null,
+                autoCheckTimeout: null, // comprueba disponivilidad de subdominio cada x ms
                 subdomChecked: true,
 
                 submitingRequest: false,
+                dateTimeFormat: 'DD/MM/YYYY hh:mm A',
             }
         },
         methods: {
@@ -364,7 +368,7 @@
                 });
             },
             submitPollRequest(){
-                if (this.submitingRequest){console.log('** Waiting for other request response **'); return false;}
+                if (this.submitingRequest){console.log("** Waiting for other's request response **"); return false;}
                 let requestData = {
                     title: this.formData.title,
                     subdomain: this.formData.subdomain,
@@ -374,14 +378,10 @@
                     auth_email: this.getCheckBoxValue('auth_email'),
                     auth_rut: this.getCheckBoxValue('auth_rut'),
                     user_enc: this.getCheckBoxValue('user_enc'),
-                    auto_start: {
-                        active: this.getCheckBoxValue('auto_start'),
-                        datetime: moment($('#dtp-start').val().trim(),'DD/MM/YYYY hh:mm A').unix()
-                    },
-                    auto_end: {
-                        active: this.getCheckBoxValue('auto_end'),
-                        datetime: moment($('#dtp-end').val().trim(),'DD/MM/YYYY hh:mm A').unix()
-                    }
+                    start_active: this.getCheckBoxValue('auto_start'),
+                    start_datetime: (this.getCheckBoxValue('auto_start'))?$('#dtp-start').val().trim(): null,
+                    end_active: this.getCheckBoxValue('auto_end'),
+                    end_datetime: (this.getCheckBoxValue('auto_end'))?$('#dtp-end').val().trim(): null,
                 };
                 console.log(requestData);
 
@@ -395,16 +395,29 @@
                         '-webkit-border-radius': '10px', 
                         '-moz-border-radius': '10px', 
                         opacity: .5
-                    },overlayCSS:  { 
+                    },
+                    overlayCSS: { 
                         backgroundColor: '#fff', 
-                        opacity:         1, 
-                        cursor:          'wait' 
+                        opacity: 1, 
+                        cursor: 'wait' 
                     },
                 });
                 axios.post('/api/storepoll', requestData)
                 .then(response => {
+                    new PNotify({
+                        title: 'Votacion Creada',
+                        text: 'Has creado exitosamente una nueva votación, asegúrate de revisar las configuraciones.',
+                        type: 'success',
+                        styling: 'bootstrap3'
+                    });
                     console.log(response);
                 }).catch(({response}) => {
+                    new PNotify({
+                        title: 'Ha ocurrido un problema.',
+                        text: 'Por favor intente recargar la pagina. Si el error persiste contacte con el administrador.',
+                        type: 'error',
+                        styling: 'bootstrap3'
+                    });
                     console.log(response);
                 }).finally(() => {
                     this.submitingRequest = false;
@@ -453,13 +466,9 @@
 
                 $("#fw-dtpk-start").on("dp.change", function (e) {
                     $('#fw-dtpk-end').data("DateTimePicker").minDate(e.date);
-                    if(vueRef.getCheckBoxValue('auto_end')){
-                    }
                 });
                 $("#fw-dtpk-end").on("dp.change", function (e) {
                     $('#fw-dtpk-start').data("DateTimePicker").maxDate(e.date);
-                    if (vueRef.getCheckBoxValue('auto_start')){
-                    }
                 });
             },
             getCheckBoxValue(id){
@@ -471,16 +480,15 @@
             $(document).ready(function(){
 
                 /*Date Time Pickers SetUp*/
-                let dateTimeFormat = 'DD/MM/YYYY hh:mm A';
                 $('#fw-dtpk-start').datetimepicker({
-                    format: dateTimeFormat,
+                    format: vueRef.dateTimeFormat,
                     ignoreReadonly: true,
                     allowInputToggle: true,
                     locale: 'es',
                     useCurrent: false,
                 });
                 $('#fw-dtpk-end').datetimepicker({
-                    format: dateTimeFormat,
+                    format: vueRef.dateTimeFormat,
                     ignoreReadonly: true,
                     allowInputToggle: true,
                     locale: 'es',
@@ -505,7 +513,7 @@
                     requirementType: 'string',
                     validateString: function(value, requirement) {
                         if (!$('#'+requirement).prop('checked')){return true;}
-                        return moment(value.trim(), dateTimeFormat, true).isValid();
+                        return moment(value.trim(), vueRef.dateTimeFormat, true).isValid();
                     },
                     messages: {
                         es: 'Necesita espesificar una fecha valida.',
@@ -580,104 +588,108 @@
         right: -2rem;
         top: .8rem;
         display: none;
+
+        
     }
-    #subdom-check.ok{background-color: #2ecc71; display: inherit;}
-    #subdom-check.notok{background-color: #c0392b;  display: inherit;}
+
+    #subdom-check.ok, #subdom-check.notok{
+        animation-name: bounce;
+        animation-duration: .2s;
+        animation-fill-mode: forwards;
+        display: inherit;
+    }
+
+    #subdom-check.ok{
+        background-color: #2ecc71;
+        border: 1px solid #95a5a6;
+    }
+    #subdom-check.notok{
+        background-color: #e74c3c;
+        border: 1px solid #95a5a6;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: scale(.2,.2);
+        }
+        80% {
+            transform: scale(1.2,1.2);
+        }
+        100% {
+            transform: scale(1,1);
+        }
+    }
 
     /*Loader 1 para verificar subdominio*/
-    .subdom-load {
-            position: absolute !important;
-            top: -12px;
-            right: -25px;
-    }
-
-    .sk-folding-cube {
-    margin: 20px auto;
-    width: 14px;
-    height: 14px;
-    position: relative;
-    -webkit-transform: rotateZ(45deg);
-            transform: rotateZ(45deg);
-    }
-
-    .sk-folding-cube .sk-cube {
-    float: left;
-    width: 50%;
-    height: 50%;
-    position: relative;
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-            transform: scale(1.1); 
-    }
-    .sk-folding-cube .sk-cube:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #333;
-    -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
-            animation: sk-foldCubeAngle 2.4s infinite linear both;
-    -webkit-transform-origin: 100% 100%;
-        -ms-transform-origin: 100% 100%;
-            transform-origin: 100% 100%;
-    }
-    .sk-folding-cube .sk-cube2 {
-    -webkit-transform: scale(1.1) rotateZ(90deg);
-            transform: scale(1.1) rotateZ(90deg);
-    }
-    .sk-folding-cube .sk-cube3 {
-    -webkit-transform: scale(1.1) rotateZ(180deg);
-            transform: scale(1.1) rotateZ(180deg);
-    }
-    .sk-folding-cube .sk-cube4 {
-    -webkit-transform: scale(1.1) rotateZ(270deg);
-            transform: scale(1.1) rotateZ(270deg);
-    }
-    .sk-folding-cube .sk-cube2:before {
-    -webkit-animation-delay: 0.3s;
-            animation-delay: 0.3s;
-    }
-    .sk-folding-cube .sk-cube3:before {
-    -webkit-animation-delay: 0.6s;
-            animation-delay: 0.6s; 
-    }
-    .sk-folding-cube .sk-cube4:before {
-    -webkit-animation-delay: 0.9s;
-            animation-delay: 0.9s;
-    }
-    @-webkit-keyframes sk-foldCubeAngle {
-    0%, 10% {
-        -webkit-transform: perspective(140px) rotateX(-180deg);
-                transform: perspective(140px) rotateX(-180deg);
-        opacity: 0; 
-    } 25%, 75% {
-        -webkit-transform: perspective(140px) rotateX(0deg);
-                transform: perspective(140px) rotateX(0deg);
-        opacity: 1; 
-    } 90%, 100% {
-        -webkit-transform: perspective(140px) rotateY(180deg);
-                transform: perspective(140px) rotateY(180deg);
-        opacity: 0; 
-    } 
-    }
-
-    @keyframes sk-foldCubeAngle {
-    0%, 10% {
-        -webkit-transform: perspective(140px) rotateX(-180deg);
-                transform: perspective(140px) rotateX(-180deg);
-        opacity: 0; 
-    } 25%, 75% {
-        -webkit-transform: perspective(140px) rotateX(0deg);
-                transform: perspective(140px) rotateX(0deg);
-        opacity: 1; 
-    } 90%, 100% {
-        -webkit-transform: perspective(140px) rotateY(180deg);
-                transform: perspective(140px) rotateY(180deg);
-        opacity: 0; 
-    }
-    }
+.spin-loader {
+  color: #000;
+  font-size: 3px;
+  margin: 100px auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
 
     /* Loader 2 para Request */
 

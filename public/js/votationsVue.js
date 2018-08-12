@@ -13475,7 +13475,7 @@ exports = module.exports = __webpack_require__(41)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /*SmartWizard FIX*/\n.stepContainer{overflow: visible !important; height: auto !important;\n}\n.actionBar a.btn{float: right;\n}\n#subdom-check{\n        height: 14px;\n        width: 14px;\n        position: absolute;\n        border-radius: 7px;\n        right: -2rem;\n        top: .8rem;\n        display: none;\n}\n#subdom-check.ok{background-color: #2ecc71; display: inherit;\n}\n#subdom-check.notok{background-color: #c0392b;  display: inherit;\n}\n\n    /*Loader 1 para verificar subdominio*/\n.subdom-load {\n            position: absolute !important;\n            top: -12px;\n            right: -25px;\n}\n.sk-folding-cube {\n    margin: 20px auto;\n    width: 14px;\n    height: 14px;\n    position: relative;\n    -webkit-transform: rotateZ(45deg);\n            transform: rotateZ(45deg);\n}\n.sk-folding-cube .sk-cube {\n    float: left;\n    width: 50%;\n    height: 50%;\n    position: relative;\n    -webkit-transform: scale(1.1);\n        -ms-transform: scale(1.1);\n            transform: scale(1.1);\n}\n.sk-folding-cube .sk-cube:before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: #333;\n    -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;\n            animation: sk-foldCubeAngle 2.4s infinite linear both;\n    -webkit-transform-origin: 100% 100%;\n        -ms-transform-origin: 100% 100%;\n            transform-origin: 100% 100%;\n}\n.sk-folding-cube .sk-cube2 {\n    -webkit-transform: scale(1.1) rotateZ(90deg);\n            transform: scale(1.1) rotateZ(90deg);\n}\n.sk-folding-cube .sk-cube3 {\n    -webkit-transform: scale(1.1) rotateZ(180deg);\n            transform: scale(1.1) rotateZ(180deg);\n}\n.sk-folding-cube .sk-cube4 {\n    -webkit-transform: scale(1.1) rotateZ(270deg);\n            transform: scale(1.1) rotateZ(270deg);\n}\n.sk-folding-cube .sk-cube2:before {\n    -webkit-animation-delay: 0.3s;\n            animation-delay: 0.3s;\n}\n.sk-folding-cube .sk-cube3:before {\n    -webkit-animation-delay: 0.6s;\n            animation-delay: 0.6s;\n}\n.sk-folding-cube .sk-cube4:before {\n    -webkit-animation-delay: 0.9s;\n            animation-delay: 0.9s;\n}\n@-webkit-keyframes sk-foldCubeAngle {\n0%, 10% {\n        -webkit-transform: perspective(140px) rotateX(-180deg);\n                transform: perspective(140px) rotateX(-180deg);\n        opacity: 0;\n}\n25%, 75% {\n        -webkit-transform: perspective(140px) rotateX(0deg);\n                transform: perspective(140px) rotateX(0deg);\n        opacity: 1;\n}\n90%, 100% {\n        -webkit-transform: perspective(140px) rotateY(180deg);\n                transform: perspective(140px) rotateY(180deg);\n        opacity: 0;\n}\n}\n@keyframes sk-foldCubeAngle {\n0%, 10% {\n        -webkit-transform: perspective(140px) rotateX(-180deg);\n                transform: perspective(140px) rotateX(-180deg);\n        opacity: 0;\n}\n25%, 75% {\n        -webkit-transform: perspective(140px) rotateX(0deg);\n                transform: perspective(140px) rotateX(0deg);\n        opacity: 1;\n}\n90%, 100% {\n        -webkit-transform: perspective(140px) rotateY(180deg);\n                transform: perspective(140px) rotateY(180deg);\n        opacity: 0;\n}\n}\n\n    /* Loader 2 para Request */\n.sk-cube-grid {\n  width: 80px;\n  height: 80px;\n  margin: 100px auto;\n}\n.sk-cube-grid .sk-cube {\n  width: 33%;\n  height: 33%;\n  background-color: #27ae60;\n  float: left;\n  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n}\n.sk-cube-grid .sk-cube1 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube2 {\n  -webkit-animation-delay: 0.3s;\n          animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube3 {\n  -webkit-animation-delay: 0.4s;\n          animation-delay: 0.4s;\n}\n.sk-cube-grid .sk-cube4 {\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube5 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube6 {\n  -webkit-animation-delay: 0.3s;\n          animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube7 {\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n}\n.sk-cube-grid .sk-cube8 {\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube9 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n@-webkit-keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n@keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /*SmartWizard FIX*/\n.stepContainer{overflow: visible !important; height: auto !important;\n}\n.actionBar a.btn{float: right;\n}\n#subdom-check{\n        height: 14px;\n        width: 14px;\n        position: absolute;\n        border-radius: 7px;\n        right: -2rem;\n        top: .8rem;\n        display: none;\n}\n#subdom-check.ok, #subdom-check.notok{\n        animation-name: bounce;\n        animation-duration: .2s;\n        animation-fill-mode: forwards;\n        display: inherit;\n}\n#subdom-check.ok{\n        background-color: #2ecc71;\n        border: 1px solid #95a5a6;\n}\n#subdom-check.notok{\n        background-color: #e74c3c;\n        border: 1px solid #95a5a6;\n}\n@keyframes bounce {\n0% {\n            transform: scale(.2,.2);\n}\n80% {\n            transform: scale(1.2,1.2);\n}\n100% {\n            transform: scale(1,1);\n}\n}\n\n    /*Loader 1 para verificar subdominio*/\n.spin-loader {\n  color: #000;\n  font-size: 3px;\n  margin: 100px auto;\n  width: 1em;\n  height: 1em;\n  border-radius: 50%;\n  position: relative;\n  text-indent: -9999em;\n  -webkit-animation: load4 1.3s infinite linear;\n  animation: load4 1.3s infinite linear;\n  -webkit-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  transform: translateZ(0);\n}\n@-webkit-keyframes load4 {\n0%,\n  100% {\n    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;\n}\n12.5% {\n    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n25% {\n    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n37.5% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n50% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n62.5% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;\n}\n75% {\n    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;\n}\n87.5% {\n    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;\n}\n}\n@keyframes load4 {\n0%,\n  100% {\n    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;\n}\n12.5% {\n    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n25% {\n    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n37.5% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n50% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n62.5% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;\n}\n75% {\n    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;\n}\n87.5% {\n    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;\n}\n}\n\n    /* Loader 2 para Request */\n.sk-cube-grid {\n  width: 80px;\n  height: 80px;\n  margin: 100px auto;\n}\n.sk-cube-grid .sk-cube {\n  width: 33%;\n  height: 33%;\n  background-color: #27ae60;\n  float: left;\n  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n}\n.sk-cube-grid .sk-cube1 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube2 {\n  -webkit-animation-delay: 0.3s;\n          animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube3 {\n  -webkit-animation-delay: 0.4s;\n          animation-delay: 0.4s;\n}\n.sk-cube-grid .sk-cube4 {\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube5 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube6 {\n  -webkit-animation-delay: 0.3s;\n          animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube7 {\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n}\n.sk-cube-grid .sk-cube8 {\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube9 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n@-webkit-keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n@keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n\n", ""]);
 
 // exports
 
@@ -14140,6 +14140,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /*
  *  BUGS:
@@ -14161,10 +14164,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             subdomAvail: false,
             lastCheckedSubdom: '',
 
-            autoCheckTimeout: null,
+            autoCheckTimeout: null, // comprueba disponivilidad de subdominio cada x ms
             subdomChecked: true,
 
-            submitingRequest: false
+            submitingRequest: false,
+            dateTimeFormat: 'DD/MM/YYYY hh:mm A'
         };
     },
 
@@ -14203,7 +14207,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             if (this.submitingRequest) {
-                console.log('** Waiting for other request response **');return false;
+                console.log("** Waiting for other's request response **");return false;
             }
             var requestData = {
                 title: this.formData.title,
@@ -14214,14 +14218,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 auth_email: this.getCheckBoxValue('auth_email'),
                 auth_rut: this.getCheckBoxValue('auth_rut'),
                 user_enc: this.getCheckBoxValue('user_enc'),
-                auto_start: {
-                    active: this.getCheckBoxValue('auto_start'),
-                    datetime: moment($('#dtp-start').val().trim(), 'DD/MM/YYYY hh:mm A').unix()
-                },
-                auto_end: {
-                    active: this.getCheckBoxValue('auto_end'),
-                    datetime: moment($('#dtp-end').val().trim(), 'DD/MM/YYYY hh:mm A').unix()
-                }
+                start_active: this.getCheckBoxValue('auto_start'),
+                start_datetime: this.getCheckBoxValue('auto_start') ? $('#dtp-start').val().trim() : null,
+                end_active: this.getCheckBoxValue('auto_end'),
+                end_datetime: this.getCheckBoxValue('auto_end') ? $('#dtp-end').val().trim() : null
             };
             console.log(requestData);
 
@@ -14235,17 +14235,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     '-webkit-border-radius': '10px',
                     '-moz-border-radius': '10px',
                     opacity: .5
-                }, overlayCSS: {
+                },
+                overlayCSS: {
                     backgroundColor: '#fff',
                     opacity: 1,
                     cursor: 'wait'
                 }
             });
             axios.post('/api/storepoll', requestData).then(function (response) {
+                new PNotify({
+                    title: 'Votacion Creada',
+                    text: 'Has creado exitosamente una nueva votación, asegúrate de revisar las configuraciones.',
+                    type: 'success',
+                    styling: 'bootstrap3'
+                });
                 console.log(response);
             }).catch(function (_ref2) {
                 var response = _ref2.response;
 
+                new PNotify({
+                    title: 'Ha ocurrido un problema.',
+                    text: 'Por favor intente recargar la pagina. Si el error persiste contacte con el administrador.',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
                 console.log(response);
             }).finally(function () {
                 _this2.submitingRequest = false;
@@ -14296,11 +14309,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             $("#fw-dtpk-start").on("dp.change", function (e) {
                 $('#fw-dtpk-end').data("DateTimePicker").minDate(e.date);
-                if (vueRef.getCheckBoxValue('auto_end')) {}
             });
             $("#fw-dtpk-end").on("dp.change", function (e) {
                 $('#fw-dtpk-start').data("DateTimePicker").maxDate(e.date);
-                if (vueRef.getCheckBoxValue('auto_start')) {}
             });
         },
         getCheckBoxValue: function getCheckBoxValue(id) {
@@ -14312,16 +14323,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         $(document).ready(function () {
 
             /*Date Time Pickers SetUp*/
-            var dateTimeFormat = 'DD/MM/YYYY hh:mm A';
             $('#fw-dtpk-start').datetimepicker({
-                format: dateTimeFormat,
+                format: vueRef.dateTimeFormat,
                 ignoreReadonly: true,
                 allowInputToggle: true,
                 locale: 'es',
                 useCurrent: false
             });
             $('#fw-dtpk-end').datetimepicker({
-                format: dateTimeFormat,
+                format: vueRef.dateTimeFormat,
                 ignoreReadonly: true,
                 allowInputToggle: true,
                 locale: 'es',
@@ -14346,7 +14356,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     if (!$('#' + requirement).prop('checked')) {
                         return true;
                     }
-                    return moment(value.trim(), dateTimeFormat, true).isValid();
+                    return moment(value.trim(), vueRef.dateTimeFormat, true).isValid();
                 },
                 messages: {
                     es: 'Necesita espesificar una fecha valida.'
@@ -14566,25 +14576,13 @@ var render = function() {
                                 ? _c(
                                     "div",
                                     {
-                                      staticClass: "sk-folding-cube subdom-load"
+                                      staticStyle: {
+                                        position: "absolute",
+                                        top: "-85px",
+                                        right: "-16px"
+                                      }
                                     },
-                                    [
-                                      _c("div", {
-                                        staticClass: "sk-cube1 sk-cube"
-                                      }),
-                                      _vm._v(" "),
-                                      _c("div", {
-                                        staticClass: "sk-cube2 sk-cube"
-                                      }),
-                                      _vm._v(" "),
-                                      _c("div", {
-                                        staticClass: "sk-cube4 sk-cube"
-                                      }),
-                                      _vm._v(" "),
-                                      _c("div", {
-                                        staticClass: "sk-cube3 sk-cube"
-                                      })
-                                    ]
+                                    [_c("div", { staticClass: "spin-loader" })]
                                   )
                                 : _vm._e()
                             ])
@@ -14798,7 +14796,9 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(12)
+    _vm._m(12),
+    _vm._v(" "),
+    _vm._m(13)
   ])
 }
 var staticRenderFns = [
@@ -15267,6 +15267,12 @@ var staticRenderFns = [
         _c("div", { staticClass: "sk-cube sk-cube9" })
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("div", { staticClass: "loader" })])
   }
 ]
 render._withStripped = true

@@ -7,7 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Votation extends Model
 {
     protected $fillable = [
-        'subdom', 'title', 'description','start_time','end_time','user_id'
+        'subdom',
+        'title',
+        'description',
+        'user_enc',
+        'auth_cu',
+        'auth_email',
+        'auth_rut',
+        'admition_type',
+        'start_time',
+        'end_time',
+        'user_id'
     ];
 
     public function user()

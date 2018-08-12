@@ -25,6 +25,10 @@ mix.styles([
     'node_modules/gentelella/vendors/nprogress/nprogress.css',
     'node_modules/gentelella/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css',
     'node_modules/gentelella/build/css/custom.min.css',
+    // pNotify
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.css',
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.buttons.css',
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.nonblock.css',
 ], 'public/css/master.css');
 
 /*Master js */
@@ -34,10 +38,14 @@ mix.scripts([
     'node_modules/gentelella/vendors/fastclick/lib/fastclick.js',
     'node_modules/gentelella/vendors/nprogress/nprogress.js',
     'node_modules/gentelella/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
+    // pNotify
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.js',
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.buttons.js',
+    'node_modules/gentelella/vendors/pnotify/dist/pnotify.nonblock.js',
 ], 'public/js/master.js');
 
 mix.scripts([
-    'node_modules/gentelella/build/js/custom.min.js',
+    'resources/assets/js/custom.js',
 ], 'public/js/custom.min.js');
 
 

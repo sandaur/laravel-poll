@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePollRequest extends FormRequest
@@ -23,25 +24,33 @@ class StorePollRequest extends FormRequest
      */
     public function rules()
     {
-        $dateToRules = 'nullable|date_format:Y-m-d H:i';
+        $dateTimeFormat = 'd/m/Y h:i A';
+        $endDateRestriction = '';
 
-        if ($this->get('vote-from')) {
-            $dateToRules .= '|after:vote-from';
+        if ($this->get('start_datetime')) {
+            $endDateRestriction = '|after:start_datetime';
         }
 
-        return [
-            'vote-subdom'   => 'required|unique:votations,subdom|min:3|max:12|alpha_num',
-            'vote-title'    => 'required|min:3|max:35',
-            'vote-desc'     => 'required|min:40|max:350',
-            'vote-from'     => 'nullable|date_format:Y-m-d H:i',
-            'vote-to'       => $dateToRules,
+        return [ // coordinar restricciones con frontend
+            'subdomain'     => 'required|unique:votations,subdom|min:4|max:18|alpha_num',
+            'title'         => 'required|min:5|max:40',
+            'description'   => 'required|min:40|max:350',
+            'admition'      => ['required', Rule::in(['all', 'whitelist'])],
+            'user_enc'      => 'required|boolean',
+            'auth_cu'       => 'required|boolean',
+            'auth_email'    => 'required|boolean',
+            'auth_rut'      => 'required|boolean',
+            'start_active'  => 'required|boolean',
+            'end_active'    => 'required|boolean',
+            'start_datetime'=> 'nullable|required_if:start_active,true|date_format:'.$dateTimeFormat,
+            'end_datetime'  => 'nullable|required_if:end_active,true|date_format:'.$dateTimeFormat.$endDateRestriction,
         ];
     }
 
     public function messages()
     {
         return [
-            'vote-from.date_format' => 'La fecha ":input" no coincide con el formato :format.',
+            //'vote-from.date_format' => 'La fecha ":input" no coincide con el formato :format.',
         ];
     }
 }
