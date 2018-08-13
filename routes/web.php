@@ -11,7 +11,7 @@
 |
 */
 
-$site = 'uctvotation.xyz';
+$site = preg_replace('/http(s)?:\/\/(www.)?/', '', config('app.url'));
 
 /*Administrative site */
 $appRouting = function () {
