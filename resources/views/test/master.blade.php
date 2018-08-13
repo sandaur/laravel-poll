@@ -11,7 +11,7 @@
     <title>Lara Poll - @yield('title', 'PHolder')</title>
 
     <!-- Master -->
-    <link href="{{ secure_asset('css/master.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/master.css') }}" rel="stylesheet">
     @stack('styles')
 
   </head>
@@ -159,9 +159,9 @@
     </div>
 
     <!-- Master Script -->
-    <script src="{{ secure_asset('js/master.js') }}"></script>
+    <script src="{{ asset('js/master.js') }}"></script>
     @stack('scripts')
-    <script src="{{ secure_asset('js/custom.min.js') }}"></script>
+    <script src="{{ asset('js/custom.min.js') }}"></script>
 
   </body>
 </html>

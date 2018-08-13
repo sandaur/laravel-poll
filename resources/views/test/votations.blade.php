@@ -350,12 +350,12 @@
 @endsection
 
 @push('styles')
-    <link rel="stylesheet" href="{{ secure_asset('css/votations.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/votations.css') }}">
 @endpush
 
 @push('scripts')
-    <script src="{{ secure_asset('js/votations.js') }}"></script>
-    <script src="{{ secure_asset('js/votationsVue.js') }}"></script>
+    <script src="{{ asset('js/votations.js') }}"></script>
+    <script src="{{ asset('js/votationsVue.js') }}"></script>
 
     <script type="text/javascript">
         
