@@ -20,6 +20,8 @@ class Votation extends Model
         'user_id'
     ];
 
+    protected $dates = ['start_time', 'end_time'];
+
     public function user()
     {
         return $this->belongsTo(User::class);

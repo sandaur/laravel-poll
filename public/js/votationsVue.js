@@ -13296,7 +13296,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
+Component.options.__file = "resources\\assets\\js\\components\\ExampleComponent.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -13305,9 +13305,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
+    hotAPI.createRecord("data-v-0ca92eac", Component.options)
   } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
+    hotAPI.reload("data-v-0ca92eac", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -13385,7 +13385,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-0ca92eac", module.exports)
   }
 }
 
@@ -13419,7 +13419,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/forms/newPollForm.vue"
+Component.options.__file = "resources\\assets\\js\\components\\forms\\newPollForm.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -13428,9 +13428,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5699e308", Component.options)
+    hotAPI.createRecord("data-v-093b6d22", Component.options)
   } else {
-    hotAPI.reload("data-v-5699e308", Component.options)
+    hotAPI.reload("data-v-093b6d22", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -13451,13 +13451,13 @@ var content = __webpack_require__(40);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(42)("e6b3f54e", content, false, {});
+var update = __webpack_require__(42)("8d817b06", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5699e308\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./newPollForm.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5699e308\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./newPollForm.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-093b6d22\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./newPollForm.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-093b6d22\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./newPollForm.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -13475,7 +13475,7 @@ exports = module.exports = __webpack_require__(41)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /*SmartWizard FIX*/\n.stepContainer{overflow: visible !important; height: auto !important;\n}\n.actionBar a.btn{float: right;\n}\n#subdom-check{\n        height: 14px;\n        width: 14px;\n        position: absolute;\n        border-radius: 7px;\n        right: -2rem;\n        top: .8rem;\n        display: none;\n}\n#subdom-check.ok, #subdom-check.notok{\n        animation-name: bounce;\n        animation-duration: .2s;\n        animation-fill-mode: forwards;\n        display: inherit;\n}\n#subdom-check.ok{\n        background-color: #2ecc71;\n        border: 1px solid #95a5a6;\n}\n#subdom-check.notok{\n        background-color: #e74c3c;\n        border: 1px solid #95a5a6;\n}\n@keyframes bounce {\n0% {\n            transform: scale(.2,.2);\n}\n80% {\n            transform: scale(1.2,1.2);\n}\n100% {\n            transform: scale(1,1);\n}\n}\n\n    /*Loader 1 para verificar subdominio*/\n.spin-loader {\n  color: #000;\n  font-size: 3px;\n  margin: 100px auto;\n  width: 1em;\n  height: 1em;\n  border-radius: 50%;\n  position: relative;\n  text-indent: -9999em;\n  -webkit-animation: load4 1.3s infinite linear;\n  animation: load4 1.3s infinite linear;\n  -webkit-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  transform: translateZ(0);\n}\n@-webkit-keyframes load4 {\n0%,\n  100% {\n    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;\n}\n12.5% {\n    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n25% {\n    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n37.5% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n50% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n62.5% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;\n}\n75% {\n    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;\n}\n87.5% {\n    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;\n}\n}\n@keyframes load4 {\n0%,\n  100% {\n    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;\n}\n12.5% {\n    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n25% {\n    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n37.5% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n50% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n62.5% {\n    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;\n}\n75% {\n    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;\n}\n87.5% {\n    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;\n}\n}\n\n    /* Loader 2 para Request */\n.sk-cube-grid {\n  width: 80px;\n  height: 80px;\n  margin: 100px auto;\n}\n.sk-cube-grid .sk-cube {\n  width: 33%;\n  height: 33%;\n  background-color: #27ae60;\n  float: left;\n  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n}\n.sk-cube-grid .sk-cube1 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube2 {\n  -webkit-animation-delay: 0.3s;\n          animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube3 {\n  -webkit-animation-delay: 0.4s;\n          animation-delay: 0.4s;\n}\n.sk-cube-grid .sk-cube4 {\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube5 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube6 {\n  -webkit-animation-delay: 0.3s;\n          animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube7 {\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n}\n.sk-cube-grid .sk-cube8 {\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube9 {\n  -webkit-animation-delay: 0.2s;\n          animation-delay: 0.2s;\n}\n@-webkit-keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n@keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*SmartWizard FIX*/\n.stepContainer{overflow: visible !important; height: auto !important;\n}\n.actionBar a.btn{float: right;\n}\n\n/*Estilos para indicador de disponivilidad de subdominio*/\n#subdom-check{\n    height: 14px;\n    width: 14px;\n    position: absolute;\n    border-radius: 7px;\n    right: -2rem;\n    top: .8rem;\n    display: none;\n}\n#subdom-check.ok, #subdom-check.notok{\n    animation-name: bounce;\n    animation-duration: .2s;\n    animation-fill-mode: forwards;\n    display: inherit;\n}\n#subdom-check.ok{\n    background-color: #2ecc71;\n    border: 1px solid #95a5a6;\n}\n#subdom-check.notok{\n    background-color: #e74c3c;\n    border: 1px solid #95a5a6;\n}\n@keyframes bounce {\n0% {\n        transform: scale(.2,.2);\n}\n80% {\n        transform: scale(1.2,1.2);\n}\n100% {\n        transform: scale(1,1);\n}\n}\n\n/*Loader para verificar subdominio*/\n.spin-loader {\n    color: #000;\n    font-size: 3px;\n    margin: 100px auto;\n    width: 1em;\n    height: 1em;\n    border-radius: 50%;\n    position: relative;\n    text-indent: -9999em;\n    -webkit-animation: load4 1.3s infinite linear;\n    animation: load4 1.3s infinite linear;\n    -webkit-transform: translateZ(0);\n    -ms-transform: translateZ(0);\n    transform: translateZ(0);\n}\n@-webkit-keyframes load4 {\n0%,\n    100% {\n        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;\n}\n12.5% {\n        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n25% {\n        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n37.5% {\n        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n50% {\n        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n62.5% {\n        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;\n}\n75% {\n        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;\n}\n87.5% {\n        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;\n}\n}\n@keyframes load4 {\n0%,\n    100% {\n        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;\n}\n12.5% {\n        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n25% {\n        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;\n}\n37.5% {\n        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n50% {\n        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;\n}\n62.5% {\n        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;\n}\n75% {\n        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;\n}\n87.5% {\n        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;\n}\n}\n\n/* Loader para Request de Votacion */\n.sk-cube-grid {\nwidth: 80px;\nheight: 80px;\nmargin: 100px auto;\n}\n.sk-cube-grid .sk-cube {\nwidth: 33%;\nheight: 33%;\nbackground-color: #27ae60;\nfloat: left;\n-webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n        animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;\n}\n.sk-cube-grid .sk-cube1 {\n-webkit-animation-delay: 0.2s;\n        animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube2 {\n-webkit-animation-delay: 0.3s;\n        animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube3 {\n-webkit-animation-delay: 0.4s;\n        animation-delay: 0.4s;\n}\n.sk-cube-grid .sk-cube4 {\n-webkit-animation-delay: 0.1s;\n        animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube5 {\n-webkit-animation-delay: 0.2s;\n        animation-delay: 0.2s;\n}\n.sk-cube-grid .sk-cube6 {\n-webkit-animation-delay: 0.3s;\n        animation-delay: 0.3s;\n}\n.sk-cube-grid .sk-cube7 {\n-webkit-animation-delay: 0s;\n        animation-delay: 0s;\n}\n.sk-cube-grid .sk-cube8 {\n-webkit-animation-delay: 0.1s;\n        animation-delay: 0.1s;\n}\n.sk-cube-grid .sk-cube9 {\n-webkit-animation-delay: 0.2s;\n        animation-delay: 0.2s;\n}\n@-webkit-keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n@keyframes sk-cubeGridScaleDelay {\n0%, 70%, 100% {\n    -webkit-transform: scale3D(1, 1, 1);\n            transform: scale3D(1, 1, 1);\n}\n35% {\n    -webkit-transform: scale3D(0, 0, 1);\n            transform: scale3D(0, 0, 1);\n}\n}\n\n", ""]);
 
 // exports
 
@@ -14141,33 +14141,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /*
  *  BUGS:
- *      - DateTimePickers: Estando activados, los valores son eliminados al retroceder de etapa en el form wizard y cambiar un valor de una etapa aterior.
+ *      - DateTime Pickers no son restrinjidos si ambos estan activados y luego se activa y desactiva uno de ellos.
+ *      -*FIXED* DateTimePickers: Estando activados, los valores son eliminados al retroceder de etapa en el form wizard y cambiar un valor de una etapa aterior.
  * 
+ *  TODO: 
+ *      - Agregar textos de ayuda y corregir faltas ortograficas.
+ *      - Limpiar formulario al terminar una request exitosamente.
  */
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            formData: {
+            formData: { // otros inputs no incluidos por problemas con eventos inexistentes (culpa de plugins)
                 title: '',
                 subdomain: '',
-                description: '',
-                start_date: '',
-                end_date: ''
+                description: ''
             },
-            subdomLoading: false, // muestra icono de carga, detiene el avance durante axios call
-            subdomAvail: false,
-            lastCheckedSubdom: '',
+            subdomLoading: false, // muestra icono de carga
+            subdomAvail: false, // disponivilidad de ultimo dominio comprovado
+            lastCheckedSubdom: '', // guarda ultimo subdominio comprovado (evita repeticion)
 
-            autoCheckTimeout: null, // comprueba disponivilidad de subdominio cada x ms
-            subdomChecked: true,
+            autoCheckTimeout: null, // Timeout que comprueba disponivilidad de subdominio cada 500 ms despues de input
+            subdomChecked: true, // detiene el avance mientras se comprueba subdominio
 
-            submitingRequest: false,
+            submitingRequest: false, // muestra icono de carga
             dateTimeFormat: 'DD/MM/YYYY hh:mm A'
         };
     },
@@ -14186,6 +14186,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.subdomChecked = true;
                 return false;
             }
+
             this.subdomLoading = true;
             this.lastCheckedSubdom = trimedSubdom;
 
@@ -14242,6 +14243,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     cursor: 'wait'
                 }
             });
+
             axios.post('/api/storepoll', requestData).then(function (response) {
                 new PNotify({
                     title: 'Votacion Creada',
@@ -14268,6 +14270,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         checkSubdom: function checkSubdom() {
             var _this3 = this;
 
+            // Activa comprovacion de subdominio (en input)
             this.subdomChecked = false;
             if (this.autoCheckTimeout != null) {
                 clearTimeout(this.autoCheckTimeout);
@@ -14277,22 +14280,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, 500);
         },
         initializeTimePickControl: function initializeTimePickControl() {
+            // Control del acceso a los DateTimePickers
             var initEnabStart = $('input#auto_start').prop('checked');
             var initEnabEnd = $('input#auto_end').prop('checked');
 
             $('#fw-dtpk-start input').prop('disabled', !initEnabStart);
+            $('#fw-dtpk-start input').val(!initEnabStart ? 'Inicio Manual' : '');
             $('#fw-dtpk-end input').prop('disabled', !initEnabEnd);
-            this.formData.start_date = !initEnabStart ? 'Inicio Manual' : '';
-            this.formData.end_date = !initEnabEnd ? 'Termino Manual' : '';
+            $('#fw-dtpk-end input').val(!initEnabEnd ? 'Termino Manual' : '');
+
+            function clearDTPickerRestrictions() {
+                $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
+                $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
+                $('#fw-dtpk-start').data("DateTimePicker").clear();
+            }
 
             var vueRef = this;
             $('input#auto_start').on('ifToggled', function (event) {
                 var enableAutoStart = $(this).prop('checked');
                 $('#fw-dtpk-start input').prop('disabled', !enableAutoStart);
                 if (!enableAutoStart) {
-                    $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
-                    $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
-                    $('#fw-dtpk-start').data("DateTimePicker").clear();
+                    clearDTPickerRestrictions();
                 }
                 $('#fw-dtpk-start input').val(!enableAutoStart ? 'Inicio Manual' : '');
             });
@@ -14300,9 +14308,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var enableAutoEnd = $(this).prop('checked');
                 $('#fw-dtpk-end input').prop('disabled', !enableAutoEnd);
                 if (!enableAutoEnd) {
-                    $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
-                    $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
-                    $('#fw-dtpk-end').data("DateTimePicker").clear();
+                    clearDTPickerRestrictions();
                 }
                 $('#fw-dtpk-end input').val(!enableAutoEnd ? 'Termino Manual' : '');
             });
@@ -14337,7 +14343,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 locale: 'es',
                 useCurrent: false
             });
-
             vueRef.initializeTimePickControl();
 
             /*Parsley SetUp*/
@@ -14368,6 +14373,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var formOptions = $('#form-opt').parsley();
 
             /*Smart Wizard SetUp */
+
+            // validaciones de cada etapa de Smart Wizard
             var validateStep = function validateStep(step) {
                 if (step == 1) {
                     var formValid = formBasic.validate();
@@ -14378,7 +14385,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 } else if (step == 3) {
                     return formAuth.validate();
                 } else if (step == 4) {
-                    return formOptions.validate(); // hacer validacion con parsley
+                    return formOptions.validate();
                 } else {
                     return false;
                 }
@@ -14386,6 +14393,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var newPollWizard = $('#smartwizard');
 
+            // Llamado al cambiar de Paso
             var validateNextStep = function validateNextStep(event, direction) {
                 var from = direction.fromStep;
                 if (from >= direction.toStep) {
@@ -14394,8 +14402,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return validateStep(from);
             };
 
+            // LLamado al terminar 
             var finishNewPoll = function finishNewPoll(event, direction) {
                 for (var stepNum = 1; stepNum <= 4; stepNum++) {
+                    // comprueba todos los inputs una ultima vez
                     if (!validateStep(stepNum)) {
                         if (stepNum != newPollWizard.smartWizard('currentStep')) {
                             newPollWizard.smartWizard('goToStep', stepNum);
@@ -14638,157 +14648,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm._m(7),
                 _vm._v(" "),
-                _c("div", { attrs: { id: "step-4" } }, [
-                  _c(
-                    "form",
-                    {
-                      staticClass: "form-horizontal form-label-left",
-                      staticStyle: { padding: ".5rem 0" },
-                      attrs: { id: "form-opt" }
-                    },
-                    [
-                      _vm._m(8),
-                      _vm._v(" "),
-                      _vm._m(9),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass:
-                              "control-label col-md-3 col-sm-3 col-xs-12"
-                          },
-                          [_vm._v("Inicio /Termino ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "col-md-6 col-sm-6 col-xs-12 form-inline"
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "col-md-12 col-lg-5",
-                                staticStyle: { padding: "0" },
-                                attrs: { id: "tp1-err" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "input-group date",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { id: "fw-dtpk-start" }
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.formData.start_date,
-                                          expression: "formData.start_date"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "text",
-                                        id: "dtp-start",
-                                        readonly: "readonly",
-                                        "data-parsley-errors-container":
-                                          "#tp1-err",
-                                        "data-parsley-validate-if-empty": "",
-                                        "data-parsley-valid-date": "auto_start"
-                                      },
-                                      domProps: {
-                                        value: _vm.formData.start_date
-                                      },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.formData,
-                                            "start_date",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _vm._m(10)
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "col-md-12 col-lg-5 pull-right",
-                                staticStyle: { padding: "0" },
-                                attrs: { id: "tp2-err" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "input-group date",
-                                    staticStyle: { width: "100%" },
-                                    attrs: { id: "fw-dtpk-end" }
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.formData.end_date,
-                                          expression: "formData.end_date"
-                                        }
-                                      ],
-                                      staticClass: "form-control",
-                                      attrs: {
-                                        type: "text",
-                                        id: "dtp-end",
-                                        readonly: "readonly",
-                                        "data-parsley-errors-container":
-                                          "#tp2-err",
-                                        "data-parsley-validate-if-empty": "",
-                                        "data-parsley-valid-date": "auto_end"
-                                      },
-                                      domProps: {
-                                        value: _vm.formData.end_date
-                                      },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.formData,
-                                            "end_date",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _vm._m(11)
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ])
+                _vm._m(8)
               ]
             )
           ]
@@ -14796,9 +14656,9 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(12),
+    _vm._m(9),
     _vm._v(" "),
-    _vm._m(13)
+    _vm._m(10)
   ])
 }
 var staticRenderFns = [
@@ -15155,85 +15015,173 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "control-label col-md-3 col-sm-3 col-xs-12" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
-        _c("h2", [_vm._v("Opciones Adicionales")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-justify" }, [
-          _vm._v(
-            "\n                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam ullam corrupti\n                                molestias amet consectetur fuga debitis sed, accusantium et mollitia perspiciatis\n                                repudiandae natus nostrum cum eos maiores at temporibus quidem minus quis quasi? \n                                Libero eveniet numquam dolorum exercitationem nemo dignissimos.\n                            "
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
+    return _c("div", { attrs: { id: "step-4" } }, [
       _c(
-        "label",
-        { staticClass: "col-md-3 col-sm-3 col-xs-12 control-label" },
+        "form",
+        {
+          staticClass: "form-horizontal form-label-left",
+          staticStyle: { padding: ".5rem 0" },
+          attrs: { id: "form-opt" }
+        },
         [
-          _vm._v("Opciones de Votacion\n                            "),
-          _c("br"),
+          _c("div", { staticClass: "form-group" }, [
+            _c("div", {
+              staticClass: "control-label col-md-3 col-sm-3 col-xs-12"
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
+              _c("h2", [_vm._v("Opciones Adicionales")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-justify" }, [
+                _vm._v(
+                  "\n                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam ullam corrupti\n                                molestias amet consectetur fuga debitis sed, accusantium et mollitia perspiciatis\n                                repudiandae natus nostrum cum eos maiores at temporibus quidem minus quis quasi? \n                                Libero eveniet numquam dolorum exercitationem nemo dignissimos.\n                            "
+                )
+              ])
+            ])
+          ]),
           _vm._v(" "),
-          _c("small", { staticClass: "text-navy" }, [
-            _vm._v("Se recomiendo encriptar.")
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
+              { staticClass: "col-md-3 col-sm-3 col-xs-12 control-label" },
+              [
+                _vm._v("Opciones de Votacion\n                            "),
+                _c("br"),
+                _vm._v(" "),
+                _c("small", { staticClass: "text-navy" }, [
+                  _vm._v("Se recomiendo encriptar.")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
+              _c("div", { staticClass: "icheckbox" }, [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "flat",
+                    attrs: {
+                      type: "checkbox",
+                      id: "user_enc",
+                      checked: "checked"
+                    }
+                  }),
+                  _vm._v(" Encriptar Votantes\n                            ")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "icheckbox" }, [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "flat",
+                    attrs: { type: "checkbox", id: "auto_start" }
+                  }),
+                  _vm._v(" Inicio Automatico\n                            ")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "icheckbox" }, [
+                _c("label", [
+                  _c("input", {
+                    staticClass: "flat",
+                    attrs: { type: "checkbox", id: "auto_end" }
+                  }),
+                  _vm._v(" Termino Automatico\n                            ")
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
+              { staticClass: "control-label col-md-3 col-sm-3 col-xs-12" },
+              [_vm._v("Inicio /Termino ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-md-6 col-sm-6 col-xs-12 form-inline" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-md-12 col-lg-5",
+                    staticStyle: { padding: "0" },
+                    attrs: { id: "tp1-err" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "input-group date",
+                        staticStyle: { width: "100%" },
+                        attrs: { id: "fw-dtpk-start" }
+                      },
+                      [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "dtp-start",
+                            readonly: "readonly",
+                            "data-parsley-errors-container": "#tp1-err",
+                            "data-parsley-validate-if-empty": "",
+                            "data-parsley-valid-date": "auto_start"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "input-group-addon" }, [
+                          _c("span", {
+                            staticClass: "glyphicon glyphicon-calendar"
+                          })
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-md-12 col-lg-5 pull-right",
+                    staticStyle: { padding: "0" },
+                    attrs: { id: "tp2-err" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "input-group date",
+                        staticStyle: { width: "100%" },
+                        attrs: { id: "fw-dtpk-end" }
+                      },
+                      [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "dtp-end",
+                            readonly: "readonly",
+                            "data-parsley-errors-container": "#tp2-err",
+                            "data-parsley-validate-if-empty": "",
+                            "data-parsley-valid-date": "auto_end"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "input-group-addon" }, [
+                          _c("span", {
+                            staticClass: "glyphicon glyphicon-calendar"
+                          })
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
           ])
         ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
-        _c("div", { staticClass: "icheckbox" }, [
-          _c("label", [
-            _c("input", {
-              staticClass: "flat",
-              attrs: { type: "checkbox", id: "user_enc", checked: "checked" }
-            }),
-            _vm._v(" Encriptar Votantes\n                            ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "icheckbox" }, [
-          _c("label", [
-            _c("input", {
-              staticClass: "flat",
-              attrs: { type: "checkbox", id: "auto_start" }
-            }),
-            _vm._v(" Inicio Automatico\n                            ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "icheckbox" }, [
-          _c("label", [
-            _c("input", {
-              staticClass: "flat",
-              attrs: { type: "checkbox", id: "auto_end" }
-            }),
-            _vm._v(" Termino Automatico\n                            ")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "input-group-addon" }, [
-      _c("span", { staticClass: "glyphicon glyphicon-calendar" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "input-group-addon" }, [
-      _c("span", { staticClass: "glyphicon glyphicon-calendar" })
+      )
     ])
   },
   function() {
@@ -15280,7 +15228,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5699e308", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-093b6d22", module.exports)
   }
 }
 

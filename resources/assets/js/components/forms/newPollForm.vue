@@ -257,8 +257,7 @@
 
                                 <div id="tp1-err" class="col-md-12 col-lg-5" style="padding: 0;">
                                     <div class="input-group date" style="width: 100%;" id="fw-dtpk-start">
-                                        <input type="text" id="dtp-start" class="form-control" readonly="readonly" 
-                                            v-model="formData.start_date" 
+                                        <input type="text" id="dtp-start" class="form-control" readonly="readonly"
                                             data-parsley-errors-container="#tp1-err"
                                             data-parsley-validate-if-empty
                                             data-parsley-valid-date="auto_start"/>
@@ -271,7 +270,6 @@
                                 <div id="tp2-err" class="col-md-12 col-lg-5 pull-right" style="padding: 0;">
                                     <div class="input-group date" style="width: 100%;" id="fw-dtpk-end">
                                         <input type="text" id="dtp-end" class="form-control" readonly="readonly"
-                                            v-model="formData.end_date" 
                                             data-parsley-errors-container="#tp2-err"
                                             data-parsley-validate-if-empty
                                             data-parsley-valid-date="auto_end"/>
@@ -315,28 +313,30 @@
 <script>
 /*
  *  BUGS:
- *      - DateTimePickers: Estando activados, los valores son eliminados al retroceder de etapa en el form wizard y cambiar un valor de una etapa aterior.
+ *      - DateTime Pickers no son restrinjidos si ambos estan activados y luego se activa y desactiva uno de ellos.
+ *      -*FIXED* DateTimePickers: Estando activados, los valores son eliminados al retroceder de etapa en el form wizard y cambiar un valor de una etapa aterior.
  * 
+ *  TODO: 
+ *      - Agregar textos de ayuda y corregir faltas ortograficas.
+ *      - Limpiar formulario al terminar una request exitosamente.
  */
 
     export default{
         data(){
             return{
-                formData: {
+                formData: { // otros inputs no incluidos por problemas con eventos inexistentes (culpa de plugins)
                     title: '',
                     subdomain: '',
                     description: '',
-                    start_date: '',
-                    end_date: ''
                 },
-                subdomLoading: false, // muestra icono de carga, detiene el avance durante axios call
-                subdomAvail: false,
-                lastCheckedSubdom: '',
+                subdomLoading: false,   // muestra icono de carga
+                subdomAvail: false,     // disponivilidad de ultimo dominio comprovado
+                lastCheckedSubdom: '',  // guarda ultimo subdominio comprovado (evita repeticion)
 
-                autoCheckTimeout: null, // comprueba disponivilidad de subdominio cada x ms
-                subdomChecked: true,
+                autoCheckTimeout: null, // Timeout que comprueba disponivilidad de subdominio cada 500 ms despues de input
+                subdomChecked: true,    // detiene el avance mientras se comprueba subdominio
 
-                submitingRequest: false,
+                submitingRequest: false, // muestra icono de carga
                 dateTimeFormat: 'DD/MM/YYYY hh:mm A',
             }
         },
@@ -351,6 +351,7 @@
                     this.subdomChecked = true;
                     return false;
                 }
+
                 this.subdomLoading = true;
                 this.lastCheckedSubdom = trimedSubdom
                 
@@ -367,21 +368,22 @@
                     $('#form-basic #subdom').parsley().validate();
                 });
             },
+
             submitPollRequest(){
                 if (this.submitingRequest){console.log("** Waiting for other's request response **"); return false;}
                 let requestData = {
-                    title: this.formData.title,
-                    subdomain: this.formData.subdomain,
-                    description: this.formData.description,
-                    admition: $('input[name=admition]:checked').val(),
-                    auth_cu: this.getCheckBoxValue('auth_cu'),
-                    auth_email: this.getCheckBoxValue('auth_email'),
-                    auth_rut: this.getCheckBoxValue('auth_rut'),
-                    user_enc: this.getCheckBoxValue('user_enc'),
-                    start_active: this.getCheckBoxValue('auto_start'),
+                    title:          this.formData.title,
+                    subdomain:      this.formData.subdomain,
+                    description:    this.formData.description,
+                    admition:       $('input[name=admition]:checked').val(),
+                    auth_cu:        this.getCheckBoxValue('auth_cu'),
+                    auth_email:     this.getCheckBoxValue('auth_email'),
+                    auth_rut:       this.getCheckBoxValue('auth_rut'),
+                    user_enc:       this.getCheckBoxValue('user_enc'),
+                    start_active:   this.getCheckBoxValue('auto_start'),
                     start_datetime: (this.getCheckBoxValue('auto_start'))?$('#dtp-start').val().trim(): null,
-                    end_active: this.getCheckBoxValue('auto_end'),
-                    end_datetime: (this.getCheckBoxValue('auto_end'))?$('#dtp-end').val().trim(): null,
+                    end_active:     this.getCheckBoxValue('auto_end'),
+                    end_datetime:   (this.getCheckBoxValue('auto_end'))?$('#dtp-end').val().trim(): null,
                 };
                 console.log(requestData);
 
@@ -402,6 +404,7 @@
                         cursor: 'wait' 
                     },
                 });
+
                 axios.post('/api/storepoll', requestData)
                 .then(response => {
                     new PNotify({
@@ -424,7 +427,8 @@
                     $('#wizardContainer').unblock();
                 });
             },
-            checkSubdom(){
+
+            checkSubdom(){ // Activa comprovacion de subdominio (en input)
                 this.subdomChecked = false;
                 if (this.autoCheckTimeout != null){
                     clearTimeout(this.autoCheckTimeout);
@@ -433,34 +437,33 @@
                     this.isSubdomAvailable(this.formData.subdomain);
                 }, 500);
             },
-            initializeTimePickControl(){
+
+            initializeTimePickControl(){ // Control del acceso a los DateTimePickers
                 let initEnabStart = $('input#auto_start').prop('checked');
                 let initEnabEnd = $('input#auto_end').prop('checked');
 
                 $('#fw-dtpk-start input').prop( 'disabled', !initEnabStart );
+                $('#fw-dtpk-start input').val((!initEnabStart)?'Inicio Manual':'');
                 $('#fw-dtpk-end input').prop( 'disabled', !initEnabEnd );
-                this.formData.start_date = (!initEnabStart)?'Inicio Manual':'';
-                this.formData.end_date = (!initEnabEnd)?'Termino Manual':'';
+                $('#fw-dtpk-end input').val((!initEnabEnd)?'Termino Manual':'');
+
+                function clearDTPickerRestrictions(){
+                    $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
+                    $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
+                    $('#fw-dtpk-start').data("DateTimePicker").clear();
+                }
 
                 let vueRef = this;
                 $('input#auto_start').on('ifToggled', function (event) {
                     let enableAutoStart = $(this).prop('checked');
                     $('#fw-dtpk-start input').prop( 'disabled', !enableAutoStart );
-                    if (!enableAutoStart){
-                        $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
-                        $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
-                        $('#fw-dtpk-start').data("DateTimePicker").clear();
-                    }
+                    if (!enableAutoStart){clearDTPickerRestrictions()}
                     $('#fw-dtpk-start input').val((!enableAutoStart)?'Inicio Manual':'');
                 });
                 $('input#auto_end').on('ifToggled', function (event) {
                     let enableAutoEnd = $(this).prop('checked');
                     $('#fw-dtpk-end input').prop( 'disabled', !enableAutoEnd );
-                    if (!enableAutoEnd){
-                        $('#fw-dtpk-end').data("DateTimePicker").minDate(false);
-                        $('#fw-dtpk-start').data("DateTimePicker").maxDate(false);
-                        $('#fw-dtpk-end').data("DateTimePicker").clear();
-                    }
+                    if (!enableAutoEnd){clearDTPickerRestrictions()}
                     $('#fw-dtpk-end input').val((!enableAutoEnd)?'Termino Manual':'');
                 });
 
@@ -471,6 +474,7 @@
                     $('#fw-dtpk-start').data("DateTimePicker").maxDate(e.date);
                 });
             },
+
             getCheckBoxValue(id){
                 return $('#'+id).prop('checked');
             }
@@ -494,7 +498,6 @@
                     locale: 'es',
                     useCurrent: false,
                 });
-
                 vueRef.initializeTimePickControl();
 
                 /*Parsley SetUp*/
@@ -525,6 +528,8 @@
                 let formOptions = $('#form-opt').parsley();
 
                 /*Smart Wizard SetUp */
+
+                // validaciones de cada etapa de Smart Wizard
                 let validateStep = function(step) {
                     if (step == 1){
                         let formValid = formBasic.validate();
@@ -536,7 +541,7 @@
                     } else if (step == 3){
                         return formAuth.validate();
                     } else if(step == 4) {
-                        return formOptions.validate(); // hacer validacion con parsley
+                        return formOptions.validate();
                     } else{
                         return false;
                     }
@@ -544,14 +549,16 @@
 
                 let newPollWizard = $('#smartwizard');
 
+                // Llamado al cambiar de Paso
                 let validateNextStep = function(event, direction) {
                     let from = direction.fromStep;
                     if (from >= direction.toStep){return true;} // No validar si retrocede
                     return validateStep(from);
                 };
 
+                // LLamado al terminar 
                 let finishNewPoll = function(event, direction) {
-                    for (let stepNum = 1; stepNum <= 4; stepNum++) {
+                    for (let stepNum = 1; stepNum <= 4; stepNum++) { // comprueba todos los inputs una ultima vez
                         if (!validateStep(stepNum)){
                             if (stepNum != newPollWizard.smartWizard('currentStep')){
                                 newPollWizard.smartWizard('goToStep', stepNum);
@@ -570,6 +577,7 @@
                     onLeaveStep: validateNextStep,
                     onFinish: finishNewPoll
                 });
+
             });
         }
     }
@@ -580,6 +588,7 @@
     .stepContainer{overflow: visible !important; height: auto !important;}
     .actionBar a.btn{float: right;}
 
+    /*Estilos para indicador de disponivilidad de subdominio*/
     #subdom-check{
         height: 14px;
         width: 14px;
@@ -588,8 +597,6 @@
         right: -2rem;
         top: .8rem;
         display: none;
-
-        
     }
 
     #subdom-check.ok, #subdom-check.notok{
@@ -620,139 +627,138 @@
         }
     }
 
-    /*Loader 1 para verificar subdominio*/
-.spin-loader {
-  color: #000;
-  font-size: 3px;
-  margin: 100px auto;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  position: relative;
-  text-indent: -9999em;
-  -webkit-animation: load4 1.3s infinite linear;
-  animation: load4 1.3s infinite linear;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-}
-@-webkit-keyframes load4 {
-  0%,
-  100% {
-    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-  }
-  12.5% {
-    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  25% {
-    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  37.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  50% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  62.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-  }
-  75% {
-    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-  }
-  87.5% {
-    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-  }
-}
-@keyframes load4 {
-  0%,
-  100% {
-    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-  }
-  12.5% {
-    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  25% {
-    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-  }
-  37.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  50% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-  }
-  62.5% {
-    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-  }
-  75% {
-    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-  }
-  87.5% {
-    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-  }
-}
+    /*Loader para verificar subdominio*/
+    .spin-loader {
+        color: #000;
+        font-size: 3px;
+        margin: 100px auto;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        position: relative;
+        text-indent: -9999em;
+        -webkit-animation: load4 1.3s infinite linear;
+        animation: load4 1.3s infinite linear;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        }
+        @-webkit-keyframes load4 {
+        0%,
+        100% {
+            box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+        }
+        12.5% {
+            box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+        }
+        25% {
+            box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+        }
+        37.5% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+        }
+        50% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+        }
+        62.5% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+        }
+        75% {
+            box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+        }
+        87.5% {
+            box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+        }
+        }
+        @keyframes load4 {
+        0%,
+        100% {
+            box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+        }
+        12.5% {
+            box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+        }
+        25% {
+            box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+        }
+        37.5% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+        }
+        50% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+        }
+        62.5% {
+            box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+        }
+        75% {
+            box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+        }
+        87.5% {
+            box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+        }
+    }
 
-    /* Loader 2 para Request */
-
+    /* Loader para Request de Votacion */
     .sk-cube-grid {
-  width: 80px;
-  height: 80px;
-  margin: 100px auto;
-}
+    width: 80px;
+    height: 80px;
+    margin: 100px auto;
+    }
 
-.sk-cube-grid .sk-cube {
-  width: 33%;
-  height: 33%;
-  background-color: #27ae60;
-  float: left;
-  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
-          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
-}
-.sk-cube-grid .sk-cube1 {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
-.sk-cube-grid .sk-cube2 {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s; }
-.sk-cube-grid .sk-cube3 {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s; }
-.sk-cube-grid .sk-cube4 {
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s; }
-.sk-cube-grid .sk-cube5 {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
-.sk-cube-grid .sk-cube6 {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s; }
-.sk-cube-grid .sk-cube7 {
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s; }
-.sk-cube-grid .sk-cube8 {
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s; }
-.sk-cube-grid .sk-cube9 {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
+    .sk-cube-grid .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: #27ae60;
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+            animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+    }
+    .sk-cube-grid .sk-cube1 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+    .sk-cube-grid .sk-cube2 {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; }
+    .sk-cube-grid .sk-cube3 {
+    -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s; }
+    .sk-cube-grid .sk-cube4 {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; }
+    .sk-cube-grid .sk-cube5 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
+    .sk-cube-grid .sk-cube6 {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; }
+    .sk-cube-grid .sk-cube7 {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s; }
+    .sk-cube-grid .sk-cube8 {
+    -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s; }
+    .sk-cube-grid .sk-cube9 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s; }
 
-@-webkit-keyframes sk-cubeGridScaleDelay {
-  0%, 70%, 100% {
-    -webkit-transform: scale3D(1, 1, 1);
-            transform: scale3D(1, 1, 1);
-  } 35% {
-    -webkit-transform: scale3D(0, 0, 1);
-            transform: scale3D(0, 0, 1); 
-  }
-}
+    @-webkit-keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+    } 35% {
+        -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1); 
+    }
+    }
 
-@keyframes sk-cubeGridScaleDelay {
-  0%, 70%, 100% {
-    -webkit-transform: scale3D(1, 1, 1);
-            transform: scale3D(1, 1, 1);
-  } 35% {
-    -webkit-transform: scale3D(0, 0, 1);
-            transform: scale3D(0, 0, 1);
-  } 
-}
+    @keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+    } 35% {
+        -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1);
+    } 
+    }
 
 </style>

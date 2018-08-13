@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Carbon;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -52,5 +53,19 @@ class StorePollRequest extends FormRequest
         return [
             //'vote-from.date_format' => 'La fecha ":input" no coincide con el formato :format.',
         ];
+    }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $data = $this->all();
+            if ($data['end_active']){
+                $data['end_datetime'] = Carbon\Carbon::createFromFormat('d/m/Y h:i A', $data['end_datetime']);
+            }
+            if ($data['start_active']){
+                $data['start_datetime'] = Carbon\Carbon::createFromFormat('d/m/Y h:i A', $data['start_datetime']);
+            }
+            $this->getInputSource()->replace($data);
+        });
     }
 }
