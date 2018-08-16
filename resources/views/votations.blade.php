@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('test.master')
 
 @section('title', 'Votaciones')
 @section('vue-control', 'pollsManagement')

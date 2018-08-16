@@ -423,6 +423,7 @@
                     });
                     console.log(response);
                 }).finally(() => {
+                    this.$emit('poll-created');
                     this.submitingRequest = false;
                     $('#wizardContainer').unblock();
                 });

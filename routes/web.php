@@ -16,38 +16,20 @@ $site = preg_replace('/http(s)?:\/\/(www.)?/', '', config('app.url'));
 /*Administrative site */
 $appRouting = function () {
     Route::get('/', function () {
-        return Redirect::to('/home');
+        return Redirect::to('/votations');
     });
     
     /*Logged users Only */
     Route::group(['middleware' => 'auth'], function () {
-        Route::get('/test/{page}', function ($page){
-            return view("test.{$page}");
-        });
-        Route::get('/home', 'VotationController@index')->name('home');
-        
-        /*Votations */
-        Route::post('/votation/store', 'VotationController@store')->name('new-votation');
-        Route::delete('/votation/remove', 'VotationController@destroy')->name('del-votation');
-        
-        /*Votation Options
-        *   Votation Security Policy Applied at OptionController construct
-        */
-        Route::group(['prefix' => '/votation/{pollid}/options'], function (){
-            Route::get('/', 'OptionController@create')->name('create-option');
-            Route::post('/store', 'OptionController@store')->name('store-option');
-            Route::delete('/remove', 'OptionController@destroy')->name('delete-option');
-        });
+
+        Route::get('votations', 'VotationController@index');
+        /*API Calls */
+        Route::get('/api/subdomav/{subdom}', 'VotationController@subdomAvailable');
+        Route::get('/api/getpolls', 'VotationController@show');
+        Route::post('/api/storepoll', 'VotationController@store');
+        Route::delete('/api/deletepoll', 'VotationController@destroy');
         
         Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-
-        /*API Calls */
-        Route::get('/api/subdomav/{subdom}', function($subdom) {
-            $available = \App\Votation::isNameAvailable($subdom);
-            return response()->json(compact("available"), 200);
-        });
-
-        Route::post('/api/storepoll', 'VotationController@store');
     });
     
     /*Non logged users Only */

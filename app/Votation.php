@@ -10,21 +10,17 @@ class Votation extends Model
         'subdom',
         'title',
         'description',
-        'user_enc',
-        'auth_cu',
-        'auth_email',
-        'auth_rut',
-        'admition_type',
-        'start_time',
-        'end_time',
         'user_id'
     ];
-
-    protected $dates = ['start_time', 'end_time'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function setting()
+    {
+        return $this->hasOne(Setting::class);
     }
 
     public function options()

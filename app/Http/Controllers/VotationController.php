@@ -17,30 +17,18 @@ class VotationController extends Controller
     protected $dbPrefix = "poll_";
 
     public function index()
-    {   
-        $votations = Auth::user()->votations;
-
-        // Give votation status to display based on time restrictions (if present)
-        foreach ($votations as $poll) {
-            $stamp = strtotime($poll->start_time);
-            $start = $poll->start_time?(strtotime($poll->start_time)>time()?true:false):false;
-            $end = $poll->end_time?(strtotime($poll->end_time)<time()?true:false):false;
-
-            if ($start || $end){
-                if ($start){
-                    $poll->status = "waiting";
-                } else{
-                    $poll->status = "closed";
-                }
-            } else{
-                $poll->status = "open";
-            }
-        }
-
-        return view('home', ['votations' => $votations]);
+    {
+        return view('votations');
     }
 
-    public function store(StorePollRequest $request)
+    public function show() /* AJAX */
+    {
+        $votations = Auth::user()->votations()->with('setting')->get();
+
+        return response()->json(['votations' => $votations], 200);
+    }
+
+    public function store(StorePollRequest $request) /* AJAX */
     {
         //$data = $request->only(['vote-subdom','vote-title','vote-desc','vote-from','vote-to']);
         
@@ -52,48 +40,62 @@ class VotationController extends Controller
         } */
         
         $data = $request->all();
-        Votation::create([
+        
+        \DB::beginTransaction();
+        $votation = Votation::create([
             'subdom'    => $data['subdomain'],
             'title'     => $data['title'],
             'description' => $data['description'],
+            'user_id'   => Auth::user()->id,
+        ]);
+
+        $setting = \App\Setting::create([
             'admition_type' => $data['admition'],
             'user_enc'  => $data['user_enc'],
             'auth_cu'   => $data['auth_cu'],
             'auth_email'=> $data['auth_email'],
             'auth_rut'  => $data['auth_rut'],
+            'auto_start'=> $data['start_active'],
+            'auto_end'  => $data['end_active'],
             'start_time'=> $data['start_datetime'],
             'end_time'  => $data['end_datetime'],
-            'user_id'   => Auth::user()->id,
+            'votation_id' => $votation->id
         ]);
+
+        if (!$votation || !$setting){
+            \DB::rollBack();
+            return response()->json(['message' => 'Error'], 500);
+        }
+        \DB::commit();
             
         return response()->json(['message' => 'Votation Created'], 200);
-
-        /* $request->session()->flash('message', 'Se ha creado una nueva votacion de forma satisfactoria.');
-        $request->session()->flash('msg-type', 'success');
-        return redirect('/home'); */
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request) /* AJAX */
     {
-        $votation = Votation::find($request->get('poll-id'));
-
-        //Check if user has right to delete votation
+        $votation = Votation::find(request('id'));
+        
+        // Compruba si usuario tiene permiso para eliminar esta votacion
         if (!Auth::user()->can('remove', $votation)){
             return redirect()->route('home');
         }
-
-        if (!$this->destroyDatabase($votation->subdom)){
+        
+        /* if (!$this->destroyDatabase($votation->subdom)){
             $request->session()->flash('message', 'Ha ocurrido un error inesperado, por favor vuelva a intentar mas tarde.');
             $request->session()->flash('msg-head', 'Opps! ');
             $request->session()->flash('msg-type', 'danger');
             return redirect()->route('home');
-        }
-
+        } */
+        
         $votation->delete();
+        
+        return response()->json(['message' => 'votation '.request('id').' deleted'], 200);
+    }
 
-        $request->session()->flash('message', 'Se ha eliminado la votacion de forma satisfactoria.');
-        $request->session()->flash('msg-type', 'success');
-        return redirect()->route('home');
+    public function subdomAvailable($subdom) /* AJAX */
+    {
+        $available = \App\Votation::isNameAvailable($subdom);
+        return response()->json(compact("available"), 200);
     }
 
     private function createDatabase($dbName)
