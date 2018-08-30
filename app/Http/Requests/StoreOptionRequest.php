@@ -24,9 +24,10 @@ class StoreOptionRequest extends FormRequest
     public function rules()
     {
         return [
-            'opt-name'  => 'required|min:3|max:25',
-            'opt-desc'  => 'required|min:50|max:350',
-            'opt-img'   => 'required|image|dimensions:ratio=1/1,max_width=780',
+            'poll_id' => 'required',
+            'name'  => 'required|min:3|max:25',
+            'description'  => 'required|min:30|max:350',
+            'image'   => 'required|image|dimensions:ratio=1/1,max_width=780',
         ];
     }
 

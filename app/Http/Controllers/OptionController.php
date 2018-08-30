@@ -29,38 +29,42 @@ class OptionController extends Controller
         ]);
     }
     
-    public function store(StoreOptionRequest $request, $pollid)
+    public function store(StoreOptionRequest $request) /* AJAX */
     {
         $data = $request->all();
 
-        $hash = md5($data['opt-name'].microtime());
-        $extension = $request->file('opt-img')->getClientOriginalExtension();
+        $hash = md5($data['name'].microtime());
+        $extension = $request->file('image')->getClientOriginalExtension();
         $fileName = "img_{$hash}.{$extension}";
 
-        $request->file('opt-img')->storeAs($this->imageDirName, $fileName, 'public');
+        $request->file('image')->storeAs($this->imageDirName, $fileName, 'public');
 
         Option::create([
-            'name'    => $data['opt-name'],
-            'description' => $data['opt-desc'],
+            'name'    => $data['name'],
+            'description' => $data['description'],
             'image' => $fileName,
-            'votation_id'   => $pollid,
+            'votation_id'   => $data['poll_id'],
         ]);
 
-        $request->session()->flash('message', 'La opcion ha sido creada satisfactoriamente');
-        $request->session()->flash('msg-type', 'success');
-
-        return redirect()->route('create-option', ['pollid' => $pollid]);
+        return response()->json(['message' => 'Candidate Created'], 200);
     }
 
-    public function destroy(Request $request, $pollid)  // TODO: Delete images related to options
+    public function destroy()  // TODO: Delete images related to options
     {
-        $votation = Auth::user()->votations->find($pollid);
-        $option = $votation->options->find($request->get('opt-id'));
+        $rules = [
+            'poll_id' => 'required',
+            'candidate_id' => 'required'
+        ];
+
+        $validator = \Validator::make(request()->all(), $rules);
+        if ($validator->fails()){
+            return response()->json(['message' => 'Bad Request'], 400);
+        }
+
+        $votation = Auth::user()->votations->find(request('poll_id'));
+        $option = $votation->options->find(request('candidate_id'));
         $option->delete();
 
-        $request->session()->flash('message', 'La opcion ha sido borrada satisfactoriamente');
-        $request->session()->flash('msg-type', 'success');
-
-        return redirect()->route('create-option', ['pollid' => $pollid]);
+        return response()->json(['message' => 'Candidate Deleted'], 200);
     }
 }

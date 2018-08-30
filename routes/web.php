@@ -28,6 +28,9 @@ $appRouting = function () {
         Route::get('/api/getpolls', 'VotationController@show');
         Route::post('/api/storepoll', 'VotationController@store');
         Route::delete('/api/deletepoll', 'VotationController@destroy');
+
+        Route::post('/api/storecandidate', 'OptionController@store');
+        Route::delete('/api/deletecandidate', 'OptionController@destroy');
         
         Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
     });
@@ -41,17 +44,23 @@ $appRouting = function () {
 
 /*Votation subdomains handdler */
 $appSubdomRouting = function () {
-    Route::get('/', function ($subdom) {
-        return redirect()->route('urna', [$subdom]);
+    Route::get('/', function () {
+        return '/ page';
     });
+    
+    Route::any('/urna', 'Auth\AuthController@responseOauth');
+    Route::get('/{subdom}', 'UrnaController@index');
 
-    Route::get('/urna', 'UrnaController@index')->name('urna');
+    Route::post('/cu/req', 'Auth\AuthController@requestOauth');
 };
 
 
 /*Domain redirection */
 Route::group(['domain' => 'www.'.$site], $appRouting);
 Route::group(['domain' => $site], $appRouting);
+
+/* Temporal */ Route::group(['domain' => 'www.urnalp.test'], $appSubdomRouting);
+/* Temporal */ Route::group(['domain' => 'urnalp.test'], $appSubdomRouting);
 
 Route::group(['domain' => 'www.{subdom}.'.$site], $appSubdomRouting);
 Route::group(['domain' => '{subdom}.'.$site], $appSubdomRouting);

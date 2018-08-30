@@ -3,7 +3,7 @@
         <div class="col-md-12">
         <div class="x_panel">
             <div class="x_title">
-            <h2>Projects</h2>
+            <h2>Votaciones</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -23,7 +23,7 @@
             </div>
             <div class="x_content">
 
-            <p>Simple table with project listing with progress and editing options</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 
             <!-- start project list -->
             <table class="table table-striped projects">
@@ -43,23 +43,14 @@
                 <tr v-for="poll in polls" :key="poll.id">
                     <td>#</td>
                     <td>
-                        <a>{{ poll.title }}</a>
+                        <a>{{ poll.title }}</a> <a :href="'http://'+poll.subdom+'.larapoll.test'"><i class="fa fa-link"></i></a>
                         <br />
                         <small>{{ timeCue(poll) }}</small>
                     </td>
                     <td>
                         <ul class="list-inline">
-                            <li>
-                            <img src="http://placehold.jp/150x150.png" class="avatar" alt="Avatar">
-                            </li>
-                            <li>
-                            <img src="http://placehold.jp/150x150.png" class="avatar" alt="Avatar">
-                            </li>
-                            <li>
-                            <img src="http://placehold.jp/150x150.png" class="avatar" alt="Avatar">
-                            </li>
-                            <li>
-                            <img src="http://placehold.jp/150x150.png" class="avatar" alt="Avatar">
+                            <li v-for="opt in poll.options" :key="opt.id">
+                            <img :src="'/storage/opt_img/'+opt.image" class="avatar" alt="Avatar">
                             </li>
                         </ul>
                     </td>
@@ -80,7 +71,12 @@
 
                     </td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Estadisticas </a>
+                        <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" :data-target="'#cand-'+poll.id"><i class="fa fa-folder"></i> Candidatos </a>
+                        <modalCandidates
+                            :poll-id="poll.id"
+                            :poll-candidates="poll.options"
+                            v-on:votation-modified="updatePolls">
+                            </modalCandidates>
                         <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
                         <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" :data-target="'#del-'+poll.id"><i class="fa fa-trash-o"></i> Eliminar </a>
                         <modalDelete
@@ -104,6 +100,7 @@
 
 <script>
 import modalDelete from './modals/deleteVotation.vue';
+import modalCandidates from './modals/candidates.vue';
 
 export default {
     data(){
@@ -158,7 +155,8 @@ export default {
         }
     },
     components: {
-        modalDelete
+        modalDelete,
+        modalCandidates
     },
     mounted(){
         this.updatePolls();

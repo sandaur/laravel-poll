@@ -9,9 +9,8 @@ class UrnaController extends Controller
 {
     public function index($subdom)
     {
-        $votation = Votation::where('subdom', $subdom)->first();
-        $options = $votation->options;
+        $candidates = Votation::where('subdom', $subdom)->first();
 
-        return view('urna', ['options' => $options, 'poll' => $votation]);
+        return view('urna', ['candidates' => $candidates->options]);
     }
 }

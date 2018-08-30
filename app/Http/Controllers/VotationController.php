@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use DB;
 use Auth;
 use App\Votation;
+use App\Utils\TenantUtils;
 use App\Http\Requests\StorePollRequest;
 use Illuminate\Http\Request;
 
@@ -14,8 +14,6 @@ use Illuminate\Http\Request;
 
 class VotationController extends Controller
 {
-    protected $dbPrefix = "poll_";
-
     public function index()
     {
         return view('votations');
@@ -23,22 +21,13 @@ class VotationController extends Controller
 
     public function show() /* AJAX */
     {
-        $votations = Auth::user()->votations()->with('setting')->get();
+        $votations = Auth::user()->votations()->with('setting')->with('options')->get();
 
         return response()->json(['votations' => $votations], 200);
     }
 
     public function store(StorePollRequest $request) /* AJAX */
-    {
-        //$data = $request->only(['vote-subdom','vote-title','vote-desc','vote-from','vote-to']);
-        
-        /* if (!$this->createDatabase($data['vote-subdom'])){
-            $request->session()->flash('message', 'Ha ocurrido un error inesperado, por favor vuelva a intentar mas tarde.');
-            $request->session()->flash('msg-head', 'Opps! ');
-            $request->session()->flash('msg-type', 'danger');
-            return redirect()->route('home');
-        } */
-        
+    {   
         $data = $request->all();
         
         \DB::beginTransaction();
@@ -62,7 +51,9 @@ class VotationController extends Controller
             'votation_id' => $votation->id
         ]);
 
-        if (!$votation || !$setting){
+        $newDatabase = TenantUtils::createDatabase($data['subdomain']);
+
+        if (!$votation || !$setting || !$newDatabase){
             \DB::rollBack();
             return response()->json(['message' => 'Error'], 500);
         }
@@ -77,15 +68,8 @@ class VotationController extends Controller
         
         // Compruba si usuario tiene permiso para eliminar esta votacion
         if (!Auth::user()->can('remove', $votation)){
-            return redirect()->route('home');
+            return response()->json('Not Authorized', 400);
         }
-        
-        /* if (!$this->destroyDatabase($votation->subdom)){
-            $request->session()->flash('message', 'Ha ocurrido un error inesperado, por favor vuelva a intentar mas tarde.');
-            $request->session()->flash('msg-head', 'Opps! ');
-            $request->session()->flash('msg-type', 'danger');
-            return redirect()->route('home');
-        } */
         
         $votation->delete();
         
@@ -96,55 +80,5 @@ class VotationController extends Controller
     {
         $available = \App\Votation::isNameAvailable($subdom);
         return response()->json(compact("available"), 200);
-    }
-
-    private function createDatabase($dbName)
-    {
-        $dbFullName = $this->dbPrefix.$dbName;
-
-        try{
-            if ($this->existDatabase($dbFullName)){
-                return false;
-            } else{
-                DB::statement("CREATE DATABASE {$dbFullName}");
-            }
-        } catch (\Illuminate\Database\QueryException $e){
-                return false;
-        }
-
-        if ($this->existDatabase($dbFullName)){
-            return true;
-        } else{
-            return false;
-        }
-    }
-
-    private function destroyDatabase($dbName)
-    {
-        $dbFullName = $this->dbPrefix.$dbName;
-
-        try{
-            if ($this->existDatabase($dbFullName)){
-                DB::statement("DROP DATABASE {$dbFullName}");
-            } else{
-                return false;
-            }
-        } catch (\Illuminate\Database\QueryException $e){
-                return false;
-        }
-
-        if ($this->existDatabase($dbFullName)){
-            return false;
-        } else{
-            return true;
-        }
-    }
-
-    private function existDatabase($dbName)
-    {
-        $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME =  ?";
-        $db = DB::select($query, [$dbName]);
-
-        return !empty($db);
     }
 }
