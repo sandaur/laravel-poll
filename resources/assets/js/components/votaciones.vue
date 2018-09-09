@@ -43,7 +43,7 @@
                 <tr v-for="poll in polls" :key="poll.id">
                     <td>#</td>
                     <td>
-                        <a>{{ poll.title }}</a> <a :href="'http://'+poll.subdom+'.larapoll.test'"><i class="fa fa-link"></i></a>
+                        <a>{{ poll.title }}</a> <a :href="getPollLink(poll.subdom)"><i class="fa fa-link"></i></a>
                         <br />
                         <small>{{ timeCue(poll) }}</small>
                     </td>
@@ -105,6 +105,7 @@ import modalCandidates from './modals/candidates.vue';
 export default {
     data(){
         return{
+            pollUrlTemplate: 'http://uctvotation.xyz/votacion/?',
             polls: {},
             loadingPolls: false,
             serverTimeFormat: 'YYYY-MM-DD hh:mm:ss',
@@ -152,6 +153,11 @@ export default {
             } else if (poll.status == 'waiting'){
                 return 'btn-warning';
             }
+        },
+
+        getPollLink(pollSubdom){
+            let url = this.pollUrlTemplate;
+            return url.replace('?', pollSubdom);
         }
     },
     components: {

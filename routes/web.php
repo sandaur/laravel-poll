@@ -22,6 +22,8 @@ $appRouting = function () {
     /*Logged users Only */
     Route::group(['middleware' => 'auth'], function () {
 
+        Route::get('/home', function(){return redirect('votations');})->name('home');
+
         Route::get('votations', 'VotationController@index');
         /*API Calls */
         Route::get('/api/subdomav/{subdom}', 'VotationController@subdomAvailable');
@@ -40,18 +42,23 @@ $appRouting = function () {
         Route::get('/login', 'Auth\LoginController@authForm')->name('login-form');
         Route::post('/login/attempt', 'Auth\LoginController@authenticate')->name('login');
     });
+
+    /*Votations */
+    Route::group(['prefix' => '/votacion/{pollName}'], function(){
+        Route::get('', 'UrnaController@index');
+        
+        Route::any('/cu/req', 'Auth\AuthController@requestOauth');
+        //Route::any('/urna', 'Auth\AuthController@responseOauth');
+    });
 };
 
 /*Votation subdomains handdler */
 $appSubdomRouting = function () {
-    Route::get('/', function () {
-        return '/ page';
-    });
+    Route::get('/', 'UrnaController@index');
     
+    Route::any('/cu/req', 'Auth\AuthController@requestOauth');
     Route::any('/urna', 'Auth\AuthController@responseOauth');
-    Route::get('/{subdom}', 'UrnaController@index');
 
-    Route::post('/cu/req', 'Auth\AuthController@requestOauth');
 };
 
 
@@ -62,5 +69,5 @@ Route::group(['domain' => $site], $appRouting);
 /* Temporal */ Route::group(['domain' => 'www.urnalp.test'], $appSubdomRouting);
 /* Temporal */ Route::group(['domain' => 'urnalp.test'], $appSubdomRouting);
 
-Route::group(['domain' => 'www.{subdom}.'.$site], $appSubdomRouting);
-Route::group(['domain' => '{subdom}.'.$site], $appSubdomRouting);
+/* Route::group(['domain' => 'www.{subdom}.'.$site], $appSubdomRouting);
+Route::group(['domain' => '{subdom}.'.$site], $appSubdomRouting); */

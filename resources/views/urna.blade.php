@@ -28,7 +28,7 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <form class="form-horizontal" method="POST" action="http://www.urnalp.test/cu/req">
+                <form class="form-horizontal" method="POST" action="http://contro.uctvotation.xyz/cu/req">
                     {{ csrf_field() }}
                     <div class="panel panel-default">
                         <div class="panel-heading">Acceso al sistema</div>
